@@ -1,0 +1,12 @@
+{
+  "name": "es6-workflow",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "es6-module-loader": "^0.6.1",
+    "systemjs": "^0.6.6",
+    "traceur": "0.0.42"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+    <script src="node_modules/traceur/bin/traceur-runtime.js"></script>
+    -->
+    <script src="node_modules/traceur/bin/traceur.js"></script>
+
+    <!--<script src="https://jspm.io/system@0.6.6.js"></script>-->
+    <script src="node_modules/es6-module-loader/dist/es6-module-loader.js"></script>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script>
+
+    System.config({
+      baseURL: 'app/',
+      paths: {
+        jquery: '/bower_components/jquery/dist/jquery.js',
+        underscore: '/bower_components/lodash/dist/lodash.js',
+        backbone: '/bower_components/backbone/backbone.js',
+        mustache: '/bower_components/mustache/mustache.js'
+      }
+    });
+
+    System.import('app').then(function(app){
+      console.log('app', app.init())
+    }).catch(function(err){
+      console.log('err', err)
+    });
+    </script>
+
+  </head>
+  <body>
+    <h1>es6-workflow</h1>
+  </body>
+</html>
