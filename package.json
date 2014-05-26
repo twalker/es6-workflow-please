@@ -5,6 +5,7 @@
   "dependencies": {
     "es6-module-loader": "^0.6.1",
     "systemjs": "^0.6.6",
+    "systemjs-builder": "0.0.5",
     "traceur": "0.0.42"
   },
   "devDependencies": {},
