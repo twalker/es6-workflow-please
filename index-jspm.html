@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://jspm.io/system@0.6.js"></script>
+
+    <script>
+    System.config({
+      baseURL: 'app/',
+      'paths': {
+        "app/*": "~/app/*.js",
+      }
+    });
+      // import 'app.js' from the current URL
+      System.import('~/app').then(function(app){
+        console.log('app', app.init())
+      }).catch(function(err){
+        console.log('err', err.stack)
+      });
+    </script>
+
+  </head>
+  <body>
+    <h1>es6-workflow</h1>
+  </body>
+</html>

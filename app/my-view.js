@@ -3,8 +3,9 @@ import Backbone from 'backbone'
 
 var MyView = Backbone.View.extend({
   tagName: 'section',
+
   initialize: function(){
-    console.log('MyView initialized', Backbone.VERSION, jQuery.prototype.jquery)
+    console.log('MyView initialized', Backbone.VERSION, Backbone.$.prototype.jquery)
   },
   render: function(){
     this.$el.text('hello backbone view')

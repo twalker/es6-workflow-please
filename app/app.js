@@ -1,5 +1,5 @@
-import {Character} from 'character'
-import {MyView} from 'my-view'
+import {Character} from '~/character'
+import {MyView} from '~/my-view'
 
 
 export function init(){
