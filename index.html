@@ -1,36 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <!--
-    <script src="node_modules/traceur/bin/traceur-runtime.js"></script>
-    -->
-    <script src="node_modules/traceur/bin/traceur.js"></script>
-
-    <!--<script src="https://jspm.io/system@0.6.6.js"></script>-->
-    <script src="node_modules/es6-module-loader/dist/es6-module-loader.js"></script>
-    <script src="node_modules/systemjs/dist/system.js"></script>
-
+    <script src="jspm_packages/traceur-runtime@0.0.49.js"></script>
+    <script src="jspm_packages/es6-module-loader@0.7.1.js"></script>
+    <script src="jspm_packages/system@0.6.js"></script>
+    <!-- <script src="build.js"></script> -->
+    <script src='config.js'></script>
     <script>
-    System.config({
-      baseURL: 'app/',
-      paths: {
-        jquery: '/bower_components/jquery/dist/jquery.js',
-        underscore: '/bower_components/lodash/dist/lodash.js',
-        backbone: '/bower_components/backbone/backbone.js',
-        mustache: '/bower_components/mustache/mustache.js'
-      }
-    });
+      System.import('app/main').catch(function(e) {
+        setTimeout(function() {
+          throw e;
+        }, 1);
+      })
     </script>
-    <script>
-    System.import('app').then(function(app){
-      console.log('app', app.init())
-    }).catch(function(err){
-      console.log('err', err)
-    });
-    </script>
-
   </head>
   <body>
-    <h1>es6-workflow</h1>
+    <h1>es6-workflow please</h1>
+    <dl>
+        <dt>es6</dt>
+        <dd id="es6"></dd>
+        <dt>amd</dt>
+        <dd id="amd"></dd>
+        <dt>CommonJS</dt>
+        <dd id="commonjs"></dd>
+        <dt>globalX</dt>
+        <dd id="globalX"></dd>
+        <dt>backbone</dt>
+        <dd id="bb"></dd>
+    </dl>
   </body>
 </html>
