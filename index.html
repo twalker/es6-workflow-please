@@ -4,7 +4,9 @@
     <script src="jspm_packages/traceur-runtime@0.0.49.js"></script>
     <script src="jspm_packages/es6-module-loader@0.7.1.js"></script>
     <script src="jspm_packages/system@0.6.js"></script>
-    <!-- <script src="build.js"></script> -->
+  </head>
+  <body>
+    <!-- <script src="app-built.js"></script> -->
     <script src='config.js'></script>
     <script>
       System.import('app/main').catch(function(e) {
@@ -13,8 +15,6 @@
         }, 1);
       })
     </script>
-  </head>
-  <body>
     <h1>es6-workflow please</h1>
     <dl>
         <dt>es6</dt>
@@ -23,8 +23,6 @@
         <dd id="amd"></dd>
         <dt>CommonJS</dt>
         <dd id="commonjs"></dd>
-        <dt>globalX</dt>
-        <dd id="globalX"></dd>
         <dt>backbone</dt>
         <dd id="bb"></dd>
     </dl>

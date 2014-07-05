@@ -13,10 +13,12 @@
     "jshint-stylish": "~0.2.0",
     "nib": "^1.0.3"
   },
+  "scripts": {
+    "bundle": "jspm bundle app/main app-built.js"
+  },
   "dependencies": {
     "lodash": "^2.4.1",
     "backbone": "^1.1.2",
-    "jquery": "^2.0.3"
-  },
-  "scripts": {}
+    "jquery": "^2.1.1"
+  }
 }

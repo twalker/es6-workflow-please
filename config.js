@@ -10,7 +10,7 @@ System.config({
   "map": {
     "backbone": "npm:backbone@^1.1.2",
     "lodash": "npm:lodash-node@^2.4.1",
-    "jquery": "github:components/jquery@^2.0.3",
+    "jquery": "github:components/jquery@^2.1.1",
     "npm:lodash-node@2.4.1": {},
     "npm:backbone@1.1.2": {
       "underscore": "npm:lodash-node@^2.4.1"

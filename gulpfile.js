@@ -24,6 +24,7 @@ gulp.task('js', function() {
 
 });
 
+
 gulp.task('lint', function() {
   return gulp.src(['./app/**/*.js'])
     .pipe(jshint())
