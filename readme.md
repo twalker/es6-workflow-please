@@ -19,7 +19,16 @@ I want to:
 - be able to use all module formats in both built and raw formats --p(x) traceur && traceur-runtime
 - version reporting for maintaining freshness
 
-
 ### notes
 
 jspm and System.js look like they'll deliver everything a boy could want, but will they catch on?  
+
+## TO get working:
+
+- !text for templating inside ES6 modules
+- bring `jspm bundle ...` into a task runner (gulp, or grunt)
+- decide on, and organize a folder structure: dist => public/js ?
+- 
+### Issues
+- lodash loading individual modules, makes for noisy http traffic
+- 

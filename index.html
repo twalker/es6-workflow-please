@@ -6,15 +6,6 @@
     <script src="jspm_packages/system@0.6.js"></script>
   </head>
   <body>
-    <!-- <script src="app-built.js"></script> -->
-    <script src='config.js'></script>
-    <script>
-      System.import('app/main').catch(function(e) {
-        setTimeout(function() {
-          throw e;
-        }, 1);
-      })
-    </script>
     <h1>es6-workflow please</h1>
     <dl>
         <dt>es6</dt>
@@ -25,6 +16,17 @@
         <dd id="commonjs"></dd>
         <dt>backbone</dt>
         <dd id="bb"></dd>
+        <dt>mustache</dt>
+        <dd id="mustache"></dd>
     </dl>
+    <script src="app-built.js"></script>
+    <script src='config.js'></script>
+    <script>
+      System.import('app/main').catch(function(e) {
+        setTimeout(function() {
+          throw e;
+        }, 1);
+      })
+    </script>
   </body>
 </html>

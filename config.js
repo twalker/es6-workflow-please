@@ -25,7 +25,9 @@ System.config({
     "npm:ieee754@1.1.3": {},
     "npm:Base64@0.2.1": {},
     "npm:inherits@2.0.1": {},
-    "npm:base64-js@0.0.4": {}
+    "npm:base64-js@0.0.4": {},
+    "mustache": "github:janl/mustache.js@^0.8.2",
+    "text": "github:systemjs/plugin-text@master"
   }
 });
 
@@ -39,7 +41,9 @@ System.config({
     "npm:ieee754": "1.1.3",
     "npm:inherits": "2.0.1",
     "github:systemjs/plugin-json": "master",
-    "npm:base64-js": "0.0.4"
+    "npm:base64-js": "0.0.4",
+    "github:janl/mustache.js": "0.8.2",
+    "github:systemjs/plugin-text": "master"
   }
 });
 
