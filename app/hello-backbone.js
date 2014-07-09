@@ -11,5 +11,6 @@ var V = Backbone.View.extend({
     return this.collection.pluck('s').join('');
   }
 });
+
+
 export default new V({collection: c})
-//export default {speak: function(){ return "foo"}}

@@ -18,14 +18,7 @@ gulp.task('css', function(){
     .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('js', function() {
-  return gulp.src(['./app/**/*.js'])
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
-
-});
-
-gulp.task('bundle', shell.task([
+gulp.task('bundle', ['lint'], shell.task([
   'jspm bundle app/main app-built.js'
 ]));
 
@@ -44,7 +37,7 @@ gulp.task('clean', function() {
 gulp.task('watch', function(){
 
   gulp.watch('./public/css/style.styl', ['css']);
-  gulp.watch(['./app/**/*.js'], ['js']);
+  gulp.watch(['./app/**/*.js'], ['bundle']);
 
   var server = livereload();
   gulp.watch([
@@ -60,5 +53,5 @@ gulp.task('watch', function(){
 
 gulp.task('default', ['clean', 'css', 'lint']);
 
-gulp.task('build', ['clean', 'css']);
+gulp.task('build', ['clean', 'css', 'bundle']);
 
