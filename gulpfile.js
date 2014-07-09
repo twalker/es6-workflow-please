@@ -4,11 +4,12 @@
  * - try to get sourcemaps working
  */
 var gulp = require('gulp'),
-  clean = require('gulp-rimraf'),
-  stylus = require('gulp-stylus'),
-  nib = require('nib'),
-  jshint = require('gulp-jshint'),
-  livereload = require('gulp-livereload');
+    shell = require('gulp-shell'),
+    clean = require('gulp-rimraf'),
+    stylus = require('gulp-stylus'),
+    nib = require('nib'),
+    jshint = require('gulp-jshint'),
+    livereload = require('gulp-livereload');
 
 
 gulp.task('css', function(){
@@ -24,6 +25,9 @@ gulp.task('js', function() {
 
 });
 
+gulp.task('bundle', shell.task([
+  'jspm bundle app/main app-built.js'
+]));
 
 gulp.task('lint', function() {
   return gulp.src(['./app/**/*.js'])

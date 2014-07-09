@@ -25,8 +25,8 @@ jspm and System.js look like they'll deliver everything a boy could want, but wi
 
 ## TO get working:
 
-- !text for templating inside ES6 modules
-- bring `jspm bundle ...` into a task runner (gulp, or grunt)
+- !text for templating inside ES6 modules. [not yet implemented](https://github.com/jspm/jspm-cli/issues/62)
+- bring `jspm bundle ...` into a task runner (gulp, or grunt). using npm run for now
 - decide on, and organize a folder structure: dist => public/js ?
 - 
 ### Issues
