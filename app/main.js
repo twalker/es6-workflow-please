@@ -1,27 +1,28 @@
-import { Character } from './character'
-import rjsmod from './rjsmod'
-import cjsmod from './cjsmod'
-import bbv from './hello-backbone'
+import { Greeter } from './hello-es6'
+import amd from './hello-amd'
+import cjs from './hello-cjs'
+import bb from './hello-backbone'
 import Mustache from 'mustache'
 // direct import doesn't work with bundling
 //import txt from './template.text!text'
 
+var showMsg = (id, msg) =>  document.getElementById(id).textContent = msg
+
 // es6
-var sid = new Character('es6')
-document.getElementById('es6').textContent = sid.speak()
+var greeter = new Greeter()
+showMsg('es6', greeter.say('hell yeah!'))
 
 // amd
-document.getElementById('amd').textContent = rjsmod.speak()
+showMsg('amd', amd.say('async is great!'))
 
 // commonjs
-document.getElementById('commonjs').textContent = cjsmod.speak('hello')
+showMsg('commonjs', cjs.say('npm modules rule!'))
 
 // backbone
-document.getElementById('bb').textContent = bbv.speak()
+showMsg('bb', bb.say('MV*!'))
 
 // mustache
 //async import works, but not bundled inline
 System.import('./app/template.text!text').then(function(txt){
-  document.getElementById('mustache').innerHTML = Mustache.render(txt, {name: 'Mustache'})
+  showMsg('mustache', Mustache.render(txt, {msg: 'interpolate!'}))
 });
-//document.getElementById('mustache').innerHTML = Mustache.render(txt, {name: 'Mustache'})

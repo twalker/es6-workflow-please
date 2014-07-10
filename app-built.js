@@ -1,26 +1,27 @@
 "format register";
 
-System.register("app/character", [], function($__0) {
+System.register("app/hello-es6", [], function($__0) {
   "use strict";
-  var __moduleName = "app/character";
-  var Character;
+  var __moduleName = "app/hello-es6";
+  var Greeter;
   return {
     exports: {
-      get Character() {
-        return Character;
+      get Greeter() {
+        return Greeter;
       },
-      set Character(value) {
-        Character = value;
+      set Greeter(value) {
+        Greeter = value;
       }
     },
     execute: function() {
-      Character = (function() {
-        var Character = function Character(name) {
+      Greeter = (function() {
+        var Greeter = function Greeter() {
+          var name = arguments[0] !== (void 0) ? arguments[0] : 'es6';
           this.name = name;
         };
-        return ($traceurRuntime.createClass)(Character, {speak: function() {
+        return ($traceurRuntime.createClass)(Greeter, {say: function() {
             var msg = arguments[0] !== (void 0) ? arguments[0] : 'hello';
-            return [this.name, ' says', msg].join(' ');
+            return [this.name, ' says:', msg].join(' ');
           }}, {});
       }());
     }
@@ -73,18 +74,19 @@ System.register("app/hello-backbone", ["./backbone-extended"], function($__0) {
         id: 2,
         s: 'bone'
       }]);
-      V = $__0[0]["default"].View.extend({speak: function() {
-          return this.collection.pluck('s').join('');
+      V = $__0[0]["default"].View.extend({say: function(msg) {
+          return this.collection.pluck('s').join('') + ' says: ' + msg;
         }});
       $__default = new V({collection: c});
     }
   };
 });
 
-System.register("app/main", ["./character", "./rjsmod", "./cjsmod", "./hello-backbone", "mustache"], function($__0) {
+System.register("app/main", ["./hello-es6", "./hello-amd", "./hello-cjs", "./hello-backbone", "mustache"], function($__0) {
   "use strict";
   var __moduleName = "app/main";
-  var sid;
+  var showMsg,
+      greeter;
   return {
     exports: {},
     execute: function() {
@@ -93,38 +95,42 @@ System.register("app/main", ["./character", "./rjsmod", "./cjsmod", "./hello-bac
       ;
       ;
       ;
-      sid = new $__0[0]["Character"]('es6');
-      document.getElementById('es6').textContent = sid.speak();
-      document.getElementById('amd').textContent = $__0[1]["default"].speak();
-      document.getElementById('commonjs').textContent = $__0[2]["default"].speak('hello');
-      document.getElementById('bb').textContent = $__0[3]["default"].speak();
+      showMsg = (function(id, msg) {
+        return document.getElementById(id).textContent = msg;
+      });
+      greeter = new $__0[0]["Greeter"]();
+      showMsg('es6', greeter.say('hell yeah!'));
+      showMsg('amd', $__0[1]["default"].say('async is great!'));
+      showMsg('commonjs', $__0[2]["default"].say('npm modules rule!'));
+      showMsg('bb', $__0[3]["default"].say('MV*!'));
       System.import('./app/template.text!text').then(function(txt) {
-        document.getElementById('mustache').innerHTML = $__0[4]["default"].render(txt, {name: 'Mustache'});
+        showMsg('mustache', $__0[4]["default"].render(txt, {msg: 'interpolate!'}));
       });
     }
   };
 });
 
-define("app/rjsmod", [], function(){
+
+define("app/hello-amd", [], function(){
   return {
-    speak: function(msg){
-      return msg + ' amd';
+    say: function(msg){
+      return 'amd says: ' + msg;
     }
   };
 });
 
 
-System.register("app/cjsmod", [], true, function(require, exports, __moduleName) {
+System.register("app/hello-cjs", [], true, function(require, exports, __moduleName) {
   var global = System.global;
   var __define = global.define;
   global.define = undefined;
   var module = { exports: exports };
   var process = System.get("@@nodeProcess")["default"];
-    var __filename = "app/cjsmod.js";
+    var __filename = "app/hello-cjs.js";
     var __dirname = "app";
   var obj = {
-    speak: function speak(msg){
-      return 'CommonJS says' + msg;
+    say: function speak(msg){
+      return 'CommonJS says: ' + msg;
     }
   };
   

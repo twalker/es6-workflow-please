@@ -1,6 +1,5 @@
 /**
  * TODO:
- * - replace rjs with jspm
  * - try to get sourcemaps working
  */
 var gulp = require('gulp'),

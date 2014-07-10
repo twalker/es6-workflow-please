@@ -7,8 +7,8 @@ var c = new Backbone.Collection([
 ]);
 
 var V = Backbone.View.extend({
-  speak: function(){
-    return this.collection.pluck('s').join('');
+  say: function(msg){
+    return this.collection.pluck('s').join('') + ' says: ' + msg;
   }
 });
 
