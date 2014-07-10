@@ -35,18 +35,18 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function(){
-
+  livereload.listen();
   gulp.watch('./public/css/style.styl', ['css']);
   gulp.watch(['./app/**/*.js'], ['bundle']);
 
-  var server = livereload();
   gulp.watch([
-    './public/js/dist/**/*.js',
+    //'./public/js/dist/**/*.js',
+    './app-built.js',
     './public/js/test/*.js',
     './public/css/*.css'
-  ]).on('change', function(file) {
+  ]).on('change', function(file){
     //console.log(file.path + ' changed')
-    server.changed(file.path);
+    livereload.changed(file)
   });
 
 });
