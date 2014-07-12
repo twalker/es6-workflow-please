@@ -28,7 +28,8 @@ System.config({
     "npm:inherits@2.0.1": {},
     "npm:base64-js@0.0.4": {},
     "mustache": "github:janl/mustache.js@^0.8.2",
-    "github:systemjs/plugin-text": "github:systemjs/plugin-text@master"
+    "github:systemjs/plugin-text": "github:systemjs/plugin-text@master",
+    "text": "github:systemjs/plugin-text@master"
   }
 });
 

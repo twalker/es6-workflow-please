@@ -18,9 +18,9 @@
     "bundle": "jspm bundle app/main app-built.js"
   },
   "dependencies": {
-    "lodash": "^2.4.1",
     "backbone": "^1.1.2",
     "jquery": "^2.1.1",
+    "lodash": "^2.4.1",
     "mustache": "^0.8.2"
   }
 }
