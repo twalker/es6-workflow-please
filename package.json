@@ -1,26 +1,29 @@
 {
   "name": "es6-workflow",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
-  "registry": "jspm",
   "main": "app/main",
   "devDependencies": {
-    "gulp": "~3.8.6",
-    "gulp-jshint": "~1.7.1",
-    "gulp-livereload": "~2.1.0",
+    "gulp": "~3.8.7",
+    "gulp-jshint": "~1.8.4",
+    "gulp-livereload": "~2.1.1",
     "gulp-rimraf": "^0.1.0",
-    "gulp-shell": "^0.2.8",
-    "gulp-stylus": "^1.0.5",
+    "gulp-shell": "^0.2.9",
+    "gulp-stylus": "^1.3.0",
     "jshint-stylish": "~0.4.0",
     "nib": "^1.0.3"
   },
   "scripts": {
     "bundle": "jspm bundle app/main app-built.js"
   },
-  "dependencies": {
-    "backbone": "^1.1.2",
-    "jquery": "^2.1.1",
-    "lodash": "^2.4.1",
-    "mustache": "^0.8.2"
+  "jspm": {
+    "name": "es6-workflow",
+    "main": "app/main",
+    "dependencies": {
+      "mustache": "^0.8.2",
+      "backbone": "^1.1.2",
+      "text": "^0.0.2",
+      "jquery": "^2.1.1"
+    }
   }
 }

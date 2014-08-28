@@ -3,8 +3,9 @@ import amd from './hello-amd'
 import cjs from './hello-cjs'
 import bb from './hello-backbone'
 import Mustache from 'mustache'
+
 // direct import doesn't work with bundling
-//import txt from './template.text!text'
+import txt from './template.text!text'
 
 var showMsg = (id, msg) =>  document.getElementById(id).textContent = msg
 
@@ -23,6 +24,6 @@ showMsg('bb', bb.say('MV*!'))
 
 // mustache
 //async import works, but not bundled inline
-System.import('./app/template.text!text').then(function(txt){
+//System.import('./app/template.text!text').then(function(txt){
   showMsg('mustache', Mustache.render(txt, {msg: 'interpolate!'}))
-});
+//});
