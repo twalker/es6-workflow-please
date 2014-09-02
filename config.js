@@ -26,7 +26,44 @@ System.config({
     "npm:Base64@0.2.1": {},
     "npm:ieee754@1.1.3": {},
     "npm:inherits@2.0.1": {},
-    "npm:base64-js@0.0.7": {}
+    "npm:base64-js@0.0.7": {},
+    "npm:debug@1.0.4": {
+      "ms": "npm:ms@0.6.2"
+    },
+    "npm:jade@0.26.3": {
+      "commander": "npm:commander@0.6.1",
+      "mkdirp": "npm:mkdirp@0.3.0"
+    },
+    "npm:glob@3.2.3": {
+      "graceful-fs": "npm:graceful-fs@2.0",
+      "minimatch": "npm:minimatch@0",
+      "inherits": "npm:inherits@2"
+    },
+    "npm:commander@2.0.0": {},
+    "npm:mkdirp@0.3.5": {},
+    "npm:growl@1.8.1": {},
+    "npm:ms@0.6.2": {},
+    "npm:diff@1.0.7": {},
+    "npm:commander@0.6.1": {},
+    "npm:mkdirp@0.3.0": {},
+    "npm:graceful-fs@2.0.3": {},
+    "npm:minimatch@0.4.0": {
+      "sigmund": "npm:sigmund@1.0",
+      "lru-cache": "npm:lru-cache@2"
+    },
+    "npm:sigmund@1.0.0": {},
+    "npm:lru-cache@2.5.0": {},
+    "mocha": "npm:mocha@^1.21.4",
+    "npm:mocha@1.21.4": {
+      "growl": "npm:growl@1.8",
+      "diff": "npm:diff@1.0.7",
+      "commander": "npm:commander@2.0.0",
+      "debug": "npm:debug@^1.0.4",
+      "jade": "npm:jade@0.26.3",
+      "glob": "npm:glob@3.2.3",
+      "mkdirp": "npm:mkdirp@0.3.5"
+    },
+    "css": "github:systemjs/plugin-css@^0.1.0"
   }
 });
 
@@ -42,7 +79,27 @@ System.config({
     "npm:ieee754": "1.1.3",
     "npm:inherits": "2.0.1",
     "npm:base64-js": "0.0.7",
-    "github:systemjs/plugin-json": "master"
+    "github:systemjs/plugin-json": "master",
+    "npm:debug": "1.0.4",
+    "npm:commander": [
+      "0.6.1",
+      "2.0.0"
+    ],
+    "npm:mkdirp": [
+      "0.3.0",
+      "0.3.5"
+    ],
+    "npm:glob": "3.2.3",
+    "npm:jade": "0.26.3",
+    "npm:growl": "1.8.1",
+    "npm:ms": "0.6.2",
+    "npm:diff": "1.0.7",
+    "npm:graceful-fs": "2.0.3",
+    "npm:minimatch": "0.4.0",
+    "npm:sigmund": "1.0.0",
+    "npm:lru-cache": "2.5.0",
+    "npm:mocha": "1.21.4",
+    "github:systemjs/plugin-css": "0.1.0"
   }
 });
 
