@@ -1,31 +1,50 @@
 {
-  "name": "es6-workflow",
+  "name": "es6-workflow-please",
+  "description": "es6-workflow-please ===================",
   "version": "0.0.3",
-  "private": true,
-  "main": "app/main",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "jspm bundle app/main app-built.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twalker/es6-workflow-please.git"
+  },
+  "author": "twalker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twalker/es6-workflow-please/issues"
+  },
+  "homepage": "https://github.com/twalker/es6-workflow-please",
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-jshint": "^1.8.4",
     "gulp-livereload": "^2.1.1",
-    "gulp-rimraf": "^0.1.0",
     "gulp-shell": "^0.2.9",
     "gulp-stylus": "^1.3.0",
+    "gulp-util": "^3.0.0",
     "jshint-stylish": "^0.4.0",
-    "nib": "^1.0.3"
-  },
-  "scripts": {
-    "bundle": "jspm bundle app/main app-built.js"
+    "nib": "^1.0.3",
+    "del": "^0.1.3"
   },
   "jspm": {
-    "name": "es6-workflow",
-    "main": "app/main",
+    "name": "es6-workflow-please",
+    "main": "index.js",
+    "directories": {
+      "lib": "app"
+    },
     "dependencies": {
-      "mustache": "^0.8.2",
-      "backbone": "^1.1.2",
-      "text": "^0.0.2",
       "jquery": "^2.1.1",
-      "mocha": "^1.21.4",
-      "css": "^0.1.0"
+      "mocha": "^2.0.1",
+      "lodash": "^2.4.1",
+      "text": "^0.0.2",
+      "mustache": "^0.8.2",
+      "backbone": "^1.1.2"
     }
   }
 }

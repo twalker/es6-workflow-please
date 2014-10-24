@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
   <head>
-<!--     <script src="jspm_packages/traceur-runtime@0.0.49.js"></script>
-    <script src="jspm_packages/es6-module-loader@0.7.1.js"></script> -->
     <script src="jspm_packages/traceur-runtime.js"></script>
     <script src="jspm_packages/system.js"></script>
   </head>
@@ -20,14 +18,17 @@
         <dt>mustache</dt>
         <dd id="mustache"></dd>
     </dl>
-    <!-- <script src="app-built.js"></script> -->
     <script src='config.js'></script>
+    <script src="app-built.js"></script>
     <script>
-      System.import('app/main').catch(function(e) {
-        setTimeout(function() {
-          throw e;
-        }, 1);
-      })
+      System.import('app/main')
+        .then(console.log.bind(console))
+        //.catch(console.error.bind(console));
+        .catch(function(e) {
+          setTimeout(function() {
+            throw e;
+          }, 1);
+        });
     </script>
   </body>
 </html>

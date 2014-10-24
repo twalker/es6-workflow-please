@@ -3572,7 +3572,7 @@ function define(){};  define.amd = {};
       var mustache = {};
       factory(mustache);
       if (typeof define === "function" && define.amd) {
-        ;
+        System.register("github:janl/mustache.js@0.8.2/mustache", [], false, mustache);
       } else {
         root.Mustache = mustache;
       }
@@ -3941,6 +3941,58 @@ function define(){};  define.amd = {};
     mustache.Writer = Writer;
   }));
   })();
+System.register("github:components/jquery@2.1.1", ["github:components/jquery@2.1.1/jquery.min"], function($__export) {
+  "use strict";
+  var __moduleName = "github:components/jquery@2.1.1";
+  return {
+    setters: [function(m) {
+      Object.keys(m).forEach(function(p) {
+        $__export(p, m[p]);
+      });
+    }],
+    execute: function() {}
+  };
+});
+
+System.register("github:janl/mustache.js@0.8.2", ["github:janl/mustache.js@0.8.2/mustache"], function($__export) {
+  "use strict";
+  var __moduleName = "github:janl/mustache.js@0.8.2";
+  return {
+    setters: [function(m) {
+      Object.keys(m).forEach(function(p) {
+        $__export(p, m[p]);
+      });
+    }],
+    execute: function() {}
+  };
+});
+
+System.register("npm:lodash-node@2.4.1", ["npm:lodash-node@2.4.1/modern/index"], function($__export) {
+  "use strict";
+  var __moduleName = "npm:lodash-node@2.4.1";
+  return {
+    setters: [function(m) {
+      Object.keys(m).forEach(function(p) {
+        $__export(p, m[p]);
+      });
+    }],
+    execute: function() {}
+  };
+});
+
+System.register("npm:backbone@1.1.2", ["npm:backbone@1.1.2/backbone"], function($__export) {
+  "use strict";
+  var __moduleName = "npm:backbone@1.1.2";
+  return {
+    setters: [function(m) {
+      Object.keys(m).forEach(function(p) {
+        $__export(p, m[p]);
+      });
+    }],
+    execute: function() {}
+  };
+});
+
 System.register("app/backbone-extended", ["github:components/jquery@2.1.1", "npm:backbone@1.1.2"], function($__export) {
   "use strict";
   var __moduleName = "app/backbone-extended";
@@ -3985,7 +4037,7 @@ System.register("app/hello-backbone", ["app/backbone-extended"], function($__exp
   };
 });
 
-System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", "app/hello-backbone", "github:janl/mustache.js@0.8.2", "app/template.text!github:systemjs/plugin-text@0.0.2"], function($__export) {
+System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", "app/hello-backbone", "github:janl/mustache.js@0.8.2"], function($__export) {
   "use strict";
   var __moduleName = "app/main";
   var Greeter,
@@ -3993,7 +4045,6 @@ System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", 
       cjs,
       bb,
       Mustache,
-      txt,
       showMsg,
       greeter;
   return {
@@ -4007,8 +4058,6 @@ System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", 
       bb = m.default;
     }, function(m) {
       Mustache = m.default;
-    }, function(m) {
-      txt = m.default;
     }],
     execute: function() {
       showMsg = (function(id, msg) {
@@ -4019,7 +4068,6 @@ System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", 
       showMsg('amd', amd.say('async is great!'));
       showMsg('commonjs', cjs.say('npm modules rule!'));
       showMsg('bb', bb.say('MV*!'));
-      showMsg('mustache', Mustache.render(txt, {msg: 'interpolate!'}));
     }
   };
 });
@@ -4042,86 +4090,2302 @@ System.register("app/hello-cjs", [], true, function(require, exports, module) {
   return module.exports;
 });
 
-System.register("npm:underscore@1.7.0/underscore", [], true, function(require, exports, module) {
+System.register("npm:lodash-node@2.4.1/modern/arrays/compact", [], true, function(require, exports, module) {
   var global = System.global;
   var __define = global.define;
   global.define = undefined;
-  var __filename = "jspm_packages/npm/underscore@1.7.0/underscore.js";
-  var __dirname = "jspm_packages/npm/underscore@1.7.0";
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/compact.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";(function(){var t=this,e=t._,n=Array.prototype,r=Object.prototype,i=Function.prototype,s=n.push,a=n.slice,u=n.concat,o=r.toString,c=r.hasOwnProperty,l=Array.isArray,h=Object.keys,f=i.bind,p=function(t){return t instanceof p?t:this instanceof p?void(this._wrapped=t):new p(t)};"undefined"!=typeof exports?("undefined"!=typeof module&&module.exports&&(exports=module.exports=p),exports._=p):t._=p,p.VERSION="1.7.0";var d=function(t,e,n){if(void 0===e)return t;switch(null==n?3:n){case 1:return function(n){return t.call(e,n)};case 2:return function(n,r){return t.call(e,n,r)};case 3:return function(n,r,i){return t.call(e,n,r,i)};case 4:return function(n,r,i,s){return t.call(e,n,r,i,s)}}return function(){return t.apply(e,arguments)}};p.iteratee=function(t,e,n){return null==t?p.identity:p.isFunction(t)?d(t,e,n):p.isObject(t)?p.matches(t):p.property(t)},p.each=p.forEach=function(t,e,n){if(null==t)return t;e=d(e,n);var r,i=t.length;if(i===+i)for(r=0;i>r;r++)e(t[r],r,t);else{var s=p.keys(t);for(r=0,i=s.length;i>r;r++)e(t[s[r]],s[r],t)}return t},p.map=p.collect=function(t,e,n){if(null==t)return[];e=p.iteratee(e,n);for(var r,i=t.length!==+t.length&&p.keys(t),s=(i||t).length,a=Array(s),u=0;s>u;u++)r=i?i[u]:u,a[u]=e(t[r],r,t);return a};var g="Reduce of empty array with no initial value";p.reduce=p.foldl=p.inject=function(t,e,n,r){null==t&&(t=[]),e=d(e,r,4);var i,s=t.length!==+t.length&&p.keys(t),a=(s||t).length,u=0;if(arguments.length<3){if(!a)throw new TypeError(g);n=t[s?s[u++]:u++]}for(;a>u;u++)i=s?s[u]:u,n=e(n,t[i],i,t);return n},p.reduceRight=p.foldr=function(t,e,n,r){null==t&&(t=[]),e=d(e,r,4);var i,s=t.length!==+t.length&&p.keys(t),a=(s||t).length;if(arguments.length<3){if(!a)throw new TypeError(g);n=t[s?s[--a]:--a]}for(;a--;)i=s?s[a]:a,n=e(n,t[i],i,t);return n},p.find=p.detect=function(t,e,n){var r;return e=p.iteratee(e,n),p.some(t,function(t,n,i){return e(t,n,i)?(r=t,!0):void 0}),r},p.filter=p.select=function(t,e,n){var r=[];return null==t?r:(e=p.iteratee(e,n),p.each(t,function(t,n,i){e(t,n,i)&&r.push(t)}),r)},p.reject=function(t,e,n){return p.filter(t,p.negate(p.iteratee(e)),n)},p.every=p.all=function(t,e,n){if(null==t)return!0;e=p.iteratee(e,n);var r,i,s=t.length!==+t.length&&p.keys(t),a=(s||t).length;for(r=0;a>r;r++)if(i=s?s[r]:r,!e(t[i],i,t))return!1;return!0},p.some=p.any=function(t,e,n){if(null==t)return!1;e=p.iteratee(e,n);var r,i,s=t.length!==+t.length&&p.keys(t),a=(s||t).length;for(r=0;a>r;r++)if(i=s?s[r]:r,e(t[i],i,t))return!0;return!1},p.contains=p.include=function(t,e){return null==t?!1:(t.length!==+t.length&&(t=p.values(t)),p.indexOf(t,e)>=0)},p.invoke=function(t,e){var n=a.call(arguments,2),r=p.isFunction(e);return p.map(t,function(t){return(r?e:t[e]).apply(t,n)})},p.pluck=function(t,e){return p.map(t,p.property(e))},p.where=function(t,e){return p.filter(t,p.matches(e))},p.findWhere=function(t,e){return p.find(t,p.matches(e))},p.max=function(t,e,n){var r,i,s=-1/0,a=-1/0;if(null==e&&null!=t){t=t.length===+t.length?t:p.values(t);for(var u=0,o=t.length;o>u;u++)r=t[u],r>s&&(s=r)}else e=p.iteratee(e,n),p.each(t,function(t,n,r){i=e(t,n,r),(i>a||i===-1/0&&s===-1/0)&&(s=t,a=i)});return s},p.min=function(t,e,n){var r,i,s=1/0,a=1/0;if(null==e&&null!=t){t=t.length===+t.length?t:p.values(t);for(var u=0,o=t.length;o>u;u++)r=t[u],s>r&&(s=r)}else e=p.iteratee(e,n),p.each(t,function(t,n,r){i=e(t,n,r),(a>i||1/0===i&&1/0===s)&&(s=t,a=i)});return s},p.shuffle=function(t){for(var e,n=t&&t.length===+t.length?t:p.values(t),r=n.length,i=Array(r),s=0;r>s;s++)e=p.random(0,s),e!==s&&(i[s]=i[e]),i[e]=n[s];return i},p.sample=function(t,e,n){return null==e||n?(t.length!==+t.length&&(t=p.values(t)),t[p.random(t.length-1)]):p.shuffle(t).slice(0,Math.max(0,e))},p.sortBy=function(t,e,n){return e=p.iteratee(e,n),p.pluck(p.map(t,function(t,n,r){return{value:t,index:n,criteria:e(t,n,r)}}).sort(function(t,e){var n=t.criteria,r=e.criteria;if(n!==r){if(n>r||void 0===n)return 1;if(r>n||void 0===r)return-1}return t.index-e.index}),"value")};var v=function(t){return function(e,n,r){var i={};return n=p.iteratee(n,r),p.each(e,function(r,s){var a=n(r,s,e);t(i,r,a)}),i}};p.groupBy=v(function(t,e,n){p.has(t,n)?t[n].push(e):t[n]=[e]}),p.indexBy=v(function(t,e,n){t[n]=e}),p.countBy=v(function(t,e,n){p.has(t,n)?t[n]++:t[n]=1}),p.sortedIndex=function(t,e,n,r){n=p.iteratee(n,r,1);for(var i=n(e),s=0,a=t.length;a>s;){var u=s+a>>>1;n(t[u])<i?s=u+1:a=u}return s},p.toArray=function(t){return t?p.isArray(t)?a.call(t):t.length===+t.length?p.map(t,p.identity):p.values(t):[]},p.size=function(t){return null==t?0:t.length===+t.length?t.length:p.keys(t).length},p.partition=function(t,e,n){e=p.iteratee(e,n);var r=[],i=[];return p.each(t,function(t,n,s){(e(t,n,s)?r:i).push(t)}),[r,i]},p.first=p.head=p.take=function(t,e,n){return null==t?void 0:null==e||n?t[0]:0>e?[]:a.call(t,0,e)},p.initial=function(t,e,n){return a.call(t,0,Math.max(0,t.length-(null==e||n?1:e)))},p.last=function(t,e,n){return null==t?void 0:null==e||n?t[t.length-1]:a.call(t,Math.max(t.length-e,0))},p.rest=p.tail=p.drop=function(t,e,n){return a.call(t,null==e||n?1:e)},p.compact=function(t){return p.filter(t,p.identity)};var m=function(t,e,n,r){if(e&&p.every(t,p.isArray))return u.apply(r,t);for(var i=0,a=t.length;a>i;i++){var o=t[i];p.isArray(o)||p.isArguments(o)?e?s.apply(r,o):m(o,e,n,r):n||r.push(o)}return r};p.flatten=function(t,e){return m(t,e,!1,[])},p.without=function(t){return p.difference(t,a.call(arguments,1))},p.uniq=p.unique=function(t,e,n,r){if(null==t)return[];p.isBoolean(e)||(r=n,n=e,e=!1),null!=n&&(n=p.iteratee(n,r));for(var i=[],s=[],a=0,u=t.length;u>a;a++){var o=t[a];if(e)a&&s===o||i.push(o),s=o;else if(n){var c=n(o,a,t);p.indexOf(s,c)<0&&(s.push(c),i.push(o))}else p.indexOf(i,o)<0&&i.push(o)}return i},p.union=function(){return p.uniq(m(arguments,!0,!0,[]))},p.intersection=function(t){if(null==t)return[];for(var e=[],n=arguments.length,r=0,i=t.length;i>r;r++){var s=t[r];if(!p.contains(e,s)){for(var a=1;n>a&&p.contains(arguments[a],s);a++);a===n&&e.push(s)}}return e},p.difference=function(t){var e=m(a.call(arguments,1),!0,!0,[]);return p.filter(t,function(t){return!p.contains(e,t)})},p.zip=function(t){if(null==t)return[];for(var e=p.max(arguments,"length").length,n=Array(e),r=0;e>r;r++)n[r]=p.pluck(arguments,r);return n},p.object=function(t,e){if(null==t)return{};for(var n={},r=0,i=t.length;i>r;r++)e?n[t[r]]=e[r]:n[t[r][0]]=t[r][1];return n},p.indexOf=function(t,e,n){if(null==t)return-1;var r=0,i=t.length;if(n){if("number"!=typeof n)return r=p.sortedIndex(t,e),t[r]===e?r:-1;r=0>n?Math.max(0,i+n):n}for(;i>r;r++)if(t[r]===e)return r;return-1},p.lastIndexOf=function(t,e,n){if(null==t)return-1;var r=t.length;for("number"==typeof n&&(r=0>n?r+n+1:Math.min(r,n+1));--r>=0;)if(t[r]===e)return r;return-1},p.range=function(t,e,n){arguments.length<=1&&(e=t||0,t=0),n=n||1;for(var r=Math.max(Math.ceil((e-t)/n),0),i=Array(r),s=0;r>s;s++,t+=n)i[s]=t;return i};var y=function(){};p.bind=function(t,e){var n,r;if(f&&t.bind===f)return f.apply(t,a.call(arguments,1));if(!p.isFunction(t))throw new TypeError("Bind must be called on a function");return n=a.call(arguments,2),r=function(){if(!(this instanceof r))return t.apply(e,n.concat(a.call(arguments)));y.prototype=t.prototype;var i=new y;y.prototype=null;var s=t.apply(i,n.concat(a.call(arguments)));return p.isObject(s)?s:i}},p.partial=function(t){var e=a.call(arguments,1);return function(){for(var n=0,r=e.slice(),i=0,s=r.length;s>i;i++)r[i]===p&&(r[i]=arguments[n++]);for(;n<arguments.length;)r.push(arguments[n++]);return t.apply(this,r)}},p.bindAll=function(t){var e,n,r=arguments.length;if(1>=r)throw new Error("bindAll must be passed function names");for(e=1;r>e;e++)n=arguments[e],t[n]=p.bind(t[n],t);return t},p.memoize=function(t,e){var n=function(r){var i=n.cache,s=e?e.apply(this,arguments):r;return p.has(i,s)||(i[s]=t.apply(this,arguments)),i[s]};return n.cache={},n},p.delay=function(t,e){var n=a.call(arguments,2);return setTimeout(function(){return t.apply(null,n)},e)},p.defer=function(t){return p.delay.apply(p,[t,1].concat(a.call(arguments,1)))},p.throttle=function(t,e,n){var r,i,s,a=null,u=0;n||(n={});var o=function(){u=n.leading===!1?0:p.now(),a=null,s=t.apply(r,i),a||(r=i=null)};return function(){var c=p.now();u||n.leading!==!1||(u=c);var l=e-(c-u);return r=this,i=arguments,0>=l||l>e?(clearTimeout(a),a=null,u=c,s=t.apply(r,i),a||(r=i=null)):a||n.trailing===!1||(a=setTimeout(o,l)),s}},p.debounce=function(t,e,n){var r,i,s,a,u,o=function(){var c=p.now()-a;e>c&&c>0?r=setTimeout(o,e-c):(r=null,n||(u=t.apply(s,i),r||(s=i=null)))};return function(){s=this,i=arguments,a=p.now();var c=n&&!r;return r||(r=setTimeout(o,e)),c&&(u=t.apply(s,i),s=i=null),u}},p.wrap=function(t,e){return p.partial(e,t)},p.negate=function(t){return function(){return!t.apply(this,arguments)}},p.compose=function(){var t=arguments,e=t.length-1;return function(){for(var n=e,r=t[e].apply(this,arguments);n--;)r=t[n].call(this,r);return r}},p.after=function(t,e){return function(){return--t<1?e.apply(this,arguments):void 0}},p.before=function(t,e){var n;return function(){return--t>0?n=e.apply(this,arguments):e=null,n}},p.once=p.partial(p.before,2),p.keys=function(t){if(!p.isObject(t))return[];if(h)return h(t);var e=[];for(var n in t)p.has(t,n)&&e.push(n);return e},p.values=function(t){for(var e=p.keys(t),n=e.length,r=Array(n),i=0;n>i;i++)r[i]=t[e[i]];return r},p.pairs=function(t){for(var e=p.keys(t),n=e.length,r=Array(n),i=0;n>i;i++)r[i]=[e[i],t[e[i]]];return r},p.invert=function(t){for(var e={},n=p.keys(t),r=0,i=n.length;i>r;r++)e[t[n[r]]]=n[r];return e},p.functions=p.methods=function(t){var e=[];for(var n in t)p.isFunction(t[n])&&e.push(n);return e.sort()},p.extend=function(t){if(!p.isObject(t))return t;for(var e,n,r=1,i=arguments.length;i>r;r++){e=arguments[r];for(n in e)c.call(e,n)&&(t[n]=e[n])}return t},p.pick=function(t,e,n){var r,i={};if(null==t)return i;if(p.isFunction(e)){e=d(e,n);for(r in t){var s=t[r];e(s,r,t)&&(i[r]=s)}}else{var o=u.apply([],a.call(arguments,1));t=new Object(t);for(var c=0,l=o.length;l>c;c++)r=o[c],r in t&&(i[r]=t[r])}return i},p.omit=function(t,e,n){if(p.isFunction(e))e=p.negate(e);else{var r=p.map(u.apply([],a.call(arguments,1)),String);e=function(t,e){return!p.contains(r,e)}}return p.pick(t,e,n)},p.defaults=function(t){if(!p.isObject(t))return t;for(var e=1,n=arguments.length;n>e;e++){var r=arguments[e];for(var i in r)void 0===t[i]&&(t[i]=r[i])}return t},p.clone=function(t){return p.isObject(t)?p.isArray(t)?t.slice():p.extend({},t):t},p.tap=function(t,e){return e(t),t};var _=function(t,e,n,r){if(t===e)return 0!==t||1/t===1/e;if(null==t||null==e)return t===e;t instanceof p&&(t=t._wrapped),e instanceof p&&(e=e._wrapped);var i=o.call(t);if(i!==o.call(e))return!1;switch(i){case"[object RegExp]":case"[object String]":return""+t==""+e;case"[object Number]":return+t!==+t?+e!==+e:0===+t?1/+t===1/e:+t===+e;case"[object Date]":case"[object Boolean]":return+t===+e}if("object"!=typeof t||"object"!=typeof e)return!1;for(var s=n.length;s--;)if(n[s]===t)return r[s]===e;var a=t.constructor,u=e.constructor;if(a!==u&&"constructor"in t&&"constructor"in e&&!(p.isFunction(a)&&a instanceof a&&p.isFunction(u)&&u instanceof u))return!1;n.push(t),r.push(e);var c,l;if("[object Array]"===i){if(c=t.length,l=c===e.length)for(;c--&&(l=_(t[c],e[c],n,r)););}else{var h,f=p.keys(t);if(c=f.length,l=p.keys(e).length===c)for(;c--&&(h=f[c],l=p.has(e,h)&&_(t[h],e[h],n,r)););}return n.pop(),r.pop(),l};p.isEqual=function(t,e){return _(t,e,[],[])},p.isEmpty=function(t){if(null==t)return!0;if(p.isArray(t)||p.isString(t)||p.isArguments(t))return 0===t.length;for(var e in t)if(p.has(t,e))return!1;return!0},p.isElement=function(t){return!(!t||1!==t.nodeType)},p.isArray=l||function(t){return"[object Array]"===o.call(t)},p.isObject=function(t){var e=typeof t;return"function"===e||"object"===e&&!!t},p.each(["Arguments","Function","String","Number","Date","RegExp"],function(t){p["is"+t]=function(e){return o.call(e)==="[object "+t+"]"}}),p.isArguments(arguments)||(p.isArguments=function(t){return p.has(t,"callee")}),"function"!=typeof/./&&(p.isFunction=function(t){return"function"==typeof t||!1}),p.isFinite=function(t){return isFinite(t)&&!isNaN(parseFloat(t))},p.isNaN=function(t){return p.isNumber(t)&&t!==+t},p.isBoolean=function(t){return t===!0||t===!1||"[object Boolean]"===o.call(t)},p.isNull=function(t){return null===t},p.isUndefined=function(t){return void 0===t},p.has=function(t,e){return null!=t&&c.call(t,e)},p.noConflict=function(){return t._=e,this},p.identity=function(t){return t},p.constant=function(t){return function(){return t}},p.noop=function(){},p.property=function(t){return function(e){return e[t]}},p.matches=function(t){var e=p.pairs(t),n=e.length;return function(t){if(null==t)return!n;t=new Object(t);for(var r=0;n>r;r++){var i=e[r],s=i[0];if(i[1]!==t[s]||!(s in t))return!1}return!0}},p.times=function(t,e,n){var r=Array(Math.max(0,t));e=d(e,n,1);for(var i=0;t>i;i++)r[i]=e(i);return r},p.random=function(t,e){return null==e&&(e=t,t=0),t+Math.floor(Math.random()*(e-t+1))},p.now=Date.now||function(){return(new Date).getTime()};var b={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","`":"&#x60;"},w=p.invert(b),x=function(t){var e=function(e){return t[e]},n="(?:"+p.keys(t).join("|")+")",r=RegExp(n),i=RegExp(n,"g");return function(t){return t=null==t?"":""+t,r.test(t)?t.replace(i,e):t}};p.escape=x(b),p.unescape=x(w),p.result=function(t,e){if(null==t)return void 0;var n=t[e];return p.isFunction(n)?t[e]():n};var E=0;p.uniqueId=function(t){var e=++E+"";return t?t+e:e},p.templateSettings={evaluate:/<%([\s\S]+?)%>/g,interpolate:/<%=([\s\S]+?)%>/g,escape:/<%-([\s\S]+?)%>/g};var k=/(.)^/,j={"'":"'","\\":"\\","\r":"r","\n":"n","\u2028":"u2028","\u2029":"u2029"},A=/\\|'|\r|\n|\u2028|\u2029/g,T=function(t){return"\\"+j[t]};p.template=function(t,e,n){!e&&n&&(e=n),e=p.defaults({},e,p.templateSettings);var r=RegExp([(e.escape||k).source,(e.interpolate||k).source,(e.evaluate||k).source].join("|")+"|$","g"),i=0,s="__p+='";t.replace(r,function(e,n,r,a,u){return s+=t.slice(i,u).replace(A,T),i=u+e.length,n?s+="'+\n((__t=("+n+"))==null?'':_.escape(__t))+\n'":r?s+="'+\n((__t=("+r+"))==null?'':__t)+\n'":a&&(s+="';\n"+a+"\n__p+='"),e}),s+="';\n",e.variable||(s="with(obj||{}){\n"+s+"}\n"),s="var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};\n"+s+"return __p;\n";try{var a=new Function(e.variable||"obj","_",s)}catch(u){throw u.source=s,u}var o=function(t){return a.call(this,t,p)},c=e.variable||"obj";return o.source="function("+c+"){\n"+s+"}",o},p.chain=function(t){var e=p(t);return e._chain=!0,e};var S=function(t){return this._chain?p(t).chain():t};p.mixin=function(t){p.each(p.functions(t),function(e){var n=p[e]=t[e];p.prototype[e]=function(){var t=[this._wrapped];return s.apply(t,arguments),S.call(this,n.apply(p,t))}})},p.mixin(p),p.each(["pop","push","reverse","shift","sort","splice","unshift"],function(t){var e=n[t];p.prototype[t]=function(){var n=this._wrapped;return e.apply(n,arguments),"shift"!==t&&"splice"!==t||0!==n.length||delete n[0],S.call(this,n)}}),p.each(["concat","join","slice"],function(t){var e=n[t];p.prototype[t]=function(){return S.call(this,e.apply(this._wrapped,arguments))}}),p.prototype.value=function(){return this._wrapped},"function"==typeof define&&define.amd&&define("underscore",[],function(){return p})}).call(this);
-  //# sourceMappingURL=underscore.js.map
-  global.define = __define;
-  return module.exports;
-});
-
-System.register("app/template.text!github:systemjs/plugin-text@0.0.2", [], true, function(require, exports, module) {
-  var global = System.global;
-  var __define = global.define;
-  global.define = undefined;
-  var __filename = "app/template.text";
-  var __dirname = "app";
-  module.exports = "Mustache says: {{msg}}";
-  global.define = __define;
-  return module.exports;
-});
-
-System.register("github:components/jquery@2.1.1", ["github:components/jquery@2.1.1/jquery.min"], true, function(require, exports, module) {
-  var global = System.global;
-  var __define = global.define;
-  global.define = undefined;
-  var __filename = "jspm_packages/github/components/jquery@2.1.1.js";
-  var __dirname = "jspm_packages/github/components";
-  module.exports = require("github:components/jquery@2.1.1/jquery.min");
+  "format cjs";function compact(e){for(var t=-1,r=e?e.length:0,n=[];++t<r;){var i=e[t];i&&n.push(i)}return n}module.exports=compact;
   
   global.define = __define;
   return module.exports;
 });
 
-System.register("npm:underscore@1.7.0", ["npm:underscore@1.7.0/underscore"], true, function(require, exports, module) {
+System.register("npm:lodash-node@2.4.1/modern/internals/baseIndexOf", [], true, function(require, exports, module) {
   var global = System.global;
   var __define = global.define;
   global.define = undefined;
-  var __filename = "jspm_packages/npm/underscore@1.7.0.js";
-  var __dirname = "jspm_packages/npm";
-  module.exports = require("npm:underscore@1.7.0/underscore");
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseIndexOf.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseIndexOf(e,t,r){for(var n=(r||0)-1,i=e?e.length:0;++n<i;)if(e[n]===t)return n;return-1}module.exports=baseIndexOf;
   
   global.define = __define;
   return module.exports;
 });
 
-System.register("github:janl/mustache.js@0.8.2", ["github:janl/mustache.js@0.8.2/mustache"], true, function(require, exports, module) {
+System.register("npm:lodash-node@2.4.1/modern/internals/keyPrefix", [], true, function(require, exports, module) {
   var global = System.global;
   var __define = global.define;
   global.define = undefined;
-  var __filename = "jspm_packages/github/janl/mustache.js@0.8.2.js";
-  var __dirname = "jspm_packages/github/janl";
-  module.exports = require("github:janl/mustache.js@0.8.2/mustache");
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/keyPrefix.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var keyPrefix=+new Date+"";module.exports=keyPrefix;
   
   global.define = __define;
   return module.exports;
 });
 
-System.register("npm:backbone@1.1.2/backbone", ["underscore"], true, function(require, exports, module) {
+System.register("npm:lodash-node@2.4.1/modern/internals/cachePush", ["./keyPrefix"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/cachePush.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function cachePush(e){var t=this.cache,r=typeof e;if("boolean"==r||null==e)t[e]=!0;else{"number"!=r&&"string"!=r&&(r="object");var n="number"==r?e:keyPrefix+e,i=t[r]||(t[r]={});"object"==r?(i[n]||(i[n]=[])).push(e):i[n]=!0}}var keyPrefix=require("./keyPrefix");module.exports=cachePush;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/objectPool", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/objectPool.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var objectPool=[];module.exports=objectPool;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/maxPoolSize", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/maxPoolSize.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var maxPoolSize=40;module.exports=maxPoolSize;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/largeArraySize", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/largeArraySize.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var largeArraySize=75;module.exports=largeArraySize;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("github:jspm/nodelibs@0.0.5/process", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/github/jspm/nodelibs@0.0.5/process.js";
+  var __dirname = "jspm_packages/github/jspm/nodelibs@0.0.5";
+  /* */
+  "format cjs";function noop(){}var process=module.exports={};process.nextTick=function(){var e="undefined"!=typeof window&&window.setImmediate,t="undefined"!=typeof window&&window.postMessage&&window.addEventListener;if(e)return function(e){return window.setImmediate(e)};if(t){var r=[];return window.addEventListener("message",function(e){var t=e.source;if((t===window||null===t)&&"process-tick"===e.data&&(e.stopPropagation(),r.length>0)){var n=r.shift();n()}},!0),function(e){r.push(e),window.postMessage("process-tick","*")}}return function(e){setTimeout(e,0)}}(),process.title="browser",process.browser=!0,process.env={},process.argv=[],process.on=noop,process.addListener=noop,process.once=noop,process.off=noop,process.removeListener=noop,process.removeAllListeners=noop,process.emit=noop,process.binding=function(){throw new Error("process.binding is not supported")},process.cwd=function(){return"/"},process.chdir=function(){throw new Error("process.chdir is not supported")};
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isArguments", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isArguments.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isArguments(e){return e&&"object"==typeof e&&"number"==typeof e.length&&toString.call(e)==argsClass||!1}var argsClass="[object Arguments]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isArguments;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/isNative", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/isNative.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function isNative(e){return"function"==typeof e&&reNative.test(e)}var objectProto=Object.prototype,toString=objectProto.toString,reNative=RegExp("^"+String(toString).replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/toString| for [^\]]+/g,".*?")+"$");module.exports=isNative;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/objectTypes", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/objectTypes.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var objectTypes={"boolean":!1,"function":!0,object:!0,number:!1,string:!1,undefined:!1};module.exports=objectTypes;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/noop", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/noop.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function noop(){}module.exports=noop;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/setBindData", ["./isNative","../utilities/noop"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/setBindData.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var isNative=require("./isNative"),noop=require("../utilities/noop"),descriptor={configurable:!1,enumerable:!1,value:null,writable:!1},defineProperty=function(){try{var e={},t=isNative(t=Object.defineProperty)&&t,r=t(e,e,e)&&t}catch(n){}return r}(),setBindData=defineProperty?function(e,t){descriptor.value=t,defineProperty(e,"__bindData__",descriptor)}:noop;module.exports=setBindData;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/slice", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/slice.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function slice(e,t,r){t||(t=0),"undefined"==typeof r&&(r=e?e.length:0);for(var n=-1,i=r-t||0,s=Array(0>i?0:i);++n<i;)s[n]=e[t+n];return s}module.exports=slice;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseCreateWrapper", ["./baseCreate","../objects/isObject","./setBindData","./slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseCreateWrapper.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseCreateWrapper(e){function t(){var e=u?o:this;if(i){var f=slice(i);push.apply(f,arguments)}if((s||l)&&(f||(f=slice(arguments)),s&&push.apply(f,s),l&&f.length<a))return n|=16,baseCreateWrapper([r,p?n:-4&n,f,null,o,a]);if(f||(f=arguments),c&&(r=e[h]),this instanceof t){e=baseCreate(r.prototype);var d=r.apply(e,f);return isObject(d)?d:e}return r.apply(e,f)}var r=e[0],n=e[1],i=e[2],s=e[3],o=e[4],a=e[5],u=1&n,c=2&n,l=4&n,p=8&n,h=r;return setBindData(t,e),t}var baseCreate=require("./baseCreate"),isObject=require("../objects/isObject"),setBindData=require("./setBindData"),slice=require("./slice"),arrayRef=[],push=arrayRef.push;module.exports=baseCreateWrapper;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isFunction", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isFunction.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isFunction(e){return"function"==typeof e}module.exports=isFunction;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/identity", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/identity.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function identity(e){return e}module.exports=identity;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/support", ["./internals/isNative"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/support.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
+  /* */
+  "format cjs";var isNative=require("./internals/isNative"),reThis=/\bthis\b/,support={};support.funcDecomp=!isNative(global.WinRTError)&&reThis.test(function(){return this}),support.funcNames="string"==typeof Function.name,module.exports=support;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/forIn", ["../internals/baseCreateCallback","../internals/objectTypes"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/forIn.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),objectTypes=require("../internals/objectTypes"),forIn=function(e,t,r){var n,i=e,s=i;if(!i)return s;if(!objectTypes[typeof i])return s;t=t&&"undefined"==typeof r?t:baseCreateCallback(t,r,3);for(n in i)if(t(i[n],n,e)===!1)return s;return s};module.exports=forIn;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/arrayPool", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/arrayPool.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var arrayPool=[];module.exports=arrayPool;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/releaseArray", ["./arrayPool","./maxPoolSize"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/releaseArray.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function releaseArray(e){e.length=0,arrayPool.length<maxPoolSize&&arrayPool.push(e)}var arrayPool=require("./arrayPool"),maxPoolSize=require("./maxPoolSize");module.exports=releaseArray;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/shimKeys", ["./objectTypes"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/shimKeys.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var objectTypes=require("./objectTypes"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,shimKeys=function(e){var t,r=e,n=[];if(!r)return n;if(!objectTypes[typeof e])return n;for(t in r)hasOwnProperty.call(r,t)&&n.push(t);return n};module.exports=shimKeys;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/property", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/property.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function property(e){return function(t){return t[e]}}module.exports=property;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/findIndex", ["../functions/createCallback"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/findIndex.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function findIndex(e,t,r){var n=-1,i=e?e.length:0;for(t=createCallback(t,r,3);++n<i;)if(t(e[n],n,e))return n;return-1}var createCallback=require("../functions/createCallback");module.exports=findIndex;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/findLastIndex", ["../functions/createCallback"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/findLastIndex.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function findLastIndex(e,t,r){var n=e?e.length:0;for(t=createCallback(t,r,3);n--;)if(t(e[n],n,e))return n;return-1}var createCallback=require("../functions/createCallback");module.exports=findLastIndex;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/first", ["../functions/createCallback","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/first.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function first(e,t,r){var n=0,i=e?e.length:0;if("number"!=typeof t&&null!=t){var s=-1;for(t=createCallback(t,r,3);++s<i&&t(e[s],s,e);)n++}else if(n=t,null==n||r)return e?e[0]:void 0;return slice(e,0,nativeMin(nativeMax(0,n),i))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max,nativeMin=Math.min;module.exports=first;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/forOwn", ["../internals/baseCreateCallback","./keys","../internals/objectTypes"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/forOwn.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys"),objectTypes=require("../internals/objectTypes"),forOwn=function(e,t,r){var n,i=e,s=i;if(!i)return s;if(!objectTypes[typeof i])return s;t=t&&"undefined"==typeof r?t:baseCreateCallback(t,r,3);for(var o=-1,a=objectTypes[typeof i]&&keys(i),u=a?a.length:0;++o<u;)if(n=a[o],t(i[n],n,e)===!1)return s;return s};module.exports=forOwn;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/sortedIndex", ["../functions/createCallback","../utilities/identity"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/sortedIndex.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function sortedIndex(e,t,r,n){var i=0,s=e?e.length:i;for(r=r?createCallback(r,n,1):identity,t=r(t);s>i;){var o=i+s>>>1;r(e[o])<t?i=o+1:s=o}return i}var createCallback=require("../functions/createCallback"),identity=require("../utilities/identity");module.exports=sortedIndex;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/initial", ["../functions/createCallback","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/initial.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function initial(e,t,r){var n=0,i=e?e.length:0;if("number"!=typeof t&&null!=t){var s=i;for(t=createCallback(t,r,3);s--&&t(e[s],s,e);)n++}else n=null==t||r?1:t||n;return slice(e,0,nativeMin(nativeMax(0,i-n),i))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max,nativeMin=Math.min;module.exports=initial;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/intersection", ["../internals/baseIndexOf","../internals/cacheIndexOf","../internals/createCache","../internals/getArray","../objects/isArguments","../objects/isArray","../internals/largeArraySize","../internals/releaseArray","../internals/releaseObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/intersection.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function intersection(){for(var e=[],t=-1,r=arguments.length,n=getArray(),i=baseIndexOf,s=i===baseIndexOf,o=getArray();++t<r;){var a=arguments[t];(isArray(a)||isArguments(a))&&(e.push(a),n.push(s&&a.length>=largeArraySize&&createCache(t?e[t]:o)))}var u=e[0],c=-1,l=u?u.length:0,p=[];e:for(;++c<l;){var h=n[0];if(a=u[c],(h?cacheIndexOf(h,a):i(o,a))<0){for(t=r,(h||o).push(a);--t;)if(h=n[t],(h?cacheIndexOf(h,a):i(e[t],a))<0)continue e;p.push(a)}}for(;r--;)h=n[r],h&&releaseObject(h);return releaseArray(n),releaseArray(o),p}var baseIndexOf=require("../internals/baseIndexOf"),cacheIndexOf=require("../internals/cacheIndexOf"),createCache=require("../internals/createCache"),getArray=require("../internals/getArray"),isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray"),largeArraySize=require("../internals/largeArraySize"),releaseArray=require("../internals/releaseArray"),releaseObject=require("../internals/releaseObject");module.exports=intersection;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/last", ["../functions/createCallback","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/last.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function last(e,t,r){var n=0,i=e?e.length:0;if("number"!=typeof t&&null!=t){var s=i;for(t=createCallback(t,r,3);s--&&t(e[s],s,e);)n++}else if(n=t,null==n||r)return e?e[i-1]:void 0;return slice(e,nativeMax(0,i-n))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max;module.exports=last;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/lastIndexOf", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/lastIndexOf.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function lastIndexOf(e,t,r){var n=e?e.length:0;for("number"==typeof r&&(n=(0>r?nativeMax(0,n+r):nativeMin(r,n-1))+1);n--;)if(e[n]===t)return n;return-1}var nativeMax=Math.max,nativeMin=Math.min;module.exports=lastIndexOf;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/zipObject", ["../objects/isArray"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/zipObject.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function zipObject(e,t){var r=-1,n=e?e.length:0,i={};for(t||!n||isArray(e[0])||(t=[]);++r<n;){var s=e[r];t?i[s]=t[r]:s&&(i[s[0]]=s[1])}return i}var isArray=require("../objects/isArray");module.exports=zipObject;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/pull", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/pull.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function pull(e){for(var t=arguments,r=0,n=t.length,i=e?e.length:0;++r<n;)for(var s=-1,o=t[r];++s<i;)e[s]===o&&(splice.call(e,s--,1),i--);return e}var arrayRef=[],splice=arrayRef.splice;module.exports=pull;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/range", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/range.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function range(e,t,r){e=+e||0,r="number"==typeof r?r:+r||1,null==t&&(t=e,e=0);for(var n=-1,i=nativeMax(0,ceil((t-e)/(r||1))),s=Array(i);++n<i;)s[n]=e,e+=r;return s}var ceil=Math.ceil,nativeMax=Math.max;module.exports=range;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/remove", ["../functions/createCallback"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/remove.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function remove(e,t,r){var n=-1,i=e?e.length:0,s=[];for(t=createCallback(t,r,3);++n<i;){var o=e[n];t(o,n,e)&&(s.push(o),splice.call(e,n--,1),i--)}return s}var createCallback=require("../functions/createCallback"),arrayRef=[],splice=arrayRef.splice;module.exports=remove;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseUniq", ["./baseIndexOf","./cacheIndexOf","./createCache","./getArray","./largeArraySize","./releaseArray","./releaseObject","github:jspm/nodelibs@0.0.5/process"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseUniq.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";!function(){function e(e,u,c){var l=-1,p=t,h=e?e.length:0,f=[],d=!u&&h>=s,m=c||d?i():f;if(d){var b=n(m);p=r,m=b}for(;++l<h;){var g=e[l],v=c?c(g,l,e):g;(u?!l||m[m.length-1]!==v:p(m,v)<0)&&((c||d)&&m.push(v),f.push(g))}return d?(o(m.array),a(m)):c&&o(m),f}var t=require("./baseIndexOf"),r=require("./cacheIndexOf"),n=require("./createCache"),i=require("./getArray"),s=require("./largeArraySize"),o=require("./releaseArray"),a=require("./releaseObject");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/uniq", ["../internals/baseUniq","../functions/createCallback","github:jspm/nodelibs@0.0.5/process"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/uniq.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";!function(){function e(e,n,i,s){return"boolean"!=typeof n&&null!=n&&(s=i,i="function"!=typeof n&&s&&s[n]===e?null:n,n=!1),null!=i&&(i=r(i,s,3)),t(e,n,i)}var t=require("../internals/baseUniq"),r=require("../functions/createCallback");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/charAtCallback", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/charAtCallback.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function charAtCallback(e){return e.charCodeAt(0)}module.exports=charAtCallback;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/forEach", ["../internals/baseCreateCallback","../objects/forOwn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/forEach.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function forEach(e,t,r){var n=-1,i=e?e.length:0;if(t=t&&"undefined"==typeof r?t:baseCreateCallback(t,r,3),"number"==typeof i)for(;++n<i&&t(e[n],n,e)!==!1;);else forOwn(e,t);return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forOwn=require("../objects/forOwn");module.exports=forEach;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isString", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isString.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isString(e){return"string"==typeof e||e&&"object"==typeof e&&toString.call(e)==stringClass||!1}var stringClass="[object String]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isString;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/pluck", ["./map"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/pluck.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";var map=require("./map"),pluck=map;module.exports=pluck;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/without", ["../internals/baseDifference","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/without.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function without(e){return baseDifference(e,slice(arguments,1))}var baseDifference=require("../internals/baseDifference"),slice=require("../internals/slice");module.exports=without;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/xor", ["../internals/baseDifference","../internals/baseUniq","../objects/isArguments","../objects/isArray"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/xor.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function xor(){for(var e=-1,t=arguments.length;++e<t;){var r=arguments[e];if(isArray(r)||isArguments(r))var n=n?baseUniq(baseDifference(n,r).concat(baseDifference(r,n))):r}return n||[]}var baseDifference=require("../internals/baseDifference"),baseUniq=require("../internals/baseUniq"),isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray");module.exports=xor;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/lodashWrapper", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/lodashWrapper.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function lodashWrapper(e,t){this.__chain__=!!t,this.__wrapped__=e}module.exports=lodashWrapper;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/chaining/tap", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining/tap.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining";
+  /* */
+  "format cjs";function tap(e,t){return t(e),e}module.exports=tap;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/chaining/wrapperValueOf", ["../collections/forEach","../support"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining/wrapperValueOf.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining";
+  /* */
+  "format cjs";function wrapperValueOf(){return this.__wrapped__}var forEach=require("../collections/forEach"),support=require("../support");module.exports=wrapperValueOf;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/chaining/wrapperChain", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining/wrapperChain.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining";
+  /* */
+  "format cjs";function wrapperChain(){return this.__chain__=!0,this}module.exports=wrapperChain;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/chaining/wrapperToString", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining/wrapperToString.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining";
+  /* */
+  "format cjs";function wrapperToString(){return String(this.__wrapped__)}module.exports=wrapperToString;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/every", ["../functions/createCallback","../objects/forOwn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/every.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function every(e,t,r){var n=!0;t=createCallback(t,r,3);var i=-1,s=e?e.length:0;if("number"==typeof s)for(;++i<s&&(n=!!t(e[i],i,e)););else forOwn(e,function(e,r,i){return n=!!t(e,r,i)});return n}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=every;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/some", ["../functions/createCallback","../objects/forOwn","../objects/isArray"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/some.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function some(e,t,r){var n;t=createCallback(t,r,3);var i=-1,s=e?e.length:0;if("number"==typeof s)for(;++i<s&&!(n=t(e[i],i,e)););else forOwn(e,function(e,r,i){return!(n=t(e,r,i))});return!!n}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray");module.exports=some;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/at", ["../internals/baseFlatten","../objects/isString"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/at.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function at(e){for(var t=arguments,r=-1,n=baseFlatten(t,!0,!1,1),i=t[2]&&t[2][t[1]]===e?1:n.length,s=Array(i);++r<i;)s[r]=e[n[r]];return s}var baseFlatten=require("../internals/baseFlatten"),isString=require("../objects/isString");module.exports=at;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/contains", ["../internals/baseIndexOf","../objects/forOwn","../objects/isArray","../objects/isString"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/contains.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function contains(e,t,r){var n=-1,i=baseIndexOf,s=e?e.length:0,o=!1;return r=(0>r?nativeMax(0,s+r):r)||0,isArray(e)?o=i(e,t,r)>-1:"number"==typeof s?o=(isString(e)?e.indexOf(t,r):i(e,t,r))>-1:forOwn(e,function(e){return++n>=r?!(o=e===t):void 0}),o}var baseIndexOf=require("../internals/baseIndexOf"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString"),nativeMax=Math.max;module.exports=contains;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/createAggregator", ["../functions/createCallback","../objects/forOwn","../objects/isArray"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/createAggregator.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function createAggregator(e){return function(t,r,n){var i={};r=createCallback(r,n,3);var s=-1,o=t?t.length:0;if("number"==typeof o)for(;++s<o;){var a=t[s];e(i,a,r(a,s,t),t)}else forOwn(t,function(t,n,s){e(i,t,r(t,n,s),s)});return i}}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray");module.exports=createAggregator;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/find", ["../functions/createCallback","../objects/forOwn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/find.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function find(e,t,r){t=createCallback(t,r,3);var n=-1,i=e?e.length:0;if("number"!=typeof i){var s;return forOwn(e,function(e,r,n){return t(e,r,n)?(s=e,!1):void 0}),s}for(;++n<i;){var o=e[n];if(t(o,n,e))return o}}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=find;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/forEachRight", ["../internals/baseCreateCallback","../objects/forOwn","../objects/isArray","../objects/isString","../objects/keys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/forEachRight.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function forEachRight(e,t,r){var n=e?e.length:0;if(t=t&&"undefined"==typeof r?t:baseCreateCallback(t,r,3),"number"==typeof n)for(;n--&&t(e[n],n,e)!==!1;);else{var i=keys(e);n=i.length,forOwn(e,function(e,r,s){return r=i?i[--n]:--n,t(s[r],r,s)})}return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString"),keys=require("../objects/keys");module.exports=forEachRight;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/filter", ["../functions/createCallback","../objects/forOwn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/filter.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function filter(e,t,r){var n=[];t=createCallback(t,r,3);var i=-1,s=e?e.length:0;if("number"==typeof s)for(;++i<s;){var o=e[i];t(o,i,e)&&n.push(o)}else forOwn(e,function(e,r,i){t(e,r,i)&&n.push(e)});return n}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=filter;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/findLast", ["../functions/createCallback","./forEachRight"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/findLast.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function findLast(e,t,r){var n;return t=createCallback(t,r,3),forEachRight(e,function(e,r,i){return t(e,r,i)?(n=e,!1):void 0}),n}var createCallback=require("../functions/createCallback"),forEachRight=require("./forEachRight");module.exports=findLast;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/reduce", ["../functions/createCallback","../objects/forOwn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/reduce.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function reduce(e,t,r,n){if(!e)return r;var i=arguments.length<3;t=createCallback(t,n,4);var s=-1,o=e.length;if("number"==typeof o)for(i&&(r=e[++s]);++s<o;)r=t(r,e[s],s,e);else forOwn(e,function(e,n,s){r=i?(i=!1,e):t(r,e,n,s)});return r}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=reduce;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/reduceRight", ["../functions/createCallback","./forEachRight"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/reduceRight.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function reduceRight(e,t,r,n){var i=arguments.length<3;return t=createCallback(t,n,4),forEachRight(e,function(e,n,s){r=i?(i=!1,e):t(r,e,n,s)}),r}var createCallback=require("../functions/createCallback"),forEachRight=require("./forEachRight");module.exports=reduceRight;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/groupBy", ["../internals/createAggregator"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/groupBy.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";var createAggregator=require("../internals/createAggregator"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,groupBy=createAggregator(function(e,t,r){(hasOwnProperty.call(e,r)?e[r]:e[r]=[]).push(t)});module.exports=groupBy;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/indexBy", ["../internals/createAggregator"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/indexBy.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";var createAggregator=require("../internals/createAggregator"),indexBy=createAggregator(function(e,t,r){e[r]=t});module.exports=indexBy;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/invoke", ["./forEach","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/invoke.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function invoke(e,t){var r=slice(arguments,2),n=-1,i="function"==typeof t,s=e?e.length:0,o=Array("number"==typeof s?s:0);return forEach(e,function(e){o[++n]=(i?t:e[t]).apply(e,r)}),o}var forEach=require("./forEach"),slice=require("../internals/slice");module.exports=invoke;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/min", ["../internals/charAtCallback","../functions/createCallback","./forEach","../objects/forOwn","../objects/isArray","../objects/isString"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/min.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function min(e,t,r){var n=1/0,i=n;if("function"!=typeof t&&r&&r[t]===e&&(t=null),null==t&&isArray(e))for(var s=-1,o=e.length;++s<o;){var a=e[s];i>a&&(i=a)}else t=null==t&&isString(e)?charAtCallback:createCallback(t,r,3),forEach(e,function(e,r,s){var o=t(e,r,s);n>o&&(n=o,i=e)});return i}var charAtCallback=require("../internals/charAtCallback"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString");module.exports=min;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/reject", ["../functions/createCallback","./filter"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/reject.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function reject(e,t,r){return t=createCallback(t,r,3),filter(e,function(e,r,n){return!t(e,r,n)})}var createCallback=require("../functions/createCallback"),filter=require("./filter");module.exports=reject;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseRandom", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseRandom.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseRandom(e,t){return e+floor(nativeRandom()*(t-e+1))}var floor=Math.floor,nativeRandom=Math.random;module.exports=baseRandom;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/shuffle", ["../internals/baseRandom","./forEach"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/shuffle.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function shuffle(e){var t=-1,r=e?e.length:0,n=Array("number"==typeof r?r:0);return forEach(e,function(e){var r=baseRandom(0,++t);n[t]=n[r],n[r]=e}),n}var baseRandom=require("../internals/baseRandom"),forEach=require("./forEach");module.exports=shuffle;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/values", ["./keys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/values.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function values(e){for(var t=-1,r=keys(e),n=r.length,i=Array(n);++t<n;)i[t]=e[r[t]];return i}var keys=require("./keys");module.exports=values;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/size", ["../objects/keys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/size.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function size(e){var t=e?e.length:0;return"number"==typeof t?t:keys(e).length}var keys=require("../objects/keys");module.exports=size;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/compareAscending", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/compareAscending.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function compareAscending(e,t){for(var r=e.criteria,n=t.criteria,i=-1,s=r.length;++i<s;){var o=r[i],a=n[i];if(o!==a){if(o>a||"undefined"==typeof o)return 1;if(a>o||"undefined"==typeof a)return-1}}return e.index-t.index}module.exports=compareAscending;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/toArray", ["../objects/isString","../internals/slice","../objects/values"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/toArray.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function toArray(e){return e&&"number"==typeof e.length?slice(e):values(e)}var isString=require("../objects/isString"),slice=require("../internals/slice"),values=require("../objects/values");module.exports=toArray;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/where", ["./filter"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/where.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";var filter=require("./filter"),where=filter;module.exports=where;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/after", ["../objects/isFunction"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/after.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function after(e,t){if(!isFunction(t))throw new TypeError;return function(){return--e<1?t.apply(this,arguments):void 0}}var isFunction=require("../objects/isFunction");module.exports=after;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/functions", ["./forIn","./isFunction"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/functions.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function functions(e){var t=[];return forIn(e,function(e,r){isFunction(e)&&t.push(r)}),t.sort()}var forIn=require("./forIn"),isFunction=require("./isFunction");module.exports=functions;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/bindKey", ["../internals/createWrapper","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/bindKey.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function bindKey(e,t){return arguments.length>2?createWrapper(t,19,slice(arguments,2),null,e):createWrapper(t,3,null,null,e)}var createWrapper=require("../internals/createWrapper"),slice=require("../internals/slice");module.exports=bindKey;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/compose", ["../objects/isFunction"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/compose.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function compose(){for(var e=arguments,t=e.length;t--;)if(!isFunction(e[t]))throw new TypeError;return function(){for(var t=arguments,r=e.length;r--;)t=[e[r].apply(this,t)];return t[0]}}var isFunction=require("../objects/isFunction");module.exports=compose;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/curry", ["../internals/createWrapper"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/curry.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function curry(e,t){return t="number"==typeof t?t:+t||e.length,createWrapper(e,4,null,null,null,t)}var createWrapper=require("../internals/createWrapper");module.exports=curry;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/now", ["../internals/isNative"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/now.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";var isNative=require("../internals/isNative"),now=isNative(now=Date.now)&&now||function(){return(new Date).getTime()};module.exports=now;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/defer", ["../objects/isFunction","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/defer.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function defer(e){if(!isFunction(e))throw new TypeError;var t=slice(arguments,1);return setTimeout(function(){e.apply(void 0,t)},1)}var isFunction=require("../objects/isFunction"),slice=require("../internals/slice");module.exports=defer;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/delay", ["../objects/isFunction","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/delay.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function delay(e,t){if(!isFunction(e))throw new TypeError;var r=slice(arguments,2);return setTimeout(function(){e.apply(void 0,r)},t)}var isFunction=require("../objects/isFunction"),slice=require("../internals/slice");module.exports=delay;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/memoize", ["../objects/isFunction","../internals/keyPrefix"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/memoize.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function memoize(e,t){if(!isFunction(e))throw new TypeError;var r=function(){var n=r.cache,i=t?t.apply(this,arguments):keyPrefix+arguments[0];return hasOwnProperty.call(n,i)?n[i]:n[i]=e.apply(this,arguments)};return r.cache={},r}var isFunction=require("../objects/isFunction"),keyPrefix=require("../internals/keyPrefix"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;module.exports=memoize;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/once", ["../objects/isFunction"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/once.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function once(e){var t,r;if(!isFunction(e))throw new TypeError;return function(){return t?r:(t=!0,r=e.apply(this,arguments),e=null,r)}}var isFunction=require("../objects/isFunction");module.exports=once;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/partial", ["../internals/createWrapper","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/partial.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function partial(e){return createWrapper(e,16,slice(arguments,1))}var createWrapper=require("../internals/createWrapper"),slice=require("../internals/slice");module.exports=partial;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/partialRight", ["../internals/createWrapper","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/partialRight.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function partialRight(e){return createWrapper(e,32,null,slice(arguments,1))}var createWrapper=require("../internals/createWrapper"),slice=require("../internals/slice");module.exports=partialRight;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/throttle", ["./debounce","../objects/isFunction","../objects/isObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/throttle.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function throttle(e,t,r){var n=!0,i=!0;if(!isFunction(e))throw new TypeError;return r===!1?n=!1:isObject(r)&&(n="leading"in r?r.leading:n,i="trailing"in r?r.trailing:i),debounceOptions.leading=n,debounceOptions.maxWait=t,debounceOptions.trailing=i,debounce(e,t,debounceOptions)}var debounce=require("./debounce"),isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),debounceOptions={leading:!1,maxWait:0,trailing:!1};module.exports=throttle;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/wrap", ["../internals/createWrapper"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/wrap.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function wrap(e,t){return createWrapper(t,16,[e])}var createWrapper=require("../internals/createWrapper");module.exports=wrap;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/assign", ["../internals/baseCreateCallback","./keys","../internals/objectTypes"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/assign.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys"),objectTypes=require("../internals/objectTypes"),assign=function(e,t,r){var n,i=e,s=i;if(!i)return s;var o=arguments,a=0,u="number"==typeof r?2:o.length;if(u>3&&"function"==typeof o[u-2])var c=baseCreateCallback(o[--u-1],o[u--],2);else u>2&&"function"==typeof o[u-1]&&(c=o[--u]);for(;++a<u;)if(i=o[a],i&&objectTypes[typeof i])for(var l=-1,p=objectTypes[typeof i]&&keys(i),f=p?p.length:0;++l<f;)n=p[l],s[n]=c?c(s[n],i[n]):i[n];return s};module.exports=assign;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseClone", ["../objects/assign","../collections/forEach","../objects/forOwn","./getArray","../objects/isArray","../objects/isObject","./releaseArray","./slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseClone.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseClone(e,t,r,n,i){if(r){var s=r(e);if("undefined"!=typeof s)return s}var o=isObject(e);if(!o)return e;var a=toString.call(e);if(!cloneableClasses[a])return e;var u=ctorByClass[a];switch(a){case boolClass:case dateClass:return new u(+e);case numberClass:case stringClass:return new u(e);case regexpClass:return s=u(e.source,reFlags.exec(e)),s.lastIndex=e.lastIndex,s}var c=isArray(e);if(t){var l=!n;n||(n=getArray()),i||(i=getArray());for(var p=n.length;p--;)if(n[p]==e)return i[p];s=c?u(e.length):{}}else s=c?slice(e):assign({},e);return c&&(hasOwnProperty.call(e,"index")&&(s.index=e.index),hasOwnProperty.call(e,"input")&&(s.input=e.input)),t?(n.push(e),i.push(s),(c?forEach:forOwn)(e,function(e,o){s[o]=baseClone(e,t,r,n,i)}),l&&(releaseArray(n),releaseArray(i)),s):s}var assign=require("../objects/assign"),forEach=require("../collections/forEach"),forOwn=require("../objects/forOwn"),getArray=require("./getArray"),isArray=require("../objects/isArray"),isObject=require("../objects/isObject"),releaseArray=require("./releaseArray"),slice=require("./slice"),reFlags=/\w*$/,argsClass="[object Arguments]",arrayClass="[object Array]",boolClass="[object Boolean]",dateClass="[object Date]",funcClass="[object Function]",numberClass="[object Number]",objectClass="[object Object]",regexpClass="[object RegExp]",stringClass="[object String]",cloneableClasses={};cloneableClasses[funcClass]=!1,cloneableClasses[argsClass]=cloneableClasses[arrayClass]=cloneableClasses[boolClass]=cloneableClasses[dateClass]=cloneableClasses[numberClass]=cloneableClasses[objectClass]=cloneableClasses[regexpClass]=cloneableClasses[stringClass]=!0;var objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty,ctorByClass={};ctorByClass[arrayClass]=Array,ctorByClass[boolClass]=Boolean,ctorByClass[dateClass]=Date,ctorByClass[funcClass]=Function,ctorByClass[objectClass]=Object,ctorByClass[numberClass]=Number,ctorByClass[regexpClass]=RegExp,ctorByClass[stringClass]=String,module.exports=baseClone;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/cloneDeep", ["../internals/baseClone","../internals/baseCreateCallback"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/cloneDeep.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function cloneDeep(e,t,r){return baseClone(e,!0,"function"==typeof t&&baseCreateCallback(t,r,1))}var baseClone=require("../internals/baseClone"),baseCreateCallback=require("../internals/baseCreateCallback");module.exports=cloneDeep;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/create", ["./assign","../internals/baseCreate"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/create.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function create(e,t){var r=baseCreate(e);return t?assign(r,t):r}var assign=require("./assign"),baseCreate=require("../internals/baseCreate");module.exports=create;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/defaults", ["./keys","../internals/objectTypes"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/defaults.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";var keys=require("./keys"),objectTypes=require("../internals/objectTypes"),defaults=function(e,t,r){var n,i=e,s=i;if(!i)return s;for(var o=arguments,a=0,u="number"==typeof r?2:o.length;++a<u;)if(i=o[a],i&&objectTypes[typeof i])for(var c=-1,l=objectTypes[typeof i]&&keys(i),p=l?l.length:0;++c<p;)n=l[c],"undefined"==typeof s[n]&&(s[n]=i[n]);return s};module.exports=defaults;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/findKey", ["../functions/createCallback","./forOwn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/findKey.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function findKey(e,t,r){var n;return t=createCallback(t,r,3),forOwn(e,function(e,r,i){return t(e,r,i)?(n=r,!1):void 0}),n}var createCallback=require("../functions/createCallback"),forOwn=require("./forOwn");module.exports=findKey;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/forOwnRight", ["../internals/baseCreateCallback","./keys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/forOwnRight.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function forOwnRight(e,t,r){var n=keys(e),i=n.length;for(t=baseCreateCallback(t,r,3);i--;){var s=n[i];if(t(e[s],s,e)===!1)break}return e}var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys");module.exports=forOwnRight;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/forInRight", ["../internals/baseCreateCallback","./forIn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/forInRight.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function forInRight(e,t,r){var n=[];forIn(e,function(e,t){n.push(t,e)});var i=n.length;for(t=baseCreateCallback(t,r,3);i--&&t(n[i--],n[i],e)!==!1;);return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forIn=require("./forIn");module.exports=forInRight;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/has", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/has.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function has(e,t){return e?hasOwnProperty.call(e,t):!1}var objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;module.exports=has;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/invert", ["./keys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/invert.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function invert(e){for(var t=-1,r=keys(e),n=r.length,i={};++t<n;){var s=r[t];i[e[s]]=s}return i}var keys=require("./keys");module.exports=invert;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isBoolean", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isBoolean.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isBoolean(e){return e===!0||e===!1||e&&"object"==typeof e&&toString.call(e)==boolClass||!1}var boolClass="[object Boolean]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isBoolean;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isDate", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isDate.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isDate(e){return e&&"object"==typeof e&&toString.call(e)==dateClass||!1}var dateClass="[object Date]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isDate;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isElement", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isElement.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isElement(e){return e&&1===e.nodeType||!1}module.exports=isElement;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isEmpty", ["./forOwn","./isFunction"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isEmpty.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isEmpty(e){var t=!0;if(!e)return t;var r=toString.call(e),n=e.length;return r==arrayClass||r==stringClass||r==argsClass||r==objectClass&&"number"==typeof n&&isFunction(e.splice)?!n:(forOwn(e,function(){return t=!1}),t)}var forOwn=require("./forOwn"),isFunction=require("./isFunction"),argsClass="[object Arguments]",arrayClass="[object Array]",objectClass="[object Object]",stringClass="[object String]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isEmpty;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isEqual", ["../internals/baseCreateCallback","../internals/baseIsEqual"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isEqual.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isEqual(e,t,r,n){return baseIsEqual(e,t,"function"==typeof r&&baseCreateCallback(r,n,2))}var baseCreateCallback=require("../internals/baseCreateCallback"),baseIsEqual=require("../internals/baseIsEqual");module.exports=isEqual;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isFinite", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isFinite.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isFinite(e){return nativeIsFinite(e)&&!nativeIsNaN(parseFloat(e))}var nativeIsFinite=global.isFinite,nativeIsNaN=global.isNaN;module.exports=isFinite;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isNumber", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isNumber.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isNumber(e){return"number"==typeof e||e&&"object"==typeof e&&toString.call(e)==numberClass||!1}var numberClass="[object Number]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isNumber;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isNull", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isNull.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isNull(e){return null===e}module.exports=isNull;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/shimIsPlainObject", ["../objects/forIn","../objects/isFunction"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/shimIsPlainObject.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function shimIsPlainObject(e){var t,r;return e&&toString.call(e)==objectClass&&(t=e.constructor,!isFunction(t)||t instanceof t)?(forIn(e,function(e,t){r=t}),"undefined"==typeof r||hasOwnProperty.call(e,r)):!1}var forIn=require("../objects/forIn"),isFunction=require("../objects/isFunction"),objectClass="[object Object]",objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty;module.exports=shimIsPlainObject;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isRegExp", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isRegExp.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isRegExp(e){return e&&"object"==typeof e&&toString.call(e)==regexpClass||!1}var regexpClass="[object RegExp]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isRegExp;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isUndefined", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isUndefined.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isUndefined(e){return"undefined"==typeof e}module.exports=isUndefined;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/mapValues", ["../functions/createCallback","./forOwn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/mapValues.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function mapValues(e,t,r){var n={};return t=createCallback(t,r,3),forOwn(e,function(e,r,i){n[r]=t(e,r,i)}),n}var createCallback=require("../functions/createCallback"),forOwn=require("./forOwn");module.exports=mapValues;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseMerge", ["../collections/forEach","../objects/forOwn","../objects/isArray","../objects/isPlainObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseMerge.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseMerge(e,t,r,n,i){(isArray(t)?forEach:forOwn)(t,function(t,s){var o,a,u=t,c=e[s];if(t&&((a=isArray(t))||isPlainObject(t))){for(var l=n.length;l--;)if(o=n[l]==t){c=i[l];break}if(!o){var p;r&&(u=r(c,t),(p="undefined"!=typeof u)&&(c=u)),p||(c=a?isArray(c)?c:[]:isPlainObject(c)?c:{}),n.push(t),i.push(c),p||baseMerge(c,t,r,n,i)}}else r&&(u=r(c,t),"undefined"==typeof u&&(u=t)),"undefined"!=typeof u&&(c=u);e[s]=c})}var forEach=require("../collections/forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isPlainObject=require("../objects/isPlainObject");module.exports=baseMerge;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/omit", ["../internals/baseDifference","../internals/baseFlatten","../functions/createCallback","./forIn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/omit.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function omit(e,t,r){var n={};if("function"!=typeof t){var i=[];forIn(e,function(e,t){i.push(t)}),i=baseDifference(i,baseFlatten(arguments,!0,!1,1));for(var s=-1,o=i.length;++s<o;){var a=i[s];n[a]=e[a]}}else t=createCallback(t,r,3),forIn(e,function(e,r,i){t(e,r,i)||(n[r]=e)});return n}var baseDifference=require("../internals/baseDifference"),baseFlatten=require("../internals/baseFlatten"),createCallback=require("../functions/createCallback"),forIn=require("./forIn");module.exports=omit;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/pairs", ["./keys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/pairs.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function pairs(e){for(var t=-1,r=keys(e),n=r.length,i=Array(n);++t<n;){var s=r[t];i[t]=[s,e[s]]}return i}var keys=require("./keys");module.exports=pairs;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/pick", ["../internals/baseFlatten","../functions/createCallback","./forIn","./isObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/pick.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function pick(e,t,r){var n={};if("function"!=typeof t)for(var i=-1,s=baseFlatten(arguments,!0,!1,1),o=isObject(e)?s.length:0;++i<o;){var a=s[i];a in e&&(n[a]=e[a])}else t=createCallback(t,r,3),forIn(e,function(e,r,i){t(e,r,i)&&(n[r]=e)});return n}var baseFlatten=require("../internals/baseFlatten"),createCallback=require("../functions/createCallback"),forIn=require("./forIn"),isObject=require("./isObject");module.exports=pick;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/transform", ["../internals/baseCreate","../functions/createCallback","../collections/forEach","./forOwn","./isArray"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/transform.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function transform(e,t,r,n){var i=isArray(e);if(null==r)if(i)r=[];else{var s=e&&e.constructor,o=s&&s.prototype;r=baseCreate(o)}return t&&(t=createCallback(t,n,4),(i?forEach:forOwn)(e,function(e,n,i){return t(r,e,n,i)})),r}var baseCreate=require("../internals/baseCreate"),createCallback=require("../functions/createCallback"),forEach=require("../collections/forEach"),forOwn=require("./forOwn"),isArray=require("./isArray");module.exports=transform;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/constant", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/constant.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function constant(e){return function(){return e}}module.exports=constant;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/htmlEscapes", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/htmlEscapes.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var htmlEscapes={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};module.exports=htmlEscapes;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/reUnescapedHtml", ["./htmlEscapes","../objects/keys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/reUnescapedHtml.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var htmlEscapes=require("./htmlEscapes"),keys=require("../objects/keys"),reUnescapedHtml=RegExp("["+keys(htmlEscapes).join("")+"]","g");module.exports=reUnescapedHtml;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/mixin", ["../collections/forEach","../objects/functions","../objects/isFunction","../objects/isObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/mixin.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function mixin(e,t,r){var n=!0,i=t&&functions(t);r===!1?n=!1:isObject(r)&&"chain"in r&&(n=r.chain);var s=e,o=isFunction(s);forEach(i,function(r){var i=e[r]=t[r];o&&(s.prototype[r]=function(){var t=this.__chain__,r=this.__wrapped__,o=[r];push.apply(o,arguments);var a=i.apply(e,o);if(n||t){if(r===a&&isObject(a))return this;a=new s(a),a.__chain__=t}return a})})}var forEach=require("../collections/forEach"),functions=require("../objects/functions"),isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),arrayRef=[],push=arrayRef.push;module.exports=mixin;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/noConflict", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/noConflict.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function noConflict(){return global._=oldDash,this}var oldDash=global._;module.exports=noConflict;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/parseInt", ["../objects/isString"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/parseInt.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";var isString=require("../objects/isString"),whitespace=" 	\f\xa0\ufeff\n\r\u2028\u2029\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f\u205f\u3000",reLeadingSpacesAndZeros=RegExp("^["+whitespace+"]*0+(?=.$)"),nativeParseInt=global.parseInt,parseInt=8==nativeParseInt(whitespace+"08")?nativeParseInt:function(e,t){return nativeParseInt(isString(e)?e.replace(reLeadingSpacesAndZeros,""):e,t||0)};module.exports=parseInt;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/random", ["../internals/baseRandom"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/random.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function random(e,t,r){var n=null==e,i=null==t;if(null==r&&("boolean"==typeof e&&i?(r=e,e=1):i||"boolean"!=typeof t||(r=t,i=!0)),n&&i&&(t=1),e=+e||0,i?(t=e,e=0):t=+t||0,r||e%1||t%1){var s=nativeRandom();return nativeMin(e+s*(t-e+parseFloat("1e-"+((s+"").length-1))),t)}return baseRandom(e,t)}var baseRandom=require("../internals/baseRandom"),nativeMin=Math.min,nativeRandom=Math.random;module.exports=random;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/result", ["../objects/isFunction"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/result.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function result(e,t){if(e){var r=e[t];return isFunction(r)?e[t]():r}}var isFunction=require("../objects/isFunction");module.exports=result;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/escapeStringChar", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/escapeStringChar.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function escapeStringChar(e){return"\\"+stringEscapes[e]}var stringEscapes={"\\":"\\","'":"'","\n":"n","\r":"r","	":"t","\u2028":"u2028","\u2029":"u2029"};module.exports=escapeStringChar;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/reInterpolate", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/reInterpolate.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var reInterpolate=/<%=([\s\S]+?)%>/g;module.exports=reInterpolate;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/templateSettings", ["./escape","../internals/reInterpolate"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/templateSettings.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";var escape=require("./escape"),reInterpolate=require("../internals/reInterpolate"),templateSettings={escape:/<%-([\s\S]+?)%>/g,evaluate:/<%([\s\S]+?)%>/g,interpolate:reInterpolate,variable:"",imports:{_:{escape:escape}}};module.exports=templateSettings;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/times", ["../internals/baseCreateCallback"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/times.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function times(e,t,r){e=(e=+e)>-1?e:0;var n=-1,i=Array(e);for(t=baseCreateCallback(t,r,1);++n<e;)i[n]=t(n);return i}var baseCreateCallback=require("../internals/baseCreateCallback");module.exports=times;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/htmlUnescapes", ["./htmlEscapes","../objects/invert"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/htmlUnescapes.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var htmlEscapes=require("./htmlEscapes"),invert=require("../objects/invert"),htmlUnescapes=invert(htmlEscapes);module.exports=htmlUnescapes;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/unescapeHtmlChar", ["./htmlUnescapes"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/unescapeHtmlChar.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function unescapeHtmlChar(e){return htmlUnescapes[e]}var htmlUnescapes=require("./htmlUnescapes");module.exports=unescapeHtmlChar;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/uniqueId", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/uniqueId.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function uniqueId(e){var t=++idCounter;return String(null==e?"":e)+t}var idCounter=0;module.exports=uniqueId;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/cacheIndexOf", ["./baseIndexOf","./keyPrefix"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/cacheIndexOf.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function cacheIndexOf(e,t){var r=typeof t;if(e=e.cache,"boolean"==r||null==t)return e[t]?0:-1;"number"!=r&&"string"!=r&&(r="object");var n="number"==r?t:keyPrefix+t;return e=(e=e[r])&&e[n],"object"==r?e&&baseIndexOf(e,t)>-1?0:-1:e?0:-1}var baseIndexOf=require("./baseIndexOf"),keyPrefix=require("./keyPrefix");module.exports=cacheIndexOf;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/getObject", ["./objectPool"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/getObject.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function getObject(){return objectPool.pop()||{array:null,cache:null,criteria:null,"false":!1,index:0,"null":!1,number:null,object:null,push:null,string:null,"true":!1,undefined:!1,value:null}}var objectPool=require("./objectPool");module.exports=getObject;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/releaseObject", ["./maxPoolSize","./objectPool"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/releaseObject.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function releaseObject(e){var t=e.cache;t&&releaseObject(t),e.array=e.cache=e.criteria=e.object=e.number=e.string=e.value=null,objectPool.length<maxPoolSize&&objectPool.push(e)}var maxPoolSize=require("./maxPoolSize"),objectPool=require("./objectPool");module.exports=releaseObject;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isArray", ["../internals/isNative"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isArray.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";var isNative=require("../internals/isNative"),arrayClass="[object Array]",objectProto=Object.prototype,toString=objectProto.toString,nativeIsArray=isNative(nativeIsArray=Array.isArray)&&nativeIsArray,isArray=nativeIsArray||function(e){return e&&"object"==typeof e&&"number"==typeof e.length&&toString.call(e)==arrayClass||!1};module.exports=isArray;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isObject", ["../internals/objectTypes"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isObject.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isObject(e){return!(!e||!objectTypes[typeof e])}var objectTypes=require("../internals/objectTypes");module.exports=isObject;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/getArray", ["./arrayPool"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/getArray.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function getArray(){return arrayPool.pop()||[]}var arrayPool=require("./arrayPool");module.exports=getArray;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/keys", ["../internals/isNative","./isObject","../internals/shimKeys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/keys.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";var isNative=require("../internals/isNative"),isObject=require("./isObject"),shimKeys=require("../internals/shimKeys"),nativeKeys=isNative(nativeKeys=Object.keys)&&nativeKeys,keys=nativeKeys?function(e){return isObject(e)?nativeKeys(e):[]}:shimKeys;module.exports=keys;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/map", ["../functions/createCallback","../objects/forOwn"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/map.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function map(e,t,r){var n=-1,i=e?e.length:0;if(t=createCallback(t,r,3),"number"==typeof i)for(var s=Array(i);++n<i;)s[n]=t(e[n],n,e);else s=[],forOwn(e,function(e,r,i){s[++n]=t(e,r,i)});return s}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=map;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/indexOf", ["../internals/baseIndexOf","./sortedIndex"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/indexOf.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function indexOf(e,t,r){if("number"==typeof r){var n=e?e.length:0;r=0>r?nativeMax(0,n+r):r||0}else if(r){var i=sortedIndex(e,t);return e[i]===t?i:-1}return baseIndexOf(e,t,r)}var baseIndexOf=require("../internals/baseIndexOf"),sortedIndex=require("./sortedIndex"),nativeMax=Math.max;module.exports=indexOf;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/union", ["../internals/baseFlatten","../internals/baseUniq"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/union.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function union(){return baseUniq(baseFlatten(arguments,!0,!0))}var baseFlatten=require("../internals/baseFlatten"),baseUniq=require("../internals/baseUniq");module.exports=union;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/max", ["../internals/charAtCallback","../functions/createCallback","./forEach","../objects/forOwn","../objects/isArray","../objects/isString"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/max.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function max(e,t,r){var n=-1/0,i=n;if("function"!=typeof t&&r&&r[t]===e&&(t=null),null==t&&isArray(e))for(var s=-1,o=e.length;++s<o;){var a=e[s];a>i&&(i=a)}else t=null==t&&isString(e)?charAtCallback:createCallback(t,r,3),forEach(e,function(e,r,s){var o=t(e,r,s);o>n&&(n=o,i=e)});return i}var charAtCallback=require("../internals/charAtCallback"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString");module.exports=max;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/chaining/chain", ["../internals/lodashWrapper"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining/chain.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining";
+  /* */
+  "format cjs";function chain(e){return e=new lodashWrapper(e),e.__chain__=!0,e}var lodashWrapper=require("../internals/lodashWrapper");module.exports=chain;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/countBy", ["../internals/createAggregator"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/countBy.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";var createAggregator=require("../internals/createAggregator"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,countBy=createAggregator(function(e,t,r){hasOwnProperty.call(e,r)?e[r]++:e[r]=1});module.exports=countBy;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/sample", ["../internals/baseRandom","../objects/isString","./shuffle","../objects/values"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/sample.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function sample(e,t,r){if(e&&"number"!=typeof e.length&&(e=values(e)),null==t||r)return e?e[baseRandom(0,e.length-1)]:void 0;var n=shuffle(e);return n.length=nativeMin(nativeMax(0,t),n.length),n}var baseRandom=require("../internals/baseRandom"),isString=require("../objects/isString"),shuffle=require("./shuffle"),values=require("../objects/values"),nativeMax=Math.max,nativeMin=Math.min;module.exports=sample;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections/sortBy", ["../internals/compareAscending","../functions/createCallback","./forEach","../internals/getArray","../internals/getObject","../objects/isArray","./map","../internals/releaseArray","../internals/releaseObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/sortBy.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
+  /* */
+  "format cjs";function sortBy(e,t,r){var n=-1,i=isArray(t),s=e?e.length:0,o=Array("number"==typeof s?s:0);for(i||(t=createCallback(t,r,3)),forEach(e,function(e,r,s){var a=o[++n]=getObject();i?a.criteria=map(t,function(t){return e[t]}):(a.criteria=getArray())[0]=t(e,r,s),a.index=n,a.value=e}),s=o.length,o.sort(compareAscending);s--;){var a=o[s];o[s]=a.value,i||releaseArray(a.criteria),releaseObject(a)}return o}var compareAscending=require("../internals/compareAscending"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),getArray=require("../internals/getArray"),getObject=require("../internals/getObject"),isArray=require("../objects/isArray"),map=require("./map"),releaseArray=require("../internals/releaseArray"),releaseObject=require("../internals/releaseObject");module.exports=sortBy;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/bindAll", ["../internals/baseFlatten","../internals/createWrapper","../objects/functions"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/bindAll.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function bindAll(e){for(var t=arguments.length>1?baseFlatten(arguments,!0,!1,1):functions(e),r=-1,n=t.length;++r<n;){var i=t[r];e[i]=createWrapper(e[i],1,null,null,e)}return e}var baseFlatten=require("../internals/baseFlatten"),createWrapper=require("../internals/createWrapper"),functions=require("../objects/functions");module.exports=bindAll;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/debounce", ["../objects/isFunction","../objects/isObject","../utilities/now"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/debounce.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function debounce(e,t,r){var n,i,s,o,a,u,c,l=0,p=!1,f=!0;if(!isFunction(e))throw new TypeError;if(t=nativeMax(0,t)||0,r===!0){var h=!0;f=!1}else isObject(r)&&(h=r.leading,p="maxWait"in r&&(nativeMax(t,r.maxWait)||0),f="trailing"in r?r.trailing:f);var d=function(){var r=t-(now()-o);if(0>=r){i&&clearTimeout(i);var p=c;i=u=c=void 0,p&&(l=now(),s=e.apply(a,n),u||i||(n=a=null))}else u=setTimeout(d,r)},m=function(){u&&clearTimeout(u),i=u=c=void 0,(f||p!==t)&&(l=now(),s=e.apply(a,n),u||i||(n=a=null))};return function(){if(n=arguments,o=now(),a=this,c=f&&(u||!h),p===!1)var r=h&&!u;else{i||h||(l=o);var b=p-(o-l),g=0>=b;g?(i&&(i=clearTimeout(i)),l=o,s=e.apply(a,n)):i||(i=setTimeout(m,b))}return g&&u?u=clearTimeout(u):u||t===p||(u=setTimeout(d,t)),r&&(g=!0,s=e.apply(a,n)),!g||u||i||(n=a=null),s}}var isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),now=require("../utilities/now"),nativeMax=Math.max;module.exports=debounce;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/clone", ["../internals/baseClone","../internals/baseCreateCallback"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/clone.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function clone(e,t,r,n){return"boolean"!=typeof t&&null!=t&&(n=r,r=t,t=!1),baseClone(e,t,"function"==typeof r&&baseCreateCallback(r,n,1))}var baseClone=require("../internals/baseClone"),baseCreateCallback=require("../internals/baseCreateCallback");module.exports=clone;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/findLastKey", ["../functions/createCallback","./forOwnRight"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/findLastKey.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function findLastKey(e,t,r){var n;return t=createCallback(t,r,3),forOwnRight(e,function(e,r,i){return t(e,r,i)?(n=r,!1):void 0}),n}var createCallback=require("../functions/createCallback"),forOwnRight=require("./forOwnRight");module.exports=findLastKey;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isNaN", ["./isNumber"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isNaN.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function isNaN(e){return isNumber(e)&&e!=+e}var isNumber=require("./isNumber");module.exports=isNaN;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/isPlainObject", ["../internals/isNative","../internals/shimIsPlainObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isPlainObject.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";var isNative=require("../internals/isNative"),shimIsPlainObject=require("../internals/shimIsPlainObject"),objectClass="[object Object]",objectProto=Object.prototype,toString=objectProto.toString,getPrototypeOf=isNative(getPrototypeOf=Object.getPrototypeOf)&&getPrototypeOf,isPlainObject=getPrototypeOf?function(e){if(!e||toString.call(e)!=objectClass)return!1;var t=e.valueOf,r=isNative(t)&&(r=getPrototypeOf(t))&&getPrototypeOf(r);return r?e==r||getPrototypeOf(e)==r:shimIsPlainObject(e)}:shimIsPlainObject;module.exports=isPlainObject;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects/merge", ["../internals/baseCreateCallback","../internals/baseMerge","../internals/getArray","./isObject","../internals/releaseArray","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/merge.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
+  /* */
+  "format cjs";function merge(e){var t=arguments,r=2;if(!isObject(e))return e;if("number"!=typeof t[2]&&(r=t.length),r>3&&"function"==typeof t[r-2])var n=baseCreateCallback(t[--r-1],t[r--],2);else r>2&&"function"==typeof t[r-1]&&(n=t[--r]);for(var i=slice(arguments,1,r),s=-1,o=getArray(),a=getArray();++s<r;)baseMerge(e,i[s],n,o,a);return releaseArray(o),releaseArray(a),e}var baseCreateCallback=require("../internals/baseCreateCallback"),baseMerge=require("../internals/baseMerge"),getArray=require("../internals/getArray"),isObject=require("./isObject"),releaseArray=require("../internals/releaseArray"),slice=require("../internals/slice");module.exports=merge;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/escapeHtmlChar", ["./htmlEscapes"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/escapeHtmlChar.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function escapeHtmlChar(e){return htmlEscapes[e]}var htmlEscapes=require("./htmlEscapes");module.exports=escapeHtmlChar;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/template", ["../objects/defaults","./escape","../internals/escapeStringChar","../objects/keys","../internals/reInterpolate","./templateSettings","../objects/values","github:jspm/nodelibs@0.0.5/process"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/template.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";!function(){function e(e,h,d){var m=s.imports._.templateSettings||s;e=String(e||""),d=t({},d,m);var b,g=t({},d.imports,m.imports),v=n(g),y=o(g),x=0,j=d.interpolate||p,w="__p += '",q=RegExp((d.escape||p).source+"|"+j.source+"|"+(j===i?l:p).source+"|"+(d.evaluate||p).source+"|$","g");e.replace(q,function(t,n,i,s,o,a){return i||(i=s),w+=e.slice(x,a).replace(f,r),n&&(w+="' +\n__e("+n+") +\n'"),o&&(b=!0,w+="';\n"+o+";\n__p += '"),i&&(w+="' +\n((__t = ("+i+")) == null ? '' : __t) +\n'"),x=a+t.length,t}),w+="';\n";var k=d.variable,_=k;_||(k="obj",w="with ("+k+") {\n"+w+"\n}\n"),w=(b?w.replace(a,""):w).replace(u,"$1").replace(c,"$1;"),w="function("+k+") {\n"+(_?"":k+" || ("+k+" = {});\n")+"var __t, __p = '', __e = _.escape"+(b?", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n":";\n")+w+"return __p\n}";try{var C=Function(v,"return "+w).apply(void 0,y)}catch(O){throw O.source=w,O}return h?C(h):(C.source=w,C)}var t=require("../objects/defaults"),r=(require("./escape"),require("../internals/escapeStringChar")),n=require("../objects/keys"),i=require("../internals/reInterpolate"),s=require("./templateSettings"),o=require("../objects/values"),a=/\b__p \+= '';/g,u=/\b(__p \+=) '' \+/g,c=/(__e\(.*?\)|\b__t\)) \+\n'';/g,l=/\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,p=/($^)/,f=/['\n\r\t\u2028\u2029\\]/g;module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/reEscapedHtml", ["./htmlUnescapes","../objects/keys"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/reEscapedHtml.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";var htmlUnescapes=require("./htmlUnescapes"),keys=require("../objects/keys"),reEscapedHtml=RegExp("("+keys(htmlUnescapes).join("|")+")","g");module.exports=reEscapedHtml;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/createCache", ["./cachePush","./getObject","./releaseObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/createCache.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function createCache(e){var t=-1,r=e.length,n=e[0],i=e[r/2|0],s=e[r-1];if(n&&"object"==typeof n&&i&&"object"==typeof i&&s&&"object"==typeof s)return!1;var o=getObject();o["false"]=o["null"]=o["true"]=o.undefined=!1;var a=getObject();for(a.array=e,a.cache=o,a.push=cachePush;++t<r;)a.push(e[t]);return a}var cachePush=require("./cachePush"),getObject=require("./getObject"),releaseObject=require("./releaseObject");module.exports=createCache;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseFlatten", ["../objects/isArguments","../objects/isArray"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseFlatten.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseFlatten(e,t,r,n){for(var i=(n||0)-1,s=e?e.length:0,o=[];++i<s;){var a=e[i];if(a&&"object"==typeof a&&"number"==typeof a.length&&(isArray(a)||isArguments(a))){t||(a=baseFlatten(a,t,r));var u=-1,c=a.length,l=o.length;for(o.length+=c;++u<c;)o[l++]=a[u]}else r||o.push(a)}return o}var isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray");module.exports=baseFlatten;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseCreate", ["./isNative","../objects/isObject","../utilities/noop"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseCreate.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseCreate(e){return isObject(e)?nativeCreate(e):{}}var isNative=require("./isNative"),isObject=require("../objects/isObject"),noop=require("../utilities/noop"),nativeCreate=isNative(nativeCreate=Object.create)&&nativeCreate;nativeCreate||(baseCreate=function(){function e(){}return function(t){if(isObject(t)){e.prototype=t;var r=new e;e.prototype=null}return r||global.Object()}}()),module.exports=baseCreate;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseIsEqual", ["../objects/forIn","./getArray","../objects/isFunction","./objectTypes","./releaseArray"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseIsEqual.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseIsEqual(e,t,r,n,i,s){if(r){var o=r(e,t);if("undefined"!=typeof o)return!!o}if(e===t)return 0!==e||1/e==1/t;var a=typeof e,u=typeof t;if(!(e!==e||e&&objectTypes[a]||t&&objectTypes[u]))return!1;if(null==e||null==t)return e===t;var c=toString.call(e),l=toString.call(t);if(c==argsClass&&(c=objectClass),l==argsClass&&(l=objectClass),c!=l)return!1;switch(c){case boolClass:case dateClass:return+e==+t;case numberClass:return e!=+e?t!=+t:0==e?1/e==1/t:e==+t;case regexpClass:case stringClass:return e==String(t)}var p=c==arrayClass;if(!p){var f=hasOwnProperty.call(e,"__wrapped__"),h=hasOwnProperty.call(t,"__wrapped__");if(f||h)return baseIsEqual(f?e.__wrapped__:e,h?t.__wrapped__:t,r,n,i,s);if(c!=objectClass)return!1;var d=e.constructor,m=t.constructor;if(d!=m&&!(isFunction(d)&&d instanceof d&&isFunction(m)&&m instanceof m)&&"constructor"in e&&"constructor"in t)return!1}var b=!i;i||(i=getArray()),s||(s=getArray());for(var g=i.length;g--;)if(i[g]==e)return s[g]==t;var v=0;if(o=!0,i.push(e),s.push(t),p){if(g=e.length,v=t.length,o=v==g,o||n)for(;v--;){var y=g,x=t[v];if(n)for(;y--&&!(o=baseIsEqual(e[y],x,r,n,i,s)););else if(!(o=baseIsEqual(e[v],x,r,n,i,s)))break}}else forIn(t,function(t,a,u){return hasOwnProperty.call(u,a)?(v++,o=hasOwnProperty.call(e,a)&&baseIsEqual(e[a],t,r,n,i,s)):void 0}),o&&!n&&forIn(e,function(e,t,r){return hasOwnProperty.call(r,t)?o=--v>-1:void 0});return i.pop(),s.pop(),b&&(releaseArray(i),releaseArray(s)),o}var forIn=require("../objects/forIn"),getArray=require("./getArray"),isFunction=require("../objects/isFunction"),objectTypes=require("./objectTypes"),releaseArray=require("./releaseArray"),argsClass="[object Arguments]",arrayClass="[object Array]",boolClass="[object Boolean]",dateClass="[object Date]",numberClass="[object Number]",objectClass="[object Object]",regexpClass="[object RegExp]",stringClass="[object String]",objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty;module.exports=baseIsEqual;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/flatten", ["../internals/baseFlatten","../collections/map"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/flatten.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function flatten(e,t,r,n){return"boolean"!=typeof t&&null!=t&&(n=r,r="function"!=typeof t&&n&&n[t]===e?null:t,t=!1),null!=r&&(e=map(e,r,n)),baseFlatten(e,t)}var baseFlatten=require("../internals/baseFlatten"),map=require("../collections/map");module.exports=flatten;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/zip", ["../collections/max","../collections/pluck","github:jspm/nodelibs@0.0.5/process"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/zip.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";!function(){function e(){for(var e=arguments.length>1?arguments:arguments[0],n=-1,i=e?t(r(e,"length")):0,s=Array(0>i?0:i);++n<i;)s[n]=r(e,n);return s}var t=require("../collections/max"),r=require("../collections/pluck");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/chaining", ["./chaining/chain","./chaining/tap","./chaining/wrapperValueOf","./chaining/wrapperChain","./chaining/wrapperToString","./chaining/wrapperValueOf"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
+  /* */
+  "format cjs";module.exports={chain:require("./chaining/chain"),tap:require("./chaining/tap"),value:require("./chaining/wrapperValueOf"),wrapperChain:require("./chaining/wrapperChain"),wrapperToString:require("./chaining/wrapperToString"),wrapperValueOf:require("./chaining/wrapperValueOf")};
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/collections", ["./collections/every","./collections/some","./collections/at","./collections/map","./collections/contains","./collections/countBy","./collections/find","./collections/forEach","./collections/forEachRight","./collections/every","./collections/filter","./collections/find","./collections/findLast","./collections/find","./collections/reduce","./collections/reduceRight","./collections/forEach","./collections/forEachRight","./collections/groupBy","./collections/contains","./collections/indexBy","./collections/reduce","./collections/invoke","./collections/map","./collections/max","./collections/min","./collections/pluck","./collections/reduce","./collections/reduceRight","./collections/reject","./collections/sample","./collections/filter","./collections/shuffle","./collections/size","./collections/some","./collections/sortBy","./collections/toArray","./collections/where"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
+  /* */
+  "format cjs";module.exports={all:require("./collections/every"),any:require("./collections/some"),at:require("./collections/at"),collect:require("./collections/map"),contains:require("./collections/contains"),countBy:require("./collections/countBy"),detect:require("./collections/find"),each:require("./collections/forEach"),eachRight:require("./collections/forEachRight"),every:require("./collections/every"),filter:require("./collections/filter"),find:require("./collections/find"),findLast:require("./collections/findLast"),findWhere:require("./collections/find"),foldl:require("./collections/reduce"),foldr:require("./collections/reduceRight"),forEach:require("./collections/forEach"),forEachRight:require("./collections/forEachRight"),groupBy:require("./collections/groupBy"),include:require("./collections/contains"),indexBy:require("./collections/indexBy"),inject:require("./collections/reduce"),invoke:require("./collections/invoke"),map:require("./collections/map"),max:require("./collections/max"),min:require("./collections/min"),pluck:require("./collections/pluck"),reduce:require("./collections/reduce"),reduceRight:require("./collections/reduceRight"),reject:require("./collections/reject"),sample:require("./collections/sample"),select:require("./collections/filter"),shuffle:require("./collections/shuffle"),size:require("./collections/size"),some:require("./collections/some"),sortBy:require("./collections/sortBy"),toArray:require("./collections/toArray"),where:require("./collections/where")};
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions", ["./functions/after","./functions/bind","./functions/bindAll","./functions/bindKey","./functions/compose","./functions/createCallback","./functions/curry","./functions/debounce","./functions/defer","./functions/delay","./functions/memoize","./functions/once","./functions/partial","./functions/partialRight","./functions/throttle","./functions/wrap"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
+  /* */
+  "format cjs";module.exports={after:require("./functions/after"),bind:require("./functions/bind"),bindAll:require("./functions/bindAll"),bindKey:require("./functions/bindKey"),compose:require("./functions/compose"),createCallback:require("./functions/createCallback"),curry:require("./functions/curry"),debounce:require("./functions/debounce"),defer:require("./functions/defer"),delay:require("./functions/delay"),memoize:require("./functions/memoize"),once:require("./functions/once"),partial:require("./functions/partial"),partialRight:require("./functions/partialRight"),throttle:require("./functions/throttle"),wrap:require("./functions/wrap")};
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/objects", ["./objects/assign","./objects/clone","./objects/cloneDeep","./objects/create","./objects/defaults","./objects/assign","./objects/findKey","./objects/findLastKey","./objects/forIn","./objects/forInRight","./objects/forOwn","./objects/forOwnRight","./objects/functions","./objects/has","./objects/invert","./objects/isArguments","./objects/isArray","./objects/isBoolean","./objects/isDate","./objects/isElement","./objects/isEmpty","./objects/isEqual","./objects/isFinite","./objects/isFunction","./objects/isNaN","./objects/isNull","./objects/isNumber","./objects/isObject","./objects/isPlainObject","./objects/isRegExp","./objects/isString","./objects/isUndefined","./objects/keys","./objects/mapValues","./objects/merge","./objects/functions","./objects/omit","./objects/pairs","./objects/pick","./objects/transform","./objects/values"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
+  /* */
+  "format cjs";module.exports={assign:require("./objects/assign"),clone:require("./objects/clone"),cloneDeep:require("./objects/cloneDeep"),create:require("./objects/create"),defaults:require("./objects/defaults"),extend:require("./objects/assign"),findKey:require("./objects/findKey"),findLastKey:require("./objects/findLastKey"),forIn:require("./objects/forIn"),forInRight:require("./objects/forInRight"),forOwn:require("./objects/forOwn"),forOwnRight:require("./objects/forOwnRight"),functions:require("./objects/functions"),has:require("./objects/has"),invert:require("./objects/invert"),isArguments:require("./objects/isArguments"),isArray:require("./objects/isArray"),isBoolean:require("./objects/isBoolean"),isDate:require("./objects/isDate"),isElement:require("./objects/isElement"),isEmpty:require("./objects/isEmpty"),isEqual:require("./objects/isEqual"),isFinite:require("./objects/isFinite"),isFunction:require("./objects/isFunction"),isNaN:require("./objects/isNaN"),isNull:require("./objects/isNull"),isNumber:require("./objects/isNumber"),isObject:require("./objects/isObject"),isPlainObject:require("./objects/isPlainObject"),isRegExp:require("./objects/isRegExp"),isString:require("./objects/isString"),isUndefined:require("./objects/isUndefined"),keys:require("./objects/keys"),mapValues:require("./objects/mapValues"),merge:require("./objects/merge"),methods:require("./objects/functions"),omit:require("./objects/omit"),pairs:require("./objects/pairs"),pick:require("./objects/pick"),transform:require("./objects/transform"),values:require("./objects/values")};
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/escape", ["../internals/escapeHtmlChar","../objects/keys","../internals/reUnescapedHtml"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/escape.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function escape(e){return null==e?"":String(e).replace(reUnescapedHtml,escapeHtmlChar)}var escapeHtmlChar=require("../internals/escapeHtmlChar"),keys=require("../objects/keys"),reUnescapedHtml=require("../internals/reUnescapedHtml");module.exports=escape;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities/unescape", ["../objects/keys","../internals/reEscapedHtml","../internals/unescapeHtmlChar"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/unescape.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
+  /* */
+  "format cjs";function unescape(e){return null==e?"":String(e).replace(reEscapedHtml,unescapeHtmlChar)}var keys=require("../objects/keys"),reEscapedHtml=require("../internals/reEscapedHtml"),unescapeHtmlChar=require("../internals/unescapeHtmlChar");module.exports=unescape;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseDifference", ["./baseIndexOf","./cacheIndexOf","./createCache","./largeArraySize","./releaseObject","github:jspm/nodelibs@0.0.5/process"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseDifference.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";!function(){function e(e,o){var a=-1,u=t,c=e?e.length:0,l=c>=i,p=[];if(l){var h=n(o);h?(u=r,o=h):l=!1}for(;++a<c;){var f=e[a];u(o,f)<0&&p.push(f)}return l&&s(o),p}var t=require("./baseIndexOf"),r=require("./cacheIndexOf"),n=require("./createCache"),i=require("./largeArraySize"),s=require("./releaseObject");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseBind", ["./baseCreate","../objects/isObject","./setBindData","./slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseBind.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseBind(e){function t(){if(n){var e=slice(n);push.apply(e,arguments)}if(this instanceof t){var s=baseCreate(r.prototype),o=r.apply(s,e||arguments);return isObject(o)?o:s}return r.apply(i,e||arguments)}var r=e[0],n=e[2],i=e[4];return setBindData(t,e),t}var baseCreate=require("./baseCreate"),isObject=require("../objects/isObject"),setBindData=require("./setBindData"),slice=require("./slice"),arrayRef=[],push=arrayRef.push;module.exports=baseBind;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/utilities", ["./utilities/constant","./functions/createCallback","./utilities/escape","./utilities/identity","./utilities/mixin","./utilities/noConflict","./utilities/noop","./utilities/now","./utilities/parseInt","./utilities/property","./utilities/random","./utilities/result","./utilities/template","./utilities/templateSettings","./utilities/times","./utilities/unescape","./utilities/uniqueId"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
+  /* */
+  "format cjs";module.exports={constant:require("./utilities/constant"),createCallback:require("./functions/createCallback"),escape:require("./utilities/escape"),identity:require("./utilities/identity"),mixin:require("./utilities/mixin"),noConflict:require("./utilities/noConflict"),noop:require("./utilities/noop"),now:require("./utilities/now"),parseInt:require("./utilities/parseInt"),property:require("./utilities/property"),random:require("./utilities/random"),result:require("./utilities/result"),template:require("./utilities/template"),templateSettings:require("./utilities/templateSettings"),times:require("./utilities/times"),unescape:require("./utilities/unescape"),uniqueId:require("./utilities/uniqueId")};
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/difference", ["../internals/baseDifference","../internals/baseFlatten","github:jspm/nodelibs@0.0.5/process"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/difference.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";!function(){function e(e){return t(e,r(arguments,!0,!0,1))}var t=require("../internals/baseDifference"),r=require("../internals/baseFlatten");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/createWrapper", ["./baseBind","./baseCreateWrapper","../objects/isFunction","./slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/createWrapper.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function createWrapper(e,t,r,n,i,s){var o=1&t,a=2&t,u=4&t,c=16&t,l=32&t;if(!a&&!isFunction(e))throw new TypeError;c&&!r.length&&(t&=-17,c=r=!1),l&&!n.length&&(t&=-33,l=n=!1);var p=e&&e.__bindData__;if(p&&p!==!0)return p=slice(p),p[2]&&(p[2]=slice(p[2])),p[3]&&(p[3]=slice(p[3])),!o||1&p[1]||(p[4]=i),!o&&1&p[1]&&(t|=8),!u||4&p[1]||(p[5]=s),c&&push.apply(p[2]||(p[2]=[]),r),l&&unshift.apply(p[3]||(p[3]=[]),n),p[1]|=t,createWrapper.apply(null,p);var h=1==t||17===t?baseBind:baseCreateWrapper;return h([e,t,r,n,i,s])}var baseBind=require("./baseBind"),baseCreateWrapper=require("./baseCreateWrapper"),isFunction=require("../objects/isFunction"),slice=require("./slice"),arrayRef=[],push=arrayRef.push,unshift=arrayRef.unshift;module.exports=createWrapper;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/bind", ["../internals/createWrapper","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/bind.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function bind(e,t){return arguments.length>2?createWrapper(e,17,slice(arguments,2),null,t):createWrapper(e,1,null,null,t)}var createWrapper=require("../internals/createWrapper"),slice=require("../internals/slice");module.exports=bind;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/internals/baseCreateCallback", ["../functions/bind","../utilities/identity","./setBindData","../support"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseCreateCallback.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
+  /* */
+  "format cjs";function baseCreateCallback(e,t,r){if("function"!=typeof e)return identity;if("undefined"==typeof t||!("prototype"in e))return e;var n=e.__bindData__;if("undefined"==typeof n&&(support.funcNames&&(n=!e.name),n=n||!support.funcDecomp,!n)){var i=fnToString.call(e);support.funcNames||(n=!reFuncName.test(i)),n||(n=reThis.test(i),setBindData(e,n))}if(n===!1||n!==!0&&1&n[1])return e;switch(r){case 1:return function(r){return e.call(t,r)};case 2:return function(r,n){return e.call(t,r,n)};case 3:return function(r,n,i){return e.call(t,r,n,i)};case 4:return function(r,n,i,s){return e.call(t,r,n,i,s)}}return bind(e,t)}var bind=require("../functions/bind"),identity=require("../utilities/identity"),setBindData=require("./setBindData"),support=require("../support"),reFuncName=/^\s*function[ \n\r\t]+\w/,reThis=/\bthis\b/,fnToString=Function.prototype.toString;module.exports=baseCreateCallback;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/functions/createCallback", ["../internals/baseCreateCallback","../internals/baseIsEqual","../objects/isObject","../objects/keys","../utilities/property"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/createCallback.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
+  /* */
+  "format cjs";function createCallback(e,t,r){var n=typeof e;if(null==e||"function"==n)return baseCreateCallback(e,t,r);if("object"!=n)return property(e);var i=keys(e),s=i[0],o=e[s];return 1!=i.length||o!==o||isObject(o)?function(t){for(var r=i.length,n=!1;r--&&(n=baseIsEqual(t[i[r]],e[i[r]],null,!0)););return n}:function(e){var t=e[s];return o===t&&(0!==o||1/o==1/t)}}var baseCreateCallback=require("../internals/baseCreateCallback"),baseIsEqual=require("../internals/baseIsEqual"),isObject=require("../objects/isObject"),keys=require("../objects/keys"),property=require("../utilities/property");module.exports=createCallback;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays/rest", ["../functions/createCallback","../internals/slice"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/rest.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
+  /* */
+  "format cjs";function rest(e,t,r){if("number"!=typeof t&&null!=t){var n=0,i=-1,s=e?e.length:0;for(t=createCallback(t,r,3);++i<s&&t(e[i],i,e);)n++}else n=null==t||r?1:nativeMax(0,t);return slice(e,n)}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max;module.exports=rest;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/arrays", ["./arrays/compact","./arrays/difference","./arrays/rest","./arrays/findIndex","./arrays/findLastIndex","./arrays/first","./arrays/flatten","./arrays/first","./arrays/indexOf","./arrays/initial","./arrays/intersection","./arrays/last","./arrays/lastIndexOf","./arrays/zipObject","./arrays/pull","./arrays/range","./arrays/remove","./arrays/rest","./arrays/sortedIndex","./arrays/rest","./arrays/first","./arrays/union","./arrays/uniq","./arrays/uniq","./arrays/zip","./arrays/without","./arrays/xor","./arrays/zip","./arrays/zipObject"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
+  /* */
+  "format cjs";module.exports={compact:require("./arrays/compact"),difference:require("./arrays/difference"),drop:require("./arrays/rest"),findIndex:require("./arrays/findIndex"),findLastIndex:require("./arrays/findLastIndex"),first:require("./arrays/first"),flatten:require("./arrays/flatten"),head:require("./arrays/first"),indexOf:require("./arrays/indexOf"),initial:require("./arrays/initial"),intersection:require("./arrays/intersection"),last:require("./arrays/last"),lastIndexOf:require("./arrays/lastIndexOf"),object:require("./arrays/zipObject"),pull:require("./arrays/pull"),range:require("./arrays/range"),remove:require("./arrays/remove"),rest:require("./arrays/rest"),sortedIndex:require("./arrays/sortedIndex"),tail:require("./arrays/rest"),take:require("./arrays/first"),union:require("./arrays/union"),uniq:require("./arrays/uniq"),unique:require("./arrays/uniq"),unzip:require("./arrays/zip"),without:require("./arrays/without"),xor:require("./arrays/xor"),zip:require("./arrays/zip"),zipObject:require("./arrays/zipObject")};
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:lodash-node@2.4.1/modern/index", ["./arrays","./chaining","./collections","./functions","./objects","./utilities","./collections/forEach","./objects/forOwn","./objects/isArray","./internals/lodashWrapper","./utilities/mixin","./support","./utilities/templateSettings"], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/index.js";
+  var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
+  /* */
+  "format cjs";function lodash(e){return e&&"object"==typeof e&&!isArray(e)&&hasOwnProperty.call(e,"__wrapped__")?e:new lodashWrapper(e)}var arrays=require("./arrays"),chaining=require("./chaining"),collections=require("./collections"),functions=require("./functions"),objects=require("./objects"),utilities=require("./utilities"),forEach=require("./collections/forEach"),forOwn=require("./objects/forOwn"),isArray=require("./objects/isArray"),lodashWrapper=require("./internals/lodashWrapper"),mixin=require("./utilities/mixin"),support=require("./support"),templateSettings=require("./utilities/templateSettings"),arrayRef=[],objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;lodashWrapper.prototype=lodash.prototype,mixin=function(e){var t=objects.functions;return function(r,n,i){return n&&(i||t(n).length)||(null==i&&(i=n),n=r,r=lodash),e(r,n,i)}}(mixin),lodash.after=functions.after,lodash.assign=objects.assign,lodash.at=collections.at,lodash.bind=functions.bind,lodash.bindAll=functions.bindAll,lodash.bindKey=functions.bindKey,lodash.chain=chaining.chain,lodash.compact=arrays.compact,lodash.compose=functions.compose,lodash.constant=utilities.constant,lodash.countBy=collections.countBy,lodash.create=objects.create,lodash.createCallback=functions.createCallback,lodash.curry=functions.curry,lodash.debounce=functions.debounce,lodash.defaults=objects.defaults,lodash.defer=functions.defer,lodash.delay=functions.delay,lodash.difference=arrays.difference,lodash.filter=collections.filter,lodash.flatten=arrays.flatten,lodash.forEach=forEach,lodash.forEachRight=collections.forEachRight,lodash.forIn=objects.forIn,lodash.forInRight=objects.forInRight,lodash.forOwn=forOwn,lodash.forOwnRight=objects.forOwnRight,lodash.functions=objects.functions,lodash.groupBy=collections.groupBy,lodash.indexBy=collections.indexBy,lodash.initial=arrays.initial,lodash.intersection=arrays.intersection,lodash.invert=objects.invert,lodash.invoke=collections.invoke,lodash.keys=objects.keys,lodash.map=collections.map,lodash.mapValues=objects.mapValues,lodash.max=collections.max,lodash.memoize=functions.memoize,lodash.merge=objects.merge,lodash.min=collections.min,lodash.omit=objects.omit,lodash.once=functions.once,lodash.pairs=objects.pairs,lodash.partial=functions.partial,lodash.partialRight=functions.partialRight,lodash.pick=objects.pick,lodash.pluck=collections.pluck,lodash.property=utilities.property,lodash.pull=arrays.pull,lodash.range=arrays.range,lodash.reject=collections.reject,lodash.remove=arrays.remove,lodash.rest=arrays.rest,lodash.shuffle=collections.shuffle,lodash.sortBy=collections.sortBy,lodash.tap=chaining.tap,lodash.throttle=functions.throttle,lodash.times=utilities.times,lodash.toArray=collections.toArray,lodash.transform=objects.transform,lodash.union=arrays.union,lodash.uniq=arrays.uniq,lodash.values=objects.values,lodash.where=collections.where,lodash.without=arrays.without,lodash.wrap=functions.wrap,lodash.xor=arrays.xor,lodash.zip=arrays.zip,lodash.zipObject=arrays.zipObject,lodash.collect=collections.map,lodash.drop=arrays.rest,lodash.each=forEach,lodash.eachRight=collections.forEachRight,lodash.extend=objects.assign,lodash.methods=objects.functions,lodash.object=arrays.zipObject,lodash.select=collections.filter,lodash.tail=arrays.rest,lodash.unique=arrays.uniq,lodash.unzip=arrays.zip,mixin(lodash),lodash.clone=objects.clone,lodash.cloneDeep=objects.cloneDeep,lodash.contains=collections.contains,lodash.escape=utilities.escape,lodash.every=collections.every,lodash.find=collections.find,lodash.findIndex=arrays.findIndex,lodash.findKey=objects.findKey,lodash.findLast=collections.findLast,lodash.findLastIndex=arrays.findLastIndex,lodash.findLastKey=objects.findLastKey,lodash.has=objects.has,lodash.identity=utilities.identity,lodash.indexOf=arrays.indexOf,lodash.isArguments=objects.isArguments,lodash.isArray=isArray,lodash.isBoolean=objects.isBoolean,lodash.isDate=objects.isDate,lodash.isElement=objects.isElement,lodash.isEmpty=objects.isEmpty,lodash.isEqual=objects.isEqual,lodash.isFinite=objects.isFinite,lodash.isFunction=objects.isFunction,lodash.isNaN=objects.isNaN,lodash.isNull=objects.isNull,lodash.isNumber=objects.isNumber,lodash.isObject=objects.isObject,lodash.isPlainObject=objects.isPlainObject,lodash.isRegExp=objects.isRegExp,lodash.isString=objects.isString,lodash.isUndefined=objects.isUndefined,lodash.lastIndexOf=arrays.lastIndexOf,lodash.mixin=mixin,lodash.noConflict=utilities.noConflict,lodash.noop=utilities.noop,lodash.now=utilities.now,lodash.parseInt=utilities.parseInt,lodash.random=utilities.random,lodash.reduce=collections.reduce,lodash.reduceRight=collections.reduceRight,lodash.result=utilities.result,lodash.size=collections.size,lodash.some=collections.some,lodash.sortedIndex=arrays.sortedIndex,lodash.template=utilities.template,lodash.unescape=utilities.unescape,lodash.uniqueId=utilities.uniqueId,lodash.all=collections.every,lodash.any=collections.some,lodash.detect=collections.find,lodash.findWhere=collections.find,lodash.foldl=collections.reduce,lodash.foldr=collections.reduceRight,lodash.include=collections.contains,lodash.inject=collections.reduce,mixin(function(){var e={};return forOwn(lodash,function(t,r){lodash.prototype[r]||(e[r]=t)}),e}(),!1),lodash.first=arrays.first,lodash.last=arrays.last,lodash.sample=collections.sample,lodash.take=arrays.first,lodash.head=arrays.first,forOwn(lodash,function(e,t){var r="sample"!==t;lodash.prototype[t]||(lodash.prototype[t]=function(t,n){var i=this.__chain__,s=e(this.__wrapped__,t,n);return i||null!=t&&(!n||r&&"function"==typeof t)?new lodashWrapper(s,i):s})}),lodash.VERSION="2.4.1",lodash.prototype.chain=chaining.wrapperChain,lodash.prototype.toString=chaining.wrapperToString,lodash.prototype.value=chaining.wrapperValueOf,lodash.prototype.valueOf=chaining.wrapperValueOf,forEach(["join","pop","shift"],function(e){var t=arrayRef[e];lodash.prototype[e]=function(){var e=this.__chain__,r=t.apply(this.__wrapped__,arguments);return e?new lodashWrapper(r,e):r}}),forEach(["push","reverse","sort","unshift"],function(e){var t=arrayRef[e];lodash.prototype[e]=function(){return t.apply(this.__wrapped__,arguments),this}}),forEach(["concat","slice","splice"],function(e){var t=arrayRef[e];lodash.prototype[e]=function(){return new lodashWrapper(t.apply(this.__wrapped__,arguments),this.__chain__)}}),lodash.support=support,(lodash.templateSettings=utilities.templateSettings).imports._=lodash,module.exports=lodash;
+  
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("npm:backbone@1.1.2/backbone", ["underscore","github:jspm/nodelibs@0.0.5/process"], true, function(require, exports, module) {
   var global = System.global;
   var __define = global.define;
   global.define = undefined;
   var __filename = "jspm_packages/npm/backbone@1.1.2/backbone.js";
   var __dirname = "jspm_packages/npm/backbone@1.1.2";
   /* */
-  "format cjs";!function(t,e){if("function"==typeof define&&define.amd)define(["underscore","jquery","exports"],function(i,n,s){t.Backbone=e(t,s,i,n)});else if("undefined"!=typeof exports){var i=require("underscore");e(t,exports,i)}else t.Backbone=e(t,{},t._,t.jQuery||t.Zepto||t.ender||t.$)}(this,function(t,e,i,n){{var s=t.Backbone,r=[],a=(r.push,r.slice);r.splice}e.VERSION="1.1.2",e.$=n,e.noConflict=function(){return t.Backbone=s,this},e.emulateHTTP=!1,e.emulateJSON=!1;var o=e.Events={on:function(t,e,i){if(!u(this,"on",t,[e,i])||!e)return this;this._events||(this._events={});var n=this._events[t]||(this._events[t]=[]);return n.push({callback:e,context:i,ctx:i||this}),this},once:function(t,e,n){if(!u(this,"once",t,[e,n])||!e)return this;var s=this,r=i.once(function(){s.off(t,r),e.apply(this,arguments)});return r._callback=e,this.on(t,r,n)},off:function(t,e,n){var s,r,a,o,h,c,l,d;if(!this._events||!u(this,"off",t,[e,n]))return this;if(!t&&!e&&!n)return this._events=void 0,this;for(o=t?[t]:i.keys(this._events),h=0,c=o.length;c>h;h++)if(t=o[h],a=this._events[t]){if(this._events[t]=s=[],e||n)for(l=0,d=a.length;d>l;l++)r=a[l],(e&&e!==r.callback&&e!==r.callback._callback||n&&n!==r.context)&&s.push(r);s.length||delete this._events[t]}return this},trigger:function(t){if(!this._events)return this;var e=a.call(arguments,1);if(!u(this,"trigger",t,e))return this;var i=this._events[t],n=this._events.all;return i&&c(i,e),n&&c(n,arguments),this},stopListening:function(t,e,n){var s=this._listeningTo;if(!s)return this;var r=!e&&!n;n||"object"!=typeof e||(n=this),t&&((s={})[t._listenId]=t);for(var a in s)t=s[a],t.off(e,n,this),(r||i.isEmpty(t._events))&&delete this._listeningTo[a];return this}},h=/\s+/,u=function(t,e,i,n){if(!i)return!0;if("object"==typeof i){for(var s in i)t[e].apply(t,[s,i[s]].concat(n));return!1}if(h.test(i)){for(var r=i.split(h),a=0,o=r.length;o>a;a++)t[e].apply(t,[r[a]].concat(n));return!1}return!0},c=function(t,e){var i,n=-1,s=t.length,r=e[0],a=e[1],o=e[2];switch(e.length){case 0:for(;++n<s;)(i=t[n]).callback.call(i.ctx);return;case 1:for(;++n<s;)(i=t[n]).callback.call(i.ctx,r);return;case 2:for(;++n<s;)(i=t[n]).callback.call(i.ctx,r,a);return;case 3:for(;++n<s;)(i=t[n]).callback.call(i.ctx,r,a,o);return;default:for(;++n<s;)(i=t[n]).callback.apply(i.ctx,e);return}},l={listenTo:"on",listenToOnce:"once"};i.each(l,function(t,e){o[e]=function(e,n,s){var r=this._listeningTo||(this._listeningTo={}),a=e._listenId||(e._listenId=i.uniqueId("l"));return r[a]=e,s||"object"!=typeof n||(s=this),e[t](n,s,this),this}}),o.bind=o.on,o.unbind=o.off,i.extend(e,o);var d=e.Model=function(t,e){var n=t||{};e||(e={}),this.cid=i.uniqueId("c"),this.attributes={},e.collection&&(this.collection=e.collection),e.parse&&(n=this.parse(n,e)||{}),n=i.defaults({},n,i.result(this,"defaults")),this.set(n,e),this.changed={},this.initialize.apply(this,arguments)};i.extend(d.prototype,o,{changed:null,validationError:null,idAttribute:"id",initialize:function(){},toJSON:function(){return i.clone(this.attributes)},sync:function(){return e.sync.apply(this,arguments)},get:function(t){return this.attributes[t]},escape:function(t){return i.escape(this.get(t))},has:function(t){return null!=this.get(t)},set:function(t,e,n){var s,r,a,o,h,u,c,l;if(null==t)return this;if("object"==typeof t?(r=t,n=e):(r={})[t]=e,n||(n={}),!this._validate(r,n))return!1;a=n.unset,h=n.silent,o=[],u=this._changing,this._changing=!0,u||(this._previousAttributes=i.clone(this.attributes),this.changed={}),l=this.attributes,c=this._previousAttributes,this.idAttribute in r&&(this.id=r[this.idAttribute]);for(s in r)e=r[s],i.isEqual(l[s],e)||o.push(s),i.isEqual(c[s],e)?delete this.changed[s]:this.changed[s]=e,a?delete l[s]:l[s]=e;if(!h){o.length&&(this._pending=n);for(var d=0,f=o.length;f>d;d++)this.trigger("change:"+o[d],this,l[o[d]],n)}if(u)return this;if(!h)for(;this._pending;)n=this._pending,this._pending=!1,this.trigger("change",this,n);return this._pending=!1,this._changing=!1,this},unset:function(t,e){return this.set(t,void 0,i.extend({},e,{unset:!0}))},clear:function(t){var e={};for(var n in this.attributes)e[n]=void 0;return this.set(e,i.extend({},t,{unset:!0}))},hasChanged:function(t){return null==t?!i.isEmpty(this.changed):i.has(this.changed,t)},changedAttributes:function(t){if(!t)return this.hasChanged()?i.clone(this.changed):!1;var e,n=!1,s=this._changing?this._previousAttributes:this.attributes;for(var r in t)i.isEqual(s[r],e=t[r])||((n||(n={}))[r]=e);return n},previous:function(t){return null!=t&&this._previousAttributes?this._previousAttributes[t]:null},previousAttributes:function(){return i.clone(this._previousAttributes)},fetch:function(t){t=t?i.clone(t):{},void 0===t.parse&&(t.parse=!0);var e=this,n=t.success;return t.success=function(i){return e.set(e.parse(i,t),t)?(n&&n(e,i,t),void e.trigger("sync",e,i,t)):!1},U(this,t),this.sync("read",this,t)},save:function(t,e,n){var s,r,a,o=this.attributes;if(null==t||"object"==typeof t?(s=t,n=e):(s={})[t]=e,n=i.extend({validate:!0},n),s&&!n.wait){if(!this.set(s,n))return!1}else if(!this._validate(s,n))return!1;s&&n.wait&&(this.attributes=i.extend({},o,s)),void 0===n.parse&&(n.parse=!0);var h=this,u=n.success;return n.success=function(t){h.attributes=o;var e=h.parse(t,n);return n.wait&&(e=i.extend(s||{},e)),i.isObject(e)&&!h.set(e,n)?!1:(u&&u(h,t,n),void h.trigger("sync",h,t,n))},U(this,n),r=this.isNew()?"create":n.patch?"patch":"update","patch"===r&&(n.attrs=s),a=this.sync(r,this,n),s&&n.wait&&(this.attributes=o),a},destroy:function(t){t=t?i.clone(t):{};var e=this,n=t.success,s=function(){e.trigger("destroy",e,e.collection,t)};if(t.success=function(i){(t.wait||e.isNew())&&s(),n&&n(e,i,t),e.isNew()||e.trigger("sync",e,i,t)},this.isNew())return t.success(),!1;U(this,t);var r=this.sync("delete",this,t);return t.wait||s(),r},url:function(){var t=i.result(this,"urlRoot")||i.result(this.collection,"url")||C();return this.isNew()?t:t.replace(/([^\/])$/,"$1/")+encodeURIComponent(this.id)},parse:function(t){return t},clone:function(){return new this.constructor(this.attributes)},isNew:function(){return!this.has(this.idAttribute)},isValid:function(t){return this._validate({},i.extend(t||{},{validate:!0}))},_validate:function(t,e){if(!e.validate||!this.validate)return!0;t=i.extend({},this.attributes,t);var n=this.validationError=this.validate(t,e)||null;return n?(this.trigger("invalid",this,n,i.extend(e,{validationError:n})),!1):!0}});var f=["keys","values","pairs","invert","pick","omit"];i.each(f,function(t){d.prototype[t]=function(){var e=a.call(arguments);return e.unshift(this.attributes),i[t].apply(i,e)}});var p=e.Collection=function(t,e){e||(e={}),e.model&&(this.model=e.model),void 0!==e.comparator&&(this.comparator=e.comparator),this._reset(),this.initialize.apply(this,arguments),t&&this.reset(t,i.extend({silent:!0},e))},g={add:!0,remove:!0,merge:!0},v={add:!0,remove:!1};i.extend(p.prototype,o,{model:d,initialize:function(){},toJSON:function(t){return this.map(function(e){return e.toJSON(t)})},sync:function(){return e.sync.apply(this,arguments)},add:function(t,e){return this.set(t,i.extend({merge:!1},e,v))},remove:function(t,e){var n=!i.isArray(t);t=n?[t]:i.clone(t),e||(e={});var s,r,a,o;for(s=0,r=t.length;r>s;s++)o=t[s]=this.get(t[s]),o&&(delete this._byId[o.id],delete this._byId[o.cid],a=this.indexOf(o),this.models.splice(a,1),this.length--,e.silent||(e.index=a,o.trigger("remove",o,this,e)),this._removeReference(o,e));return n?t[0]:t},set:function(t,e){e=i.defaults({},e,g),e.parse&&(t=this.parse(t,e));var n=!i.isArray(t);t=n?t?[t]:[]:i.clone(t);var s,r,a,o,h,u,c,l=e.at,f=this.model,p=this.comparator&&null==l&&e.sort!==!1,v=i.isString(this.comparator)?this.comparator:null,m=[],y=[],_={},b=e.add,w=e.merge,x=e.remove,E=!p&&b&&x?[]:!1;for(s=0,r=t.length;r>s;s++){if(h=t[s]||{},a=h instanceof d?o=h:h[f.prototype.idAttribute||"id"],u=this.get(a))x&&(_[u.cid]=!0),w&&(h=h===o?o.attributes:h,e.parse&&(h=u.parse(h,e)),u.set(h,e),p&&!c&&u.hasChanged(v)&&(c=!0)),t[s]=u;else if(b){if(o=t[s]=this._prepareModel(h,e),!o)continue;m.push(o),this._addReference(o,e)}o=u||o,!E||!o.isNew()&&_[o.id]||E.push(o),_[o.id]=!0}if(x){for(s=0,r=this.length;r>s;++s)_[(o=this.models[s]).cid]||y.push(o);y.length&&this.remove(y,e)}if(m.length||E&&E.length)if(p&&(c=!0),this.length+=m.length,null!=l)for(s=0,r=m.length;r>s;s++)this.models.splice(l+s,0,m[s]);else{E&&(this.models.length=0);var k=E||m;for(s=0,r=k.length;r>s;s++)this.models.push(k[s])}if(c&&this.sort({silent:!0}),!e.silent){for(s=0,r=m.length;r>s;s++)(o=m[s]).trigger("add",o,this,e);(c||E&&E.length)&&this.trigger("sort",this,e)}return n?t[0]:t},reset:function(t,e){e||(e={});for(var n=0,s=this.models.length;s>n;n++)this._removeReference(this.models[n],e);return e.previousModels=this.models,this._reset(),t=this.add(t,i.extend({silent:!0},e)),e.silent||this.trigger("reset",this,e),t},push:function(t,e){return this.add(t,i.extend({at:this.length},e))},pop:function(t){var e=this.at(this.length-1);return this.remove(e,t),e},unshift:function(t,e){return this.add(t,i.extend({at:0},e))},shift:function(t){var e=this.at(0);return this.remove(e,t),e},slice:function(){return a.apply(this.models,arguments)},get:function(t){return null==t?void 0:this._byId[t]||this._byId[t.id]||this._byId[t.cid]},at:function(t){return this.models[t]},where:function(t,e){return i.isEmpty(t)?e?void 0:[]:this[e?"find":"filter"](function(e){for(var i in t)if(t[i]!==e.get(i))return!1;return!0})},findWhere:function(t){return this.where(t,!0)},sort:function(t){if(!this.comparator)throw new Error("Cannot sort a set without a comparator");return t||(t={}),i.isString(this.comparator)||1===this.comparator.length?this.models=this.sortBy(this.comparator,this):this.models.sort(i.bind(this.comparator,this)),t.silent||this.trigger("sort",this,t),this},pluck:function(t){return i.invoke(this.models,"get",t)},fetch:function(t){t=t?i.clone(t):{},void 0===t.parse&&(t.parse=!0);var e=t.success,n=this;return t.success=function(i){var s=t.reset?"reset":"set";n[s](i,t),e&&e(n,i,t),n.trigger("sync",n,i,t)},U(this,t),this.sync("read",this,t)},create:function(t,e){if(e=e?i.clone(e):{},!(t=this._prepareModel(t,e)))return!1;e.wait||this.add(t,e);var n=this,s=e.success;return e.success=function(t,i){e.wait&&n.add(t,e),s&&s(t,i,e)},t.save(null,e),t},parse:function(t){return t},clone:function(){return new this.constructor(this.models)},_reset:function(){this.length=0,this.models=[],this._byId={}},_prepareModel:function(t,e){if(t instanceof d)return t;e=e?i.clone(e):{},e.collection=this;var n=new this.model(t,e);return n.validationError?(this.trigger("invalid",this,n.validationError,e),!1):n},_addReference:function(t){this._byId[t.cid]=t,null!=t.id&&(this._byId[t.id]=t),t.collection||(t.collection=this),t.on("all",this._onModelEvent,this)},_removeReference:function(t){this===t.collection&&delete t.collection,t.off("all",this._onModelEvent,this)},_onModelEvent:function(t,e,i,n){("add"!==t&&"remove"!==t||i===this)&&("destroy"===t&&this.remove(e,n),e&&t==="change:"+e.idAttribute&&(delete this._byId[e.previous(e.idAttribute)],null!=e.id&&(this._byId[e.id]=e)),this.trigger.apply(this,arguments))}});var m=["forEach","each","map","collect","reduce","foldl","inject","reduceRight","foldr","find","detect","filter","select","reject","every","all","some","any","include","contains","invoke","max","min","toArray","size","first","head","take","initial","rest","tail","drop","last","without","difference","indexOf","shuffle","lastIndexOf","isEmpty","chain","sample"];i.each(m,function(t){p.prototype[t]=function(){var e=a.call(arguments);return e.unshift(this.models),i[t].apply(i,e)}});var y=["groupBy","countBy","sortBy","indexBy"];i.each(y,function(t){p.prototype[t]=function(e,n){var s=i.isFunction(e)?e:function(t){return t.get(e)};return i[t](this.models,s,n)}});var _=e.View=function(t){this.cid=i.uniqueId("view"),t||(t={}),i.extend(this,i.pick(t,w)),this._ensureElement(),this.initialize.apply(this,arguments),this.delegateEvents()},b=/^(\S+)\s*(.*)$/,w=["model","collection","el","id","attributes","className","tagName","events"];i.extend(_.prototype,o,{tagName:"div",$:function(t){return this.$el.find(t)},initialize:function(){},render:function(){return this},remove:function(){return this.$el.remove(),this.stopListening(),this},setElement:function(t,i){return this.$el&&this.undelegateEvents(),this.$el=t instanceof e.$?t:e.$(t),this.el=this.$el[0],i!==!1&&this.delegateEvents(),this},delegateEvents:function(t){if(!t&&!(t=i.result(this,"events")))return this;this.undelegateEvents();for(var e in t){var n=t[e];if(i.isFunction(n)||(n=this[t[e]]),n){var s=e.match(b),r=s[1],a=s[2];n=i.bind(n,this),r+=".delegateEvents"+this.cid,""===a?this.$el.on(r,n):this.$el.on(r,a,n)}}return this},undelegateEvents:function(){return this.$el.off(".delegateEvents"+this.cid),this},_ensureElement:function(){if(this.el)this.setElement(i.result(this,"el"),!1);else{var t=i.extend({},i.result(this,"attributes"));this.id&&(t.id=i.result(this,"id")),this.className&&(t["class"]=i.result(this,"className"));var n=e.$("<"+i.result(this,"tagName")+">").attr(t);this.setElement(n,!1)}}}),e.sync=function(t,n,s){var r=E[t];i.defaults(s||(s={}),{emulateHTTP:e.emulateHTTP,emulateJSON:e.emulateJSON});var a={type:r,dataType:"json"};if(s.url||(a.url=i.result(n,"url")||C()),null!=s.data||!n||"create"!==t&&"update"!==t&&"patch"!==t||(a.contentType="application/json",a.data=JSON.stringify(s.attrs||n.toJSON(s))),s.emulateJSON&&(a.contentType="application/x-www-form-urlencoded",a.data=a.data?{model:a.data}:{}),s.emulateHTTP&&("PUT"===r||"DELETE"===r||"PATCH"===r)){a.type="POST",s.emulateJSON&&(a.data._method=r);var o=s.beforeSend;s.beforeSend=function(t){return t.setRequestHeader("X-HTTP-Method-Override",r),o?o.apply(this,arguments):void 0}}"GET"===a.type||s.emulateJSON||(a.processData=!1),"PATCH"===a.type&&x&&(a.xhr=function(){return new ActiveXObject("Microsoft.XMLHTTP")});var h=s.xhr=e.ajax(i.extend(a,s));return n.trigger("request",n,h,s),h};var x=!("undefined"==typeof window||!window.ActiveXObject||window.XMLHttpRequest&&(new XMLHttpRequest).dispatchEvent),E={create:"POST",update:"PUT",patch:"PATCH","delete":"DELETE",read:"GET"};e.ajax=function(){return e.$.ajax.apply(e.$,arguments)};var k=e.Router=function(t){t||(t={}),t.routes&&(this.routes=t.routes),this._bindRoutes(),this.initialize.apply(this,arguments)},T=/\((.*?)\)/g,$=/(\(\?)?:\w+/g,S=/\*\w+/g,H=/[\-{}\[\]+?.,\\\^$|#\s]/g;i.extend(k.prototype,o,{initialize:function(){},route:function(t,n,s){i.isRegExp(t)||(t=this._routeToRegExp(t)),i.isFunction(n)&&(s=n,n=""),s||(s=this[n]);var r=this;return e.history.route(t,function(i){var a=r._extractParameters(t,i);r.execute(s,a),r.trigger.apply(r,["route:"+n].concat(a)),r.trigger("route",n,a),e.history.trigger("route",r,n,a)}),this},execute:function(t,e){t&&t.apply(this,e)},navigate:function(t,i){return e.history.navigate(t,i),this},_bindRoutes:function(){if(this.routes){this.routes=i.result(this,"routes");for(var t,e=i.keys(this.routes);null!=(t=e.pop());)this.route(t,this.routes[t])}},_routeToRegExp:function(t){return t=t.replace(H,"\\$&").replace(T,"(?:$1)?").replace($,function(t,e){return e?t:"([^/?]+)"}).replace(S,"([^?]*?)"),new RegExp("^"+t+"(?:\\?([\\s\\S]*))?$")},_extractParameters:function(t,e){var n=t.exec(e).slice(1);return i.map(n,function(t,e){return e===n.length-1?t||null:t?decodeURIComponent(t):null})}});var A=e.History=function(){this.handlers=[],i.bindAll(this,"checkUrl"),"undefined"!=typeof window&&(this.location=window.location,this.history=window.history)},I=/^[#\/]|\s+$/g,N=/^\/+|\/+$/g,R=/msie [\w.]+/,O=/\/$/,P=/#.*$/;A.started=!1,i.extend(A.prototype,o,{interval:50,atRoot:function(){return this.location.pathname.replace(/[^\/]$/,"$&/")===this.root},getHash:function(t){var e=(t||this).location.href.match(/#(.*)$/);return e?e[1]:""},getFragment:function(t,e){if(null==t)if(this._hasPushState||!this._wantsHashChange||e){t=decodeURI(this.location.pathname+this.location.search);var i=this.root.replace(O,"");t.indexOf(i)||(t=t.slice(i.length))}else t=this.getHash();return t.replace(I,"")},start:function(t){if(A.started)throw new Error("Backbone.history has already been started");A.started=!0,this.options=i.extend({root:"/"},this.options,t),this.root=this.options.root,this._wantsHashChange=this.options.hashChange!==!1,this._wantsPushState=!!this.options.pushState,this._hasPushState=!!(this.options.pushState&&this.history&&this.history.pushState);var n=this.getFragment(),s=document.documentMode,r=R.exec(navigator.userAgent.toLowerCase())&&(!s||7>=s);if(this.root=("/"+this.root+"/").replace(N,"/"),r&&this._wantsHashChange){var a=e.$('<iframe src="javascript:0" tabindex="-1">');this.iframe=a.hide().appendTo("body")[0].contentWindow,this.navigate(n)}this._hasPushState?e.$(window).on("popstate",this.checkUrl):this._wantsHashChange&&"onhashchange"in window&&!r?e.$(window).on("hashchange",this.checkUrl):this._wantsHashChange&&(this._checkUrlInterval=setInterval(this.checkUrl,this.interval)),this.fragment=n;var o=this.location;if(this._wantsHashChange&&this._wantsPushState){if(!this._hasPushState&&!this.atRoot())return this.fragment=this.getFragment(null,!0),this.location.replace(this.root+"#"+this.fragment),!0;this._hasPushState&&this.atRoot()&&o.hash&&(this.fragment=this.getHash().replace(I,""),this.history.replaceState({},document.title,this.root+this.fragment))}return this.options.silent?void 0:this.loadUrl()},stop:function(){e.$(window).off("popstate",this.checkUrl).off("hashchange",this.checkUrl),this._checkUrlInterval&&clearInterval(this._checkUrlInterval),A.started=!1},route:function(t,e){this.handlers.unshift({route:t,callback:e})},checkUrl:function(){var t=this.getFragment();return t===this.fragment&&this.iframe&&(t=this.getFragment(this.getHash(this.iframe))),t===this.fragment?!1:(this.iframe&&this.navigate(t),void this.loadUrl())},loadUrl:function(t){return t=this.fragment=this.getFragment(t),i.any(this.handlers,function(e){return e.route.test(t)?(e.callback(t),!0):void 0})},navigate:function(t,e){if(!A.started)return!1;e&&e!==!0||(e={trigger:!!e});var i=this.root+(t=this.getFragment(t||""));if(t=t.replace(P,""),this.fragment!==t){if(this.fragment=t,""===t&&"/"!==i&&(i=i.slice(0,-1)),this._hasPushState)this.history[e.replace?"replaceState":"pushState"]({},document.title,i);else{if(!this._wantsHashChange)return this.location.assign(i);this._updateHash(this.location,t,e.replace),this.iframe&&t!==this.getFragment(this.getHash(this.iframe))&&(e.replace||this.iframe.document.open().close(),this._updateHash(this.iframe.location,t,e.replace))}return e.trigger?this.loadUrl(t):void 0}},_updateHash:function(t,e,i){if(i){var n=t.href.replace(/(javascript:|#).*$/,"");t.replace(n+"#"+e)}else t.hash="#"+e}}),e.history=new A;var j=function(t,e){var n,s=this;n=t&&i.has(t,"constructor")?t.constructor:function(){return s.apply(this,arguments)},i.extend(n,s,e);var r=function(){this.constructor=n};return r.prototype=s.prototype,n.prototype=new r,t&&i.extend(n.prototype,t),n.__super__=s.prototype,n};d.extend=p.extend=k.extend=_.extend=A.extend=j;var C=function(){throw new Error('A "url" property or function must be specified')},U=function(t,e){var i=e.error;e.error=function(n){i&&i(t,n,e),t.trigger("error",t,n,e)}};return e});
-  //# sourceMappingURL=backbone.js.map
-  global.define = __define;
-  return module.exports;
-});
-
-System.register("npm:backbone@1.1.2", ["npm:backbone@1.1.2/backbone"], true, function(require, exports, module) {
-  var global = System.global;
-  var __define = global.define;
-  global.define = undefined;
-  var __filename = "jspm_packages/npm/backbone@1.1.2.js";
-  var __dirname = "jspm_packages/npm";
-  module.exports = require("npm:backbone@1.1.2/backbone");
+  "format cjs";!function(){!function(t,e){if("function"==typeof define&&define.amd)define(["underscore","jquery","exports"],function(i,s,n){t.Backbone=e(t,n,i,s)});else if("undefined"!=typeof exports){var i=require("underscore");e(t,exports,i)}else t.Backbone=e(t,{},t._,t.jQuery||t.Zepto||t.ender||t.$)}(this,function(t,e,i,s){{var n=t.Backbone,r=[],a=(r.push,r.slice);r.splice}e.VERSION="1.1.2",e.$=s,e.noConflict=function(){return t.Backbone=n,this},e.emulateHTTP=!1,e.emulateJSON=!1;var o=e.Events={on:function(t,e,i){if(!u(this,"on",t,[e,i])||!e)return this;this._events||(this._events={});var s=this._events[t]||(this._events[t]=[]);return s.push({callback:e,context:i,ctx:i||this}),this},once:function(t,e,s){if(!u(this,"once",t,[e,s])||!e)return this;var n=this,r=i.once(function(){n.off(t,r),e.apply(this,arguments)});return r._callback=e,this.on(t,r,s)},off:function(t,e,s){var n,r,a,o,h,c,l,d;if(!this._events||!u(this,"off",t,[e,s]))return this;if(!t&&!e&&!s)return this._events=void 0,this;for(o=t?[t]:i.keys(this._events),h=0,c=o.length;c>h;h++)if(t=o[h],a=this._events[t]){if(this._events[t]=n=[],e||s)for(l=0,d=a.length;d>l;l++)r=a[l],(e&&e!==r.callback&&e!==r.callback._callback||s&&s!==r.context)&&n.push(r);n.length||delete this._events[t]}return this},trigger:function(t){if(!this._events)return this;var e=a.call(arguments,1);if(!u(this,"trigger",t,e))return this;var i=this._events[t],s=this._events.all;return i&&c(i,e),s&&c(s,arguments),this},stopListening:function(t,e,s){var n=this._listeningTo;if(!n)return this;var r=!e&&!s;s||"object"!=typeof e||(s=this),t&&((n={})[t._listenId]=t);for(var a in n)t=n[a],t.off(e,s,this),(r||i.isEmpty(t._events))&&delete this._listeningTo[a];return this}},h=/\s+/,u=function(t,e,i,s){if(!i)return!0;if("object"==typeof i){for(var n in i)t[e].apply(t,[n,i[n]].concat(s));return!1}if(h.test(i)){for(var r=i.split(h),a=0,o=r.length;o>a;a++)t[e].apply(t,[r[a]].concat(s));return!1}return!0},c=function(t,e){var i,s=-1,n=t.length,r=e[0],a=e[1],o=e[2];switch(e.length){case 0:for(;++s<n;)(i=t[s]).callback.call(i.ctx);return;case 1:for(;++s<n;)(i=t[s]).callback.call(i.ctx,r);return;case 2:for(;++s<n;)(i=t[s]).callback.call(i.ctx,r,a);return;case 3:for(;++s<n;)(i=t[s]).callback.call(i.ctx,r,a,o);return;default:for(;++s<n;)(i=t[s]).callback.apply(i.ctx,e);return}},l={listenTo:"on",listenToOnce:"once"};i.each(l,function(t,e){o[e]=function(e,s,n){var r=this._listeningTo||(this._listeningTo={}),a=e._listenId||(e._listenId=i.uniqueId("l"));return r[a]=e,n||"object"!=typeof s||(n=this),e[t](s,n,this),this}}),o.bind=o.on,o.unbind=o.off,i.extend(e,o);var d=e.Model=function(t,e){var s=t||{};e||(e={}),this.cid=i.uniqueId("c"),this.attributes={},e.collection&&(this.collection=e.collection),e.parse&&(s=this.parse(s,e)||{}),s=i.defaults({},s,i.result(this,"defaults")),this.set(s,e),this.changed={},this.initialize.apply(this,arguments)};i.extend(d.prototype,o,{changed:null,validationError:null,idAttribute:"id",initialize:function(){},toJSON:function(){return i.clone(this.attributes)},sync:function(){return e.sync.apply(this,arguments)},get:function(t){return this.attributes[t]},escape:function(t){return i.escape(this.get(t))},has:function(t){return null!=this.get(t)},set:function(t,e,s){var n,r,a,o,h,u,c,l;if(null==t)return this;if("object"==typeof t?(r=t,s=e):(r={})[t]=e,s||(s={}),!this._validate(r,s))return!1;a=s.unset,h=s.silent,o=[],u=this._changing,this._changing=!0,u||(this._previousAttributes=i.clone(this.attributes),this.changed={}),l=this.attributes,c=this._previousAttributes,this.idAttribute in r&&(this.id=r[this.idAttribute]);for(n in r)e=r[n],i.isEqual(l[n],e)||o.push(n),i.isEqual(c[n],e)?delete this.changed[n]:this.changed[n]=e,a?delete l[n]:l[n]=e;if(!h){o.length&&(this._pending=s);for(var d=0,f=o.length;f>d;d++)this.trigger("change:"+o[d],this,l[o[d]],s)}if(u)return this;if(!h)for(;this._pending;)s=this._pending,this._pending=!1,this.trigger("change",this,s);return this._pending=!1,this._changing=!1,this},unset:function(t,e){return this.set(t,void 0,i.extend({},e,{unset:!0}))},clear:function(t){var e={};for(var s in this.attributes)e[s]=void 0;return this.set(e,i.extend({},t,{unset:!0}))},hasChanged:function(t){return null==t?!i.isEmpty(this.changed):i.has(this.changed,t)},changedAttributes:function(t){if(!t)return this.hasChanged()?i.clone(this.changed):!1;var e,s=!1,n=this._changing?this._previousAttributes:this.attributes;for(var r in t)i.isEqual(n[r],e=t[r])||((s||(s={}))[r]=e);return s},previous:function(t){return null!=t&&this._previousAttributes?this._previousAttributes[t]:null},previousAttributes:function(){return i.clone(this._previousAttributes)},fetch:function(t){t=t?i.clone(t):{},void 0===t.parse&&(t.parse=!0);var e=this,s=t.success;return t.success=function(i){return e.set(e.parse(i,t),t)?(s&&s(e,i,t),void e.trigger("sync",e,i,t)):!1},U(this,t),this.sync("read",this,t)},save:function(t,e,s){var n,r,a,o=this.attributes;if(null==t||"object"==typeof t?(n=t,s=e):(n={})[t]=e,s=i.extend({validate:!0},s),n&&!s.wait){if(!this.set(n,s))return!1}else if(!this._validate(n,s))return!1;n&&s.wait&&(this.attributes=i.extend({},o,n)),void 0===s.parse&&(s.parse=!0);var h=this,u=s.success;return s.success=function(t){h.attributes=o;var e=h.parse(t,s);return s.wait&&(e=i.extend(n||{},e)),i.isObject(e)&&!h.set(e,s)?!1:(u&&u(h,t,s),void h.trigger("sync",h,t,s))},U(this,s),r=this.isNew()?"create":s.patch?"patch":"update","patch"===r&&(s.attrs=n),a=this.sync(r,this,s),n&&s.wait&&(this.attributes=o),a},destroy:function(t){t=t?i.clone(t):{};var e=this,s=t.success,n=function(){e.trigger("destroy",e,e.collection,t)};if(t.success=function(i){(t.wait||e.isNew())&&n(),s&&s(e,i,t),e.isNew()||e.trigger("sync",e,i,t)},this.isNew())return t.success(),!1;U(this,t);var r=this.sync("delete",this,t);return t.wait||n(),r},url:function(){var t=i.result(this,"urlRoot")||i.result(this.collection,"url")||C();return this.isNew()?t:t.replace(/([^\/])$/,"$1/")+encodeURIComponent(this.id)},parse:function(t){return t},clone:function(){return new this.constructor(this.attributes)},isNew:function(){return!this.has(this.idAttribute)},isValid:function(t){return this._validate({},i.extend(t||{},{validate:!0}))},_validate:function(t,e){if(!e.validate||!this.validate)return!0;t=i.extend({},this.attributes,t);var s=this.validationError=this.validate(t,e)||null;return s?(this.trigger("invalid",this,s,i.extend(e,{validationError:s})),!1):!0}});var f=["keys","values","pairs","invert","pick","omit"];i.each(f,function(t){d.prototype[t]=function(){var e=a.call(arguments);return e.unshift(this.attributes),i[t].apply(i,e)}});var p=e.Collection=function(t,e){e||(e={}),e.model&&(this.model=e.model),void 0!==e.comparator&&(this.comparator=e.comparator),this._reset(),this.initialize.apply(this,arguments),t&&this.reset(t,i.extend({silent:!0},e))},g={add:!0,remove:!0,merge:!0},v={add:!0,remove:!1};i.extend(p.prototype,o,{model:d,initialize:function(){},toJSON:function(t){return this.map(function(e){return e.toJSON(t)})},sync:function(){return e.sync.apply(this,arguments)},add:function(t,e){return this.set(t,i.extend({merge:!1},e,v))},remove:function(t,e){var s=!i.isArray(t);t=s?[t]:i.clone(t),e||(e={});var n,r,a,o;for(n=0,r=t.length;r>n;n++)o=t[n]=this.get(t[n]),o&&(delete this._byId[o.id],delete this._byId[o.cid],a=this.indexOf(o),this.models.splice(a,1),this.length--,e.silent||(e.index=a,o.trigger("remove",o,this,e)),this._removeReference(o,e));return s?t[0]:t},set:function(t,e){e=i.defaults({},e,g),e.parse&&(t=this.parse(t,e));var s=!i.isArray(t);t=s?t?[t]:[]:i.clone(t);var n,r,a,o,h,u,c,l=e.at,f=this.model,p=this.comparator&&null==l&&e.sort!==!1,v=i.isString(this.comparator)?this.comparator:null,m=[],y=[],_={},b=e.add,w=e.merge,x=e.remove,E=!p&&b&&x?[]:!1;for(n=0,r=t.length;r>n;n++){if(h=t[n]||{},a=h instanceof d?o=h:h[f.prototype.idAttribute||"id"],u=this.get(a))x&&(_[u.cid]=!0),w&&(h=h===o?o.attributes:h,e.parse&&(h=u.parse(h,e)),u.set(h,e),p&&!c&&u.hasChanged(v)&&(c=!0)),t[n]=u;else if(b){if(o=t[n]=this._prepareModel(h,e),!o)continue;m.push(o),this._addReference(o,e)}o=u||o,!E||!o.isNew()&&_[o.id]||E.push(o),_[o.id]=!0}if(x){for(n=0,r=this.length;r>n;++n)_[(o=this.models[n]).cid]||y.push(o);y.length&&this.remove(y,e)}if(m.length||E&&E.length)if(p&&(c=!0),this.length+=m.length,null!=l)for(n=0,r=m.length;r>n;n++)this.models.splice(l+n,0,m[n]);else{E&&(this.models.length=0);var k=E||m;for(n=0,r=k.length;r>n;n++)this.models.push(k[n])}if(c&&this.sort({silent:!0}),!e.silent){for(n=0,r=m.length;r>n;n++)(o=m[n]).trigger("add",o,this,e);(c||E&&E.length)&&this.trigger("sort",this,e)}return s?t[0]:t},reset:function(t,e){e||(e={});for(var s=0,n=this.models.length;n>s;s++)this._removeReference(this.models[s],e);return e.previousModels=this.models,this._reset(),t=this.add(t,i.extend({silent:!0},e)),e.silent||this.trigger("reset",this,e),t},push:function(t,e){return this.add(t,i.extend({at:this.length},e))},pop:function(t){var e=this.at(this.length-1);return this.remove(e,t),e},unshift:function(t,e){return this.add(t,i.extend({at:0},e))},shift:function(t){var e=this.at(0);return this.remove(e,t),e},slice:function(){return a.apply(this.models,arguments)},get:function(t){return null==t?void 0:this._byId[t]||this._byId[t.id]||this._byId[t.cid]},at:function(t){return this.models[t]},where:function(t,e){return i.isEmpty(t)?e?void 0:[]:this[e?"find":"filter"](function(e){for(var i in t)if(t[i]!==e.get(i))return!1;return!0})},findWhere:function(t){return this.where(t,!0)},sort:function(t){if(!this.comparator)throw new Error("Cannot sort a set without a comparator");return t||(t={}),i.isString(this.comparator)||1===this.comparator.length?this.models=this.sortBy(this.comparator,this):this.models.sort(i.bind(this.comparator,this)),t.silent||this.trigger("sort",this,t),this},pluck:function(t){return i.invoke(this.models,"get",t)},fetch:function(t){t=t?i.clone(t):{},void 0===t.parse&&(t.parse=!0);var e=t.success,s=this;return t.success=function(i){var n=t.reset?"reset":"set";s[n](i,t),e&&e(s,i,t),s.trigger("sync",s,i,t)},U(this,t),this.sync("read",this,t)},create:function(t,e){if(e=e?i.clone(e):{},!(t=this._prepareModel(t,e)))return!1;e.wait||this.add(t,e);var s=this,n=e.success;return e.success=function(t,i){e.wait&&s.add(t,e),n&&n(t,i,e)},t.save(null,e),t},parse:function(t){return t},clone:function(){return new this.constructor(this.models)},_reset:function(){this.length=0,this.models=[],this._byId={}},_prepareModel:function(t,e){if(t instanceof d)return t;e=e?i.clone(e):{},e.collection=this;var s=new this.model(t,e);return s.validationError?(this.trigger("invalid",this,s.validationError,e),!1):s},_addReference:function(t){this._byId[t.cid]=t,null!=t.id&&(this._byId[t.id]=t),t.collection||(t.collection=this),t.on("all",this._onModelEvent,this)},_removeReference:function(t){this===t.collection&&delete t.collection,t.off("all",this._onModelEvent,this)},_onModelEvent:function(t,e,i,s){("add"!==t&&"remove"!==t||i===this)&&("destroy"===t&&this.remove(e,s),e&&t==="change:"+e.idAttribute&&(delete this._byId[e.previous(e.idAttribute)],null!=e.id&&(this._byId[e.id]=e)),this.trigger.apply(this,arguments))}});var m=["forEach","each","map","collect","reduce","foldl","inject","reduceRight","foldr","find","detect","filter","select","reject","every","all","some","any","include","contains","invoke","max","min","toArray","size","first","head","take","initial","rest","tail","drop","last","without","difference","indexOf","shuffle","lastIndexOf","isEmpty","chain","sample"];i.each(m,function(t){p.prototype[t]=function(){var e=a.call(arguments);return e.unshift(this.models),i[t].apply(i,e)}});var y=["groupBy","countBy","sortBy","indexBy"];i.each(y,function(t){p.prototype[t]=function(e,s){var n=i.isFunction(e)?e:function(t){return t.get(e)};return i[t](this.models,n,s)}});var _=e.View=function(t){this.cid=i.uniqueId("view"),t||(t={}),i.extend(this,i.pick(t,w)),this._ensureElement(),this.initialize.apply(this,arguments),this.delegateEvents()},b=/^(\S+)\s*(.*)$/,w=["model","collection","el","id","attributes","className","tagName","events"];i.extend(_.prototype,o,{tagName:"div",$:function(t){return this.$el.find(t)},initialize:function(){},render:function(){return this},remove:function(){return this.$el.remove(),this.stopListening(),this},setElement:function(t,i){return this.$el&&this.undelegateEvents(),this.$el=t instanceof e.$?t:e.$(t),this.el=this.$el[0],i!==!1&&this.delegateEvents(),this},delegateEvents:function(t){if(!t&&!(t=i.result(this,"events")))return this;this.undelegateEvents();for(var e in t){var s=t[e];if(i.isFunction(s)||(s=this[t[e]]),s){var n=e.match(b),r=n[1],a=n[2];s=i.bind(s,this),r+=".delegateEvents"+this.cid,""===a?this.$el.on(r,s):this.$el.on(r,a,s)}}return this},undelegateEvents:function(){return this.$el.off(".delegateEvents"+this.cid),this},_ensureElement:function(){if(this.el)this.setElement(i.result(this,"el"),!1);else{var t=i.extend({},i.result(this,"attributes"));this.id&&(t.id=i.result(this,"id")),this.className&&(t["class"]=i.result(this,"className"));var s=e.$("<"+i.result(this,"tagName")+">").attr(t);this.setElement(s,!1)}}}),e.sync=function(t,s,n){var r=E[t];i.defaults(n||(n={}),{emulateHTTP:e.emulateHTTP,emulateJSON:e.emulateJSON});var a={type:r,dataType:"json"};if(n.url||(a.url=i.result(s,"url")||C()),null!=n.data||!s||"create"!==t&&"update"!==t&&"patch"!==t||(a.contentType="application/json",a.data=JSON.stringify(n.attrs||s.toJSON(n))),n.emulateJSON&&(a.contentType="application/x-www-form-urlencoded",a.data=a.data?{model:a.data}:{}),n.emulateHTTP&&("PUT"===r||"DELETE"===r||"PATCH"===r)){a.type="POST",n.emulateJSON&&(a.data._method=r);var o=n.beforeSend;n.beforeSend=function(t){return t.setRequestHeader("X-HTTP-Method-Override",r),o?o.apply(this,arguments):void 0}}"GET"===a.type||n.emulateJSON||(a.processData=!1),"PATCH"===a.type&&x&&(a.xhr=function(){return new ActiveXObject("Microsoft.XMLHTTP")});var h=n.xhr=e.ajax(i.extend(a,n));return s.trigger("request",s,h,n),h};var x=!("undefined"==typeof window||!window.ActiveXObject||window.XMLHttpRequest&&(new XMLHttpRequest).dispatchEvent),E={create:"POST",update:"PUT",patch:"PATCH","delete":"DELETE",read:"GET"};e.ajax=function(){return e.$.ajax.apply(e.$,arguments)};var k=e.Router=function(t){t||(t={}),t.routes&&(this.routes=t.routes),this._bindRoutes(),this.initialize.apply(this,arguments)},T=/\((.*?)\)/g,$=/(\(\?)?:\w+/g,S=/\*\w+/g,H=/[\-{}\[\]+?.,\\\^$|#\s]/g;i.extend(k.prototype,o,{initialize:function(){},route:function(t,s,n){i.isRegExp(t)||(t=this._routeToRegExp(t)),i.isFunction(s)&&(n=s,s=""),n||(n=this[s]);var r=this;return e.history.route(t,function(i){var a=r._extractParameters(t,i);r.execute(n,a),r.trigger.apply(r,["route:"+s].concat(a)),r.trigger("route",s,a),e.history.trigger("route",r,s,a)}),this},execute:function(t,e){t&&t.apply(this,e)},navigate:function(t,i){return e.history.navigate(t,i),this},_bindRoutes:function(){if(this.routes){this.routes=i.result(this,"routes");for(var t,e=i.keys(this.routes);null!=(t=e.pop());)this.route(t,this.routes[t])}},_routeToRegExp:function(t){return t=t.replace(H,"\\$&").replace(T,"(?:$1)?").replace($,function(t,e){return e?t:"([^/?]+)"}).replace(S,"([^?]*?)"),new RegExp("^"+t+"(?:\\?([\\s\\S]*))?$")},_extractParameters:function(t,e){var s=t.exec(e).slice(1);return i.map(s,function(t,e){return e===s.length-1?t||null:t?decodeURIComponent(t):null})}});var A=e.History=function(){this.handlers=[],i.bindAll(this,"checkUrl"),"undefined"!=typeof window&&(this.location=window.location,this.history=window.history)},I=/^[#\/]|\s+$/g,N=/^\/+|\/+$/g,R=/msie [\w.]+/,O=/\/$/,P=/#.*$/;A.started=!1,i.extend(A.prototype,o,{interval:50,atRoot:function(){return this.location.pathname.replace(/[^\/]$/,"$&/")===this.root},getHash:function(t){var e=(t||this).location.href.match(/#(.*)$/);return e?e[1]:""},getFragment:function(t,e){if(null==t)if(this._hasPushState||!this._wantsHashChange||e){t=decodeURI(this.location.pathname+this.location.search);var i=this.root.replace(O,"");t.indexOf(i)||(t=t.slice(i.length))}else t=this.getHash();return t.replace(I,"")},start:function(t){if(A.started)throw new Error("Backbone.history has already been started");A.started=!0,this.options=i.extend({root:"/"},this.options,t),this.root=this.options.root,this._wantsHashChange=this.options.hashChange!==!1,this._wantsPushState=!!this.options.pushState,this._hasPushState=!!(this.options.pushState&&this.history&&this.history.pushState);var s=this.getFragment(),n=document.documentMode,r=R.exec(navigator.userAgent.toLowerCase())&&(!n||7>=n);if(this.root=("/"+this.root+"/").replace(N,"/"),r&&this._wantsHashChange){var a=e.$('<iframe src="javascript:0" tabindex="-1">');this.iframe=a.hide().appendTo("body")[0].contentWindow,this.navigate(s)}this._hasPushState?e.$(window).on("popstate",this.checkUrl):this._wantsHashChange&&"onhashchange"in window&&!r?e.$(window).on("hashchange",this.checkUrl):this._wantsHashChange&&(this._checkUrlInterval=setInterval(this.checkUrl,this.interval)),this.fragment=s;var o=this.location;if(this._wantsHashChange&&this._wantsPushState){if(!this._hasPushState&&!this.atRoot())return this.fragment=this.getFragment(null,!0),this.location.replace(this.root+"#"+this.fragment),!0;this._hasPushState&&this.atRoot()&&o.hash&&(this.fragment=this.getHash().replace(I,""),this.history.replaceState({},document.title,this.root+this.fragment))}return this.options.silent?void 0:this.loadUrl()},stop:function(){e.$(window).off("popstate",this.checkUrl).off("hashchange",this.checkUrl),this._checkUrlInterval&&clearInterval(this._checkUrlInterval),A.started=!1},route:function(t,e){this.handlers.unshift({route:t,callback:e})},checkUrl:function(){var t=this.getFragment();return t===this.fragment&&this.iframe&&(t=this.getFragment(this.getHash(this.iframe))),t===this.fragment?!1:(this.iframe&&this.navigate(t),void this.loadUrl())},loadUrl:function(t){return t=this.fragment=this.getFragment(t),i.any(this.handlers,function(e){return e.route.test(t)?(e.callback(t),!0):void 0})},navigate:function(t,e){if(!A.started)return!1;e&&e!==!0||(e={trigger:!!e});var i=this.root+(t=this.getFragment(t||""));if(t=t.replace(P,""),this.fragment!==t){if(this.fragment=t,""===t&&"/"!==i&&(i=i.slice(0,-1)),this._hasPushState)this.history[e.replace?"replaceState":"pushState"]({},document.title,i);else{if(!this._wantsHashChange)return this.location.assign(i);this._updateHash(this.location,t,e.replace),this.iframe&&t!==this.getFragment(this.getHash(this.iframe))&&(e.replace||this.iframe.document.open().close(),this._updateHash(this.iframe.location,t,e.replace))}return e.trigger?this.loadUrl(t):void 0}},_updateHash:function(t,e,i){if(i){var s=t.href.replace(/(javascript:|#).*$/,"");t.replace(s+"#"+e)}else t.hash="#"+e}}),e.history=new A;var j=function(t,e){var s,n=this;s=t&&i.has(t,"constructor")?t.constructor:function(){return n.apply(this,arguments)},i.extend(s,n,e);var r=function(){this.constructor=s};return r.prototype=n.prototype,s.prototype=new r,t&&i.extend(s.prototype,t),s.__super__=n.prototype,s};d.extend=p.extend=k.extend=_.extend=A.extend=j;var C=function(){throw new Error('A "url" property or function must be specified')},U=function(t,e){var i=e.error;e.error=function(s){i&&i(t,s,e),t.trigger("error",t,s,e)}};return e})}(require("github:jspm/nodelibs@0.0.5/process"));
   
   global.define = __define;
   return module.exports;

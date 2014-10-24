@@ -4,7 +4,7 @@
  */
 var gulp = require('gulp'),
     shell = require('gulp-shell'),
-    clean = require('gulp-rimraf'),
+    clean = require('gulp-del'),
     stylus = require('gulp-stylus'),
     nib = require('nib'),
     jshint = require('gulp-jshint'),
