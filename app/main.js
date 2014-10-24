@@ -2,7 +2,8 @@ import { Greeter } from './hello-es6'
 import amd from './hello-amd'
 import cjs from './hello-cjs'
 import bb from './hello-backbone'
-import Mustache from 'mustache'
+import Mustache from 'github:janl/mustache.js'
+
 
 // direct import doesn't work with bundling
 import txt from './template.text!text'

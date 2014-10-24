@@ -4037,7 +4037,7 @@ System.register("app/hello-backbone", ["app/backbone-extended"], function($__exp
   };
 });
 
-System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", "app/hello-backbone", "github:janl/mustache.js@0.8.2"], function($__export) {
+System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", "app/hello-backbone", "github:janl/mustache.js@0.8.2", "app/template.text!github:systemjs/plugin-text@0.0.2"], function($__export) {
   "use strict";
   var __moduleName = "app/main";
   var Greeter,
@@ -4045,6 +4045,7 @@ System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", 
       cjs,
       bb,
       Mustache,
+      txt,
       showMsg,
       greeter;
   return {
@@ -4058,6 +4059,8 @@ System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", 
       bb = m.default;
     }, function(m) {
       Mustache = m.default;
+    }, function(m) {
+      txt = m.default;
     }],
     execute: function() {
       showMsg = (function(id, msg) {
@@ -4068,6 +4071,7 @@ System.register("app/main", ["app/hello-es6", "app/hello-amd", "app/hello-cjs", 
       showMsg('amd', amd.say('async is great!'));
       showMsg('commonjs', cjs.say('npm modules rule!'));
       showMsg('bb', bb.say('MV*!'));
+      showMsg('mustache', Mustache.render(txt, {msg: 'interpolate!'}));
     }
   };
 });
@@ -5750,6 +5754,17 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/uniqueId", [], true, fun
   /* */
   "format cjs";function uniqueId(e){var t=++idCounter;return String(null==e?"":e)+t}var idCounter=0;module.exports=uniqueId;
   
+  global.define = __define;
+  return module.exports;
+});
+
+System.register("app/template.text!github:systemjs/plugin-text@0.0.2", [], true, function(require, exports, module) {
+  var global = System.global;
+  var __define = global.define;
+  global.define = undefined;
+  var __filename = "app/template.text";
+  var __dirname = "app";
+  module.exports = "Mustache says: {{msg}}";
   global.define = __define;
   return module.exports;
 });
