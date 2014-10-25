@@ -3572,7 +3572,9 @@ function define(){};  define.amd = {};
       var mustache = {};
       factory(mustache);
       if (typeof define === "function" && define.amd) {
-        System.register("github:janl/mustache.js@0.8.2/mustache", [], false, mustache);
+        System.register("github:janl/mustache.js@0.8.2/mustache", [], false, typeof mustache == "function" ? mustache : function() {
+          return mustache;
+        });
       } else {
         root.Mustache = mustache;
       }
@@ -4101,7 +4103,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/compact", [], true, functio
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/compact.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function compact(e){for(var t=-1,r=e?e.length:0,n=[];++t<r;){var i=e[t];i&&n.push(i)}return n}module.exports=compact;
+  "format cjs";function compact(e){for(var r=-1,t=e?e.length:0,a=[];++r<t;){var o=e[r];o&&a.push(o)}return a}module.exports=compact;
   
   global.define = __define;
   return module.exports;
@@ -4114,7 +4116,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseIndexOf", [], true, 
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseIndexOf.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseIndexOf(e,t,r){for(var n=(r||0)-1,i=e?e.length:0;++n<i;)if(e[n]===t)return n;return-1}module.exports=baseIndexOf;
+  "format cjs";function baseIndexOf(e,r,t){for(var a=(t||0)-1,n=e?e.length:0;++a<n;)if(e[a]===r)return a;return-1}module.exports=baseIndexOf;
   
   global.define = __define;
   return module.exports;
@@ -4140,7 +4142,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/cachePush", ["./keyPrefi
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/cachePush.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function cachePush(e){var t=this.cache,r=typeof e;if("boolean"==r||null==e)t[e]=!0;else{"number"!=r&&"string"!=r&&(r="object");var n="number"==r?e:keyPrefix+e,i=t[r]||(t[r]={});"object"==r?(i[n]||(i[n]=[])).push(e):i[n]=!0}}var keyPrefix=require("./keyPrefix");module.exports=cachePush;
+  "format cjs";function cachePush(e){var r=this.cache,t=typeof e;if("boolean"==t||null==e)r[e]=!0;else{"number"!=t&&"string"!=t&&(t="object");var a="number"==t?e:keyPrefix+e,n=r[t]||(r[t]={});"object"==t?(n[a]||(n[a]=[])).push(e):n[a]=!0}}var keyPrefix=require("./keyPrefix");module.exports=cachePush;
   
   global.define = __define;
   return module.exports;
@@ -4257,7 +4259,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/setBindData", ["./isNati
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/setBindData.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";var isNative=require("./isNative"),noop=require("../utilities/noop"),descriptor={configurable:!1,enumerable:!1,value:null,writable:!1},defineProperty=function(){try{var e={},t=isNative(t=Object.defineProperty)&&t,r=t(e,e,e)&&t}catch(n){}return r}(),setBindData=defineProperty?function(e,t){descriptor.value=t,defineProperty(e,"__bindData__",descriptor)}:noop;module.exports=setBindData;
+  "format cjs";var isNative=require("./isNative"),noop=require("../utilities/noop"),descriptor={configurable:!1,enumerable:!1,value:null,writable:!1},defineProperty=function(){try{var e={},r=isNative(r=Object.defineProperty)&&r,t=r(e,e,e)&&r}catch(a){}return t}(),setBindData=defineProperty?function(e,r){descriptor.value=r,defineProperty(e,"__bindData__",descriptor)}:noop;module.exports=setBindData;
   
   global.define = __define;
   return module.exports;
@@ -4270,7 +4272,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/slice", [], true, functi
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/slice.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function slice(e,t,r){t||(t=0),"undefined"==typeof r&&(r=e?e.length:0);for(var n=-1,i=r-t||0,s=Array(0>i?0:i);++n<i;)s[n]=e[t+n];return s}module.exports=slice;
+  "format cjs";function slice(e,r,t){r||(r=0),"undefined"==typeof t&&(t=e?e.length:0);for(var a=-1,o=t-r||0,n=Array(0>o?0:o);++a<o;)n[a]=e[r+a];return n}module.exports=slice;
   
   global.define = __define;
   return module.exports;
@@ -4283,7 +4285,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseCreateWrapper", ["./
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseCreateWrapper.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseCreateWrapper(e){function t(){var e=u?o:this;if(i){var f=slice(i);push.apply(f,arguments)}if((s||l)&&(f||(f=slice(arguments)),s&&push.apply(f,s),l&&f.length<a))return n|=16,baseCreateWrapper([r,p?n:-4&n,f,null,o,a]);if(f||(f=arguments),c&&(r=e[h]),this instanceof t){e=baseCreate(r.prototype);var d=r.apply(e,f);return isObject(d)?d:e}return r.apply(e,f)}var r=e[0],n=e[1],i=e[2],s=e[3],o=e[4],a=e[5],u=1&n,c=2&n,l=4&n,p=8&n,h=r;return setBindData(t,e),t}var baseCreate=require("./baseCreate"),isObject=require("../objects/isObject"),setBindData=require("./setBindData"),slice=require("./slice"),arrayRef=[],push=arrayRef.push;module.exports=baseCreateWrapper;
+  "format cjs";function baseCreateWrapper(e){function r(){var e=l?s:this;if(n){var b=slice(n);push.apply(b,arguments)}if((o||u)&&(b||(b=slice(arguments)),o&&push.apply(b,o),u&&b.length<i))return a|=16,baseCreateWrapper([t,f?a:-4&a,b,null,s,i]);if(b||(b=arguments),c&&(t=e[p]),this instanceof r){e=baseCreate(t.prototype);var d=t.apply(e,b);return isObject(d)?d:e}return t.apply(e,b)}var t=e[0],a=e[1],n=e[2],o=e[3],s=e[4],i=e[5],l=1&a,c=2&a,u=4&a,f=8&a,p=t;return setBindData(r,e),r}var baseCreate=require("./baseCreate"),isObject=require("../objects/isObject"),setBindData=require("./setBindData"),slice=require("./slice"),arrayRef=[],push=arrayRef.push;module.exports=baseCreateWrapper;
   
   global.define = __define;
   return module.exports;
@@ -4335,7 +4337,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/forIn", ["../internals/bas
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/forIn.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),objectTypes=require("../internals/objectTypes"),forIn=function(e,t,r){var n,i=e,s=i;if(!i)return s;if(!objectTypes[typeof i])return s;t=t&&"undefined"==typeof r?t:baseCreateCallback(t,r,3);for(n in i)if(t(i[n],n,e)===!1)return s;return s};module.exports=forIn;
+  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),objectTypes=require("../internals/objectTypes"),forIn=function(e,r,t){var a,o=e,n=o;if(!o)return n;if(!objectTypes[typeof o])return n;r=r&&"undefined"==typeof t?r:baseCreateCallback(r,t,3);for(a in o)if(r(o[a],a,e)===!1)return n;return n};module.exports=forIn;
   
   global.define = __define;
   return module.exports;
@@ -4374,7 +4376,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/shimKeys", ["./objectTyp
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/shimKeys.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";var objectTypes=require("./objectTypes"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,shimKeys=function(e){var t,r=e,n=[];if(!r)return n;if(!objectTypes[typeof e])return n;for(t in r)hasOwnProperty.call(r,t)&&n.push(t);return n};module.exports=shimKeys;
+  "format cjs";var objectTypes=require("./objectTypes"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,shimKeys=function(e){var r,t=e,a=[];if(!t)return a;if(!objectTypes[typeof e])return a;for(r in t)hasOwnProperty.call(t,r)&&a.push(r);return a};module.exports=shimKeys;
   
   global.define = __define;
   return module.exports;
@@ -4387,7 +4389,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/property", [], true, fun
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/property.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";function property(e){return function(t){return t[e]}}module.exports=property;
+  "format cjs";function property(e){return function(r){return r[e]}}module.exports=property;
   
   global.define = __define;
   return module.exports;
@@ -4400,7 +4402,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/findIndex", ["../functions/
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/findIndex.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function findIndex(e,t,r){var n=-1,i=e?e.length:0;for(t=createCallback(t,r,3);++n<i;)if(t(e[n],n,e))return n;return-1}var createCallback=require("../functions/createCallback");module.exports=findIndex;
+  "format cjs";function findIndex(e,r,t){var a=-1,o=e?e.length:0;for(r=createCallback(r,t,3);++a<o;)if(r(e[a],a,e))return a;return-1}var createCallback=require("../functions/createCallback");module.exports=findIndex;
   
   global.define = __define;
   return module.exports;
@@ -4413,7 +4415,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/findLastIndex", ["../functi
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/findLastIndex.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function findLastIndex(e,t,r){var n=e?e.length:0;for(t=createCallback(t,r,3);n--;)if(t(e[n],n,e))return n;return-1}var createCallback=require("../functions/createCallback");module.exports=findLastIndex;
+  "format cjs";function findLastIndex(e,r,t){var a=e?e.length:0;for(r=createCallback(r,t,3);a--;)if(r(e[a],a,e))return a;return-1}var createCallback=require("../functions/createCallback");module.exports=findLastIndex;
   
   global.define = __define;
   return module.exports;
@@ -4426,7 +4428,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/first", ["../functions/crea
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/first.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function first(e,t,r){var n=0,i=e?e.length:0;if("number"!=typeof t&&null!=t){var s=-1;for(t=createCallback(t,r,3);++s<i&&t(e[s],s,e);)n++}else if(n=t,null==n||r)return e?e[0]:void 0;return slice(e,0,nativeMin(nativeMax(0,n),i))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max,nativeMin=Math.min;module.exports=first;
+  "format cjs";function first(e,r,t){var a=0,o=e?e.length:0;if("number"!=typeof r&&null!=r){var s=-1;for(r=createCallback(r,t,3);++s<o&&r(e[s],s,e);)a++}else if(a=r,null==a||t)return e?e[0]:void 0;return slice(e,0,nativeMin(nativeMax(0,a),o))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max,nativeMin=Math.min;module.exports=first;
   
   global.define = __define;
   return module.exports;
@@ -4439,7 +4441,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/forOwn", ["../internals/ba
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/forOwn.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys"),objectTypes=require("../internals/objectTypes"),forOwn=function(e,t,r){var n,i=e,s=i;if(!i)return s;if(!objectTypes[typeof i])return s;t=t&&"undefined"==typeof r?t:baseCreateCallback(t,r,3);for(var o=-1,a=objectTypes[typeof i]&&keys(i),u=a?a.length:0;++o<u;)if(n=a[o],t(i[n],n,e)===!1)return s;return s};module.exports=forOwn;
+  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys"),objectTypes=require("../internals/objectTypes"),forOwn=function(e,r,t){var a,o=e,n=o;if(!o)return n;if(!objectTypes[typeof o])return n;r=r&&"undefined"==typeof t?r:baseCreateCallback(r,t,3);for(var s=-1,i=objectTypes[typeof o]&&keys(o),c=i?i.length:0;++s<c;)if(a=i[s],r(o[a],a,e)===!1)return n;return n};module.exports=forOwn;
   
   global.define = __define;
   return module.exports;
@@ -4452,7 +4454,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/sortedIndex", ["../function
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/sortedIndex.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function sortedIndex(e,t,r,n){var i=0,s=e?e.length:i;for(r=r?createCallback(r,n,1):identity,t=r(t);s>i;){var o=i+s>>>1;r(e[o])<t?i=o+1:s=o}return i}var createCallback=require("../functions/createCallback"),identity=require("../utilities/identity");module.exports=sortedIndex;
+  "format cjs";function sortedIndex(e,r,t,a){var n=0,s=e?e.length:n;for(t=t?createCallback(t,a,1):identity,r=t(r);s>n;){var o=n+s>>>1;t(e[o])<r?n=o+1:s=o}return n}var createCallback=require("../functions/createCallback"),identity=require("../utilities/identity");module.exports=sortedIndex;
   
   global.define = __define;
   return module.exports;
@@ -4465,7 +4467,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/initial", ["../functions/cr
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/initial.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function initial(e,t,r){var n=0,i=e?e.length:0;if("number"!=typeof t&&null!=t){var s=i;for(t=createCallback(t,r,3);s--&&t(e[s],s,e);)n++}else n=null==t||r?1:t||n;return slice(e,0,nativeMin(nativeMax(0,i-n),i))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max,nativeMin=Math.min;module.exports=initial;
+  "format cjs";function initial(e,r,t){var a=0,n=e?e.length:0;if("number"!=typeof r&&null!=r){var s=n;for(r=createCallback(r,t,3);s--&&r(e[s],s,e);)a++}else a=null==r||t?1:r||a;return slice(e,0,nativeMin(nativeMax(0,n-a),n))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max,nativeMin=Math.min;module.exports=initial;
   
   global.define = __define;
   return module.exports;
@@ -4478,7 +4480,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/intersection", ["../interna
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/intersection.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function intersection(){for(var e=[],t=-1,r=arguments.length,n=getArray(),i=baseIndexOf,s=i===baseIndexOf,o=getArray();++t<r;){var a=arguments[t];(isArray(a)||isArguments(a))&&(e.push(a),n.push(s&&a.length>=largeArraySize&&createCache(t?e[t]:o)))}var u=e[0],c=-1,l=u?u.length:0,p=[];e:for(;++c<l;){var h=n[0];if(a=u[c],(h?cacheIndexOf(h,a):i(o,a))<0){for(t=r,(h||o).push(a);--t;)if(h=n[t],(h?cacheIndexOf(h,a):i(e[t],a))<0)continue e;p.push(a)}}for(;r--;)h=n[r],h&&releaseObject(h);return releaseArray(n),releaseArray(o),p}var baseIndexOf=require("../internals/baseIndexOf"),cacheIndexOf=require("../internals/cacheIndexOf"),createCache=require("../internals/createCache"),getArray=require("../internals/getArray"),isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray"),largeArraySize=require("../internals/largeArraySize"),releaseArray=require("../internals/releaseArray"),releaseObject=require("../internals/releaseObject");module.exports=intersection;
+  "format cjs";function intersection(){for(var e=[],r=-1,t=arguments.length,a=getArray(),n=baseIndexOf,s=n===baseIndexOf,o=getArray();++r<t;){var i=arguments[r];(isArray(i)||isArguments(i))&&(e.push(i),a.push(s&&i.length>=largeArraySize&&createCache(r?e[r]:o)))}var l=e[0],c=-1,u=l?l.length:0,p=[];e:for(;++c<u;){var f=a[0];if(i=l[c],(f?cacheIndexOf(f,i):n(o,i))<0){for(r=t,(f||o).push(i);--r;)if(f=a[r],(f?cacheIndexOf(f,i):n(e[r],i))<0)continue e;p.push(i)}}for(;t--;)f=a[t],f&&releaseObject(f);return releaseArray(a),releaseArray(o),p}var baseIndexOf=require("../internals/baseIndexOf"),cacheIndexOf=require("../internals/cacheIndexOf"),createCache=require("../internals/createCache"),getArray=require("../internals/getArray"),isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray"),largeArraySize=require("../internals/largeArraySize"),releaseArray=require("../internals/releaseArray"),releaseObject=require("../internals/releaseObject");module.exports=intersection;
   
   global.define = __define;
   return module.exports;
@@ -4491,7 +4493,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/last", ["../functions/creat
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/last.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function last(e,t,r){var n=0,i=e?e.length:0;if("number"!=typeof t&&null!=t){var s=i;for(t=createCallback(t,r,3);s--&&t(e[s],s,e);)n++}else if(n=t,null==n||r)return e?e[i-1]:void 0;return slice(e,nativeMax(0,i-n))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max;module.exports=last;
+  "format cjs";function last(e,r,t){var a=0,n=e?e.length:0;if("number"!=typeof r&&null!=r){var s=n;for(r=createCallback(r,t,3);s--&&r(e[s],s,e);)a++}else if(a=r,null==a||t)return e?e[n-1]:void 0;return slice(e,nativeMax(0,n-a))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max;module.exports=last;
   
   global.define = __define;
   return module.exports;
@@ -4504,7 +4506,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/lastIndexOf", [], true, fun
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/lastIndexOf.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function lastIndexOf(e,t,r){var n=e?e.length:0;for("number"==typeof r&&(n=(0>r?nativeMax(0,n+r):nativeMin(r,n-1))+1);n--;)if(e[n]===t)return n;return-1}var nativeMax=Math.max,nativeMin=Math.min;module.exports=lastIndexOf;
+  "format cjs";function lastIndexOf(e,r,t){var a=e?e.length:0;for("number"==typeof t&&(a=(0>t?nativeMax(0,a+t):nativeMin(t,a-1))+1);a--;)if(e[a]===r)return a;return-1}var nativeMax=Math.max,nativeMin=Math.min;module.exports=lastIndexOf;
   
   global.define = __define;
   return module.exports;
@@ -4517,7 +4519,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/zipObject", ["../objects/is
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/zipObject.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function zipObject(e,t){var r=-1,n=e?e.length:0,i={};for(t||!n||isArray(e[0])||(t=[]);++r<n;){var s=e[r];t?i[s]=t[r]:s&&(i[s[0]]=s[1])}return i}var isArray=require("../objects/isArray");module.exports=zipObject;
+  "format cjs";function zipObject(e,r){var t=-1,a=e?e.length:0,n={};for(r||!a||isArray(e[0])||(r=[]);++t<a;){var s=e[t];r?n[s]=r[t]:s&&(n[s[0]]=s[1])}return n}var isArray=require("../objects/isArray");module.exports=zipObject;
   
   global.define = __define;
   return module.exports;
@@ -4530,7 +4532,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/pull", [], true, function(r
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/pull.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function pull(e){for(var t=arguments,r=0,n=t.length,i=e?e.length:0;++r<n;)for(var s=-1,o=t[r];++s<i;)e[s]===o&&(splice.call(e,s--,1),i--);return e}var arrayRef=[],splice=arrayRef.splice;module.exports=pull;
+  "format cjs";function pull(e){for(var r=arguments,t=0,a=r.length,n=e?e.length:0;++t<a;)for(var s=-1,o=r[t];++s<n;)e[s]===o&&(splice.call(e,s--,1),n--);return e}var arrayRef=[],splice=arrayRef.splice;module.exports=pull;
   
   global.define = __define;
   return module.exports;
@@ -4543,7 +4545,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/range", [], true, function(
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/range.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function range(e,t,r){e=+e||0,r="number"==typeof r?r:+r||1,null==t&&(t=e,e=0);for(var n=-1,i=nativeMax(0,ceil((t-e)/(r||1))),s=Array(i);++n<i;)s[n]=e,e+=r;return s}var ceil=Math.ceil,nativeMax=Math.max;module.exports=range;
+  "format cjs";function range(e,r,t){e=+e||0,t="number"==typeof t?t:+t||1,null==r&&(r=e,e=0);for(var a=-1,n=nativeMax(0,ceil((r-e)/(t||1))),s=Array(n);++a<n;)s[a]=e,e+=t;return s}var ceil=Math.ceil,nativeMax=Math.max;module.exports=range;
   
   global.define = __define;
   return module.exports;
@@ -4556,7 +4558,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/remove", ["../functions/cre
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/remove.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function remove(e,t,r){var n=-1,i=e?e.length:0,s=[];for(t=createCallback(t,r,3);++n<i;){var o=e[n];t(o,n,e)&&(s.push(o),splice.call(e,n--,1),i--)}return s}var createCallback=require("../functions/createCallback"),arrayRef=[],splice=arrayRef.splice;module.exports=remove;
+  "format cjs";function remove(e,r,t){var a=-1,n=e?e.length:0,s=[];for(r=createCallback(r,t,3);++a<n;){var o=e[a];r(o,a,e)&&(s.push(o),splice.call(e,a--,1),n--)}return s}var createCallback=require("../functions/createCallback"),arrayRef=[],splice=arrayRef.splice;module.exports=remove;
   
   global.define = __define;
   return module.exports;
@@ -4569,7 +4571,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseUniq", ["./baseIndex
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseUniq.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";!function(){function e(e,u,c){var l=-1,p=t,h=e?e.length:0,f=[],d=!u&&h>=s,m=c||d?i():f;if(d){var b=n(m);p=r,m=b}for(;++l<h;){var g=e[l],v=c?c(g,l,e):g;(u?!l||m[m.length-1]!==v:p(m,v)<0)&&((c||d)&&m.push(v),f.push(g))}return d?(o(m.array),a(m)):c&&o(m),f}var t=require("./baseIndexOf"),r=require("./cacheIndexOf"),n=require("./createCache"),i=require("./getArray"),s=require("./largeArraySize"),o=require("./releaseArray"),a=require("./releaseObject");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  "format cjs";!function(){function e(e,l,c){var u=-1,f=r,p=e?e.length:0,b=[],d=!l&&p>=o,h=c||d?n():b;if(d){var m=a(h);f=t,h=m}for(;++u<p;){var y=e[u],g=c?c(y,u,e):y;(l?!u||h[h.length-1]!==g:f(h,g)<0)&&((c||d)&&h.push(g),b.push(y))}return d?(s(h.array),i(h)):c&&s(h),b}var r=require("./baseIndexOf"),t=require("./cacheIndexOf"),a=require("./createCache"),n=require("./getArray"),o=require("./largeArraySize"),s=require("./releaseArray"),i=require("./releaseObject");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
   
   global.define = __define;
   return module.exports;
@@ -4582,7 +4584,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/uniq", ["../internals/baseU
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/uniq.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";!function(){function e(e,n,i,s){return"boolean"!=typeof n&&null!=n&&(s=i,i="function"!=typeof n&&s&&s[n]===e?null:n,n=!1),null!=i&&(i=r(i,s,3)),t(e,n,i)}var t=require("../internals/baseUniq"),r=require("../functions/createCallback");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  "format cjs";!function(){function e(e,a,n,s){return"boolean"!=typeof a&&null!=a&&(s=n,n="function"!=typeof a&&s&&s[a]===e?null:a,a=!1),null!=n&&(n=t(n,s,3)),r(e,a,n)}var r=require("../internals/baseUniq"),t=require("../functions/createCallback");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
   
   global.define = __define;
   return module.exports;
@@ -4608,7 +4610,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/forEach", ["../interna
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/forEach.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function forEach(e,t,r){var n=-1,i=e?e.length:0;if(t=t&&"undefined"==typeof r?t:baseCreateCallback(t,r,3),"number"==typeof i)for(;++n<i&&t(e[n],n,e)!==!1;);else forOwn(e,t);return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forOwn=require("../objects/forOwn");module.exports=forEach;
+  "format cjs";function forEach(e,r,t){var a=-1,n=e?e.length:0;if(r=r&&"undefined"==typeof t?r:baseCreateCallback(r,t,3),"number"==typeof n)for(;++a<n&&r(e[a],a,e)!==!1;);else forOwn(e,r);return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forOwn=require("../objects/forOwn");module.exports=forEach;
   
   global.define = __define;
   return module.exports;
@@ -4660,7 +4662,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/xor", ["../internals/baseDi
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/xor.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function xor(){for(var e=-1,t=arguments.length;++e<t;){var r=arguments[e];if(isArray(r)||isArguments(r))var n=n?baseUniq(baseDifference(n,r).concat(baseDifference(r,n))):r}return n||[]}var baseDifference=require("../internals/baseDifference"),baseUniq=require("../internals/baseUniq"),isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray");module.exports=xor;
+  "format cjs";function xor(){for(var e=-1,r=arguments.length;++e<r;){var t=arguments[e];if(isArray(t)||isArguments(t))var a=a?baseUniq(baseDifference(a,t).concat(baseDifference(t,a))):t}return a||[]}var baseDifference=require("../internals/baseDifference"),baseUniq=require("../internals/baseUniq"),isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray");module.exports=xor;
   
   global.define = __define;
   return module.exports;
@@ -4673,7 +4675,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/lodashWrapper", [], true
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/lodashWrapper.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function lodashWrapper(e,t){this.__chain__=!!t,this.__wrapped__=e}module.exports=lodashWrapper;
+  "format cjs";function lodashWrapper(e,r){this.__chain__=!!r,this.__wrapped__=e}module.exports=lodashWrapper;
   
   global.define = __define;
   return module.exports;
@@ -4686,7 +4688,7 @@ System.register("npm:lodash-node@2.4.1/modern/chaining/tap", [], true, function(
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining/tap.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/chaining";
   /* */
-  "format cjs";function tap(e,t){return t(e),e}module.exports=tap;
+  "format cjs";function tap(e,r){return r(e),e}module.exports=tap;
   
   global.define = __define;
   return module.exports;
@@ -4738,7 +4740,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/every", ["../functions
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/every.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function every(e,t,r){var n=!0;t=createCallback(t,r,3);var i=-1,s=e?e.length:0;if("number"==typeof s)for(;++i<s&&(n=!!t(e[i],i,e)););else forOwn(e,function(e,r,i){return n=!!t(e,r,i)});return n}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=every;
+  "format cjs";function every(e,r,t){var a=!0;r=createCallback(r,t,3);var n=-1,o=e?e.length:0;if("number"==typeof o)for(;++n<o&&(a=!!r(e[n],n,e)););else forOwn(e,function(e,t,n){return a=!!r(e,t,n)});return a}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=every;
   
   global.define = __define;
   return module.exports;
@@ -4751,7 +4753,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/some", ["../functions/
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/some.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function some(e,t,r){var n;t=createCallback(t,r,3);var i=-1,s=e?e.length:0;if("number"==typeof s)for(;++i<s&&!(n=t(e[i],i,e)););else forOwn(e,function(e,r,i){return!(n=t(e,r,i))});return!!n}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray");module.exports=some;
+  "format cjs";function some(e,r,t){var a;r=createCallback(r,t,3);var n=-1,o=e?e.length:0;if("number"==typeof o)for(;++n<o&&!(a=r(e[n],n,e)););else forOwn(e,function(e,t,n){return!(a=r(e,t,n))});return!!a}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray");module.exports=some;
   
   global.define = __define;
   return module.exports;
@@ -4764,7 +4766,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/at", ["../internals/ba
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/at.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function at(e){for(var t=arguments,r=-1,n=baseFlatten(t,!0,!1,1),i=t[2]&&t[2][t[1]]===e?1:n.length,s=Array(i);++r<i;)s[r]=e[n[r]];return s}var baseFlatten=require("../internals/baseFlatten"),isString=require("../objects/isString");module.exports=at;
+  "format cjs";function at(e){for(var r=arguments,t=-1,a=baseFlatten(r,!0,!1,1),n=r[2]&&r[2][r[1]]===e?1:a.length,o=Array(n);++t<n;)o[t]=e[a[t]];return o}var baseFlatten=require("../internals/baseFlatten"),isString=require("../objects/isString");module.exports=at;
   
   global.define = __define;
   return module.exports;
@@ -4777,7 +4779,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/contains", ["../intern
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/contains.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function contains(e,t,r){var n=-1,i=baseIndexOf,s=e?e.length:0,o=!1;return r=(0>r?nativeMax(0,s+r):r)||0,isArray(e)?o=i(e,t,r)>-1:"number"==typeof s?o=(isString(e)?e.indexOf(t,r):i(e,t,r))>-1:forOwn(e,function(e){return++n>=r?!(o=e===t):void 0}),o}var baseIndexOf=require("../internals/baseIndexOf"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString"),nativeMax=Math.max;module.exports=contains;
+  "format cjs";function contains(e,r,t){var a=-1,n=baseIndexOf,o=e?e.length:0,s=!1;return t=(0>t?nativeMax(0,o+t):t)||0,isArray(e)?s=n(e,r,t)>-1:"number"==typeof o?s=(isString(e)?e.indexOf(r,t):n(e,r,t))>-1:forOwn(e,function(e){return++a>=t?!(s=e===r):void 0}),s}var baseIndexOf=require("../internals/baseIndexOf"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString"),nativeMax=Math.max;module.exports=contains;
   
   global.define = __define;
   return module.exports;
@@ -4790,7 +4792,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/createAggregator", ["../
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/createAggregator.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function createAggregator(e){return function(t,r,n){var i={};r=createCallback(r,n,3);var s=-1,o=t?t.length:0;if("number"==typeof o)for(;++s<o;){var a=t[s];e(i,a,r(a,s,t),t)}else forOwn(t,function(t,n,s){e(i,t,r(t,n,s),s)});return i}}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray");module.exports=createAggregator;
+  "format cjs";function createAggregator(e){return function(r,t,a){var n={};t=createCallback(t,a,3);var o=-1,s=r?r.length:0;if("number"==typeof s)for(;++o<s;){var i=r[o];e(n,i,t(i,o,r),r)}else forOwn(r,function(r,a,o){e(n,r,t(r,a,o),o)});return n}}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray");module.exports=createAggregator;
   
   global.define = __define;
   return module.exports;
@@ -4803,7 +4805,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/find", ["../functions/
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/find.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function find(e,t,r){t=createCallback(t,r,3);var n=-1,i=e?e.length:0;if("number"!=typeof i){var s;return forOwn(e,function(e,r,n){return t(e,r,n)?(s=e,!1):void 0}),s}for(;++n<i;){var o=e[n];if(t(o,n,e))return o}}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=find;
+  "format cjs";function find(e,r,t){r=createCallback(r,t,3);var a=-1,n=e?e.length:0;if("number"!=typeof n){var o;return forOwn(e,function(e,t,a){return r(e,t,a)?(o=e,!1):void 0}),o}for(;++a<n;){var s=e[a];if(r(s,a,e))return s}}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=find;
   
   global.define = __define;
   return module.exports;
@@ -4816,7 +4818,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/forEachRight", ["../in
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/forEachRight.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function forEachRight(e,t,r){var n=e?e.length:0;if(t=t&&"undefined"==typeof r?t:baseCreateCallback(t,r,3),"number"==typeof n)for(;n--&&t(e[n],n,e)!==!1;);else{var i=keys(e);n=i.length,forOwn(e,function(e,r,s){return r=i?i[--n]:--n,t(s[r],r,s)})}return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString"),keys=require("../objects/keys");module.exports=forEachRight;
+  "format cjs";function forEachRight(e,r,t){var a=e?e.length:0;if(r=r&&"undefined"==typeof t?r:baseCreateCallback(r,t,3),"number"==typeof a)for(;a--&&r(e[a],a,e)!==!1;);else{var n=keys(e);a=n.length,forOwn(e,function(e,t,o){return t=n?n[--a]:--a,r(o[t],t,o)})}return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString"),keys=require("../objects/keys");module.exports=forEachRight;
   
   global.define = __define;
   return module.exports;
@@ -4829,7 +4831,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/filter", ["../function
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/filter.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function filter(e,t,r){var n=[];t=createCallback(t,r,3);var i=-1,s=e?e.length:0;if("number"==typeof s)for(;++i<s;){var o=e[i];t(o,i,e)&&n.push(o)}else forOwn(e,function(e,r,i){t(e,r,i)&&n.push(e)});return n}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=filter;
+  "format cjs";function filter(e,r,t){var a=[];r=createCallback(r,t,3);var n=-1,o=e?e.length:0;if("number"==typeof o)for(;++n<o;){var s=e[n];r(s,n,e)&&a.push(s)}else forOwn(e,function(e,t,n){r(e,t,n)&&a.push(e)});return a}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=filter;
   
   global.define = __define;
   return module.exports;
@@ -4842,7 +4844,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/findLast", ["../functi
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/findLast.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function findLast(e,t,r){var n;return t=createCallback(t,r,3),forEachRight(e,function(e,r,i){return t(e,r,i)?(n=e,!1):void 0}),n}var createCallback=require("../functions/createCallback"),forEachRight=require("./forEachRight");module.exports=findLast;
+  "format cjs";function findLast(e,r,t){var a;return r=createCallback(r,t,3),forEachRight(e,function(e,t,n){return r(e,t,n)?(a=e,!1):void 0}),a}var createCallback=require("../functions/createCallback"),forEachRight=require("./forEachRight");module.exports=findLast;
   
   global.define = __define;
   return module.exports;
@@ -4855,7 +4857,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/reduce", ["../function
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/reduce.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function reduce(e,t,r,n){if(!e)return r;var i=arguments.length<3;t=createCallback(t,n,4);var s=-1,o=e.length;if("number"==typeof o)for(i&&(r=e[++s]);++s<o;)r=t(r,e[s],s,e);else forOwn(e,function(e,n,s){r=i?(i=!1,e):t(r,e,n,s)});return r}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=reduce;
+  "format cjs";function reduce(e,r,t,a){if(!e)return t;var n=arguments.length<3;r=createCallback(r,a,4);var o=-1,s=e.length;if("number"==typeof s)for(n&&(t=e[++o]);++o<s;)t=r(t,e[o],o,e);else forOwn(e,function(e,a,o){t=n?(n=!1,e):r(t,e,a,o)});return t}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=reduce;
   
   global.define = __define;
   return module.exports;
@@ -4868,7 +4870,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/reduceRight", ["../fun
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/reduceRight.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function reduceRight(e,t,r,n){var i=arguments.length<3;return t=createCallback(t,n,4),forEachRight(e,function(e,n,s){r=i?(i=!1,e):t(r,e,n,s)}),r}var createCallback=require("../functions/createCallback"),forEachRight=require("./forEachRight");module.exports=reduceRight;
+  "format cjs";function reduceRight(e,r,t,a){var n=arguments.length<3;return r=createCallback(r,a,4),forEachRight(e,function(e,a,o){t=n?(n=!1,e):r(t,e,a,o)}),t}var createCallback=require("../functions/createCallback"),forEachRight=require("./forEachRight");module.exports=reduceRight;
   
   global.define = __define;
   return module.exports;
@@ -4881,7 +4883,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/groupBy", ["../interna
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/groupBy.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";var createAggregator=require("../internals/createAggregator"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,groupBy=createAggregator(function(e,t,r){(hasOwnProperty.call(e,r)?e[r]:e[r]=[]).push(t)});module.exports=groupBy;
+  "format cjs";var createAggregator=require("../internals/createAggregator"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,groupBy=createAggregator(function(e,r,t){(hasOwnProperty.call(e,t)?e[t]:e[t]=[]).push(r)});module.exports=groupBy;
   
   global.define = __define;
   return module.exports;
@@ -4894,7 +4896,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/indexBy", ["../interna
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/indexBy.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";var createAggregator=require("../internals/createAggregator"),indexBy=createAggregator(function(e,t,r){e[r]=t});module.exports=indexBy;
+  "format cjs";var createAggregator=require("../internals/createAggregator"),indexBy=createAggregator(function(e,r,t){e[t]=r});module.exports=indexBy;
   
   global.define = __define;
   return module.exports;
@@ -4907,7 +4909,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/invoke", ["./forEach",
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/invoke.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function invoke(e,t){var r=slice(arguments,2),n=-1,i="function"==typeof t,s=e?e.length:0,o=Array("number"==typeof s?s:0);return forEach(e,function(e){o[++n]=(i?t:e[t]).apply(e,r)}),o}var forEach=require("./forEach"),slice=require("../internals/slice");module.exports=invoke;
+  "format cjs";function invoke(e,r){var t=slice(arguments,2),a=-1,n="function"==typeof r,o=e?e.length:0,s=Array("number"==typeof o?o:0);return forEach(e,function(e){s[++a]=(n?r:e[r]).apply(e,t)}),s}var forEach=require("./forEach"),slice=require("../internals/slice");module.exports=invoke;
   
   global.define = __define;
   return module.exports;
@@ -4920,7 +4922,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/min", ["../internals/c
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/min.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function min(e,t,r){var n=1/0,i=n;if("function"!=typeof t&&r&&r[t]===e&&(t=null),null==t&&isArray(e))for(var s=-1,o=e.length;++s<o;){var a=e[s];i>a&&(i=a)}else t=null==t&&isString(e)?charAtCallback:createCallback(t,r,3),forEach(e,function(e,r,s){var o=t(e,r,s);n>o&&(n=o,i=e)});return i}var charAtCallback=require("../internals/charAtCallback"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString");module.exports=min;
+  "format cjs";function min(e,r,t){var a=1/0,n=a;if("function"!=typeof r&&t&&t[r]===e&&(r=null),null==r&&isArray(e))for(var o=-1,s=e.length;++o<s;){var i=e[o];n>i&&(n=i)}else r=null==r&&isString(e)?charAtCallback:createCallback(r,t,3),forEach(e,function(e,t,o){var s=r(e,t,o);a>s&&(a=s,n=e)});return n}var charAtCallback=require("../internals/charAtCallback"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString");module.exports=min;
   
   global.define = __define;
   return module.exports;
@@ -4933,7 +4935,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/reject", ["../function
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/reject.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function reject(e,t,r){return t=createCallback(t,r,3),filter(e,function(e,r,n){return!t(e,r,n)})}var createCallback=require("../functions/createCallback"),filter=require("./filter");module.exports=reject;
+  "format cjs";function reject(e,r,t){return r=createCallback(r,t,3),filter(e,function(e,t,a){return!r(e,t,a)})}var createCallback=require("../functions/createCallback"),filter=require("./filter");module.exports=reject;
   
   global.define = __define;
   return module.exports;
@@ -4946,7 +4948,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseRandom", [], true, f
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseRandom.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseRandom(e,t){return e+floor(nativeRandom()*(t-e+1))}var floor=Math.floor,nativeRandom=Math.random;module.exports=baseRandom;
+  "format cjs";function baseRandom(e,r){return e+floor(nativeRandom()*(r-e+1))}var floor=Math.floor,nativeRandom=Math.random;module.exports=baseRandom;
   
   global.define = __define;
   return module.exports;
@@ -4959,7 +4961,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/shuffle", ["../interna
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/shuffle.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function shuffle(e){var t=-1,r=e?e.length:0,n=Array("number"==typeof r?r:0);return forEach(e,function(e){var r=baseRandom(0,++t);n[t]=n[r],n[r]=e}),n}var baseRandom=require("../internals/baseRandom"),forEach=require("./forEach");module.exports=shuffle;
+  "format cjs";function shuffle(e){var r=-1,t=e?e.length:0,a=Array("number"==typeof t?t:0);return forEach(e,function(e){var t=baseRandom(0,++r);a[r]=a[t],a[t]=e}),a}var baseRandom=require("../internals/baseRandom"),forEach=require("./forEach");module.exports=shuffle;
   
   global.define = __define;
   return module.exports;
@@ -4972,7 +4974,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/values", ["./keys"], true,
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/values.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function values(e){for(var t=-1,r=keys(e),n=r.length,i=Array(n);++t<n;)i[t]=e[r[t]];return i}var keys=require("./keys");module.exports=values;
+  "format cjs";function values(e){for(var r=-1,t=keys(e),a=t.length,o=Array(a);++r<a;)o[r]=e[t[r]];return o}var keys=require("./keys");module.exports=values;
   
   global.define = __define;
   return module.exports;
@@ -4985,7 +4987,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/size", ["../objects/ke
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/size.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function size(e){var t=e?e.length:0;return"number"==typeof t?t:keys(e).length}var keys=require("../objects/keys");module.exports=size;
+  "format cjs";function size(e){var r=e?e.length:0;return"number"==typeof r?r:keys(e).length}var keys=require("../objects/keys");module.exports=size;
   
   global.define = __define;
   return module.exports;
@@ -4998,7 +5000,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/compareAscending", [], t
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/compareAscending.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function compareAscending(e,t){for(var r=e.criteria,n=t.criteria,i=-1,s=r.length;++i<s;){var o=r[i],a=n[i];if(o!==a){if(o>a||"undefined"==typeof o)return 1;if(a>o||"undefined"==typeof a)return-1}}return e.index-t.index}module.exports=compareAscending;
+  "format cjs";function compareAscending(e,r){for(var t=e.criteria,a=r.criteria,n=-1,o=t.length;++n<o;){var s=t[n],i=a[n];if(s!==i){if(s>i||"undefined"==typeof s)return 1;if(i>s||"undefined"==typeof i)return-1}}return e.index-r.index}module.exports=compareAscending;
   
   global.define = __define;
   return module.exports;
@@ -5037,7 +5039,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/after", ["../objects/isF
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/after.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function after(e,t){if(!isFunction(t))throw new TypeError;return function(){return--e<1?t.apply(this,arguments):void 0}}var isFunction=require("../objects/isFunction");module.exports=after;
+  "format cjs";function after(e,r){if(!isFunction(r))throw new TypeError;return function(){return--e<1?r.apply(this,arguments):void 0}}var isFunction=require("../objects/isFunction");module.exports=after;
   
   global.define = __define;
   return module.exports;
@@ -5050,7 +5052,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/functions", ["./forIn","./
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/functions.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function functions(e){var t=[];return forIn(e,function(e,r){isFunction(e)&&t.push(r)}),t.sort()}var forIn=require("./forIn"),isFunction=require("./isFunction");module.exports=functions;
+  "format cjs";function functions(e){var r=[];return forIn(e,function(e,t){isFunction(e)&&r.push(t)}),r.sort()}var forIn=require("./forIn"),isFunction=require("./isFunction");module.exports=functions;
   
   global.define = __define;
   return module.exports;
@@ -5063,7 +5065,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/bindKey", ["../internals
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/bindKey.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function bindKey(e,t){return arguments.length>2?createWrapper(t,19,slice(arguments,2),null,e):createWrapper(t,3,null,null,e)}var createWrapper=require("../internals/createWrapper"),slice=require("../internals/slice");module.exports=bindKey;
+  "format cjs";function bindKey(e,r){return arguments.length>2?createWrapper(r,19,slice(arguments,2),null,e):createWrapper(r,3,null,null,e)}var createWrapper=require("../internals/createWrapper"),slice=require("../internals/slice");module.exports=bindKey;
   
   global.define = __define;
   return module.exports;
@@ -5076,7 +5078,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/compose", ["../objects/i
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/compose.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function compose(){for(var e=arguments,t=e.length;t--;)if(!isFunction(e[t]))throw new TypeError;return function(){for(var t=arguments,r=e.length;r--;)t=[e[r].apply(this,t)];return t[0]}}var isFunction=require("../objects/isFunction");module.exports=compose;
+  "format cjs";function compose(){for(var e=arguments,r=e.length;r--;)if(!isFunction(e[r]))throw new TypeError;return function(){for(var r=arguments,t=e.length;t--;)r=[e[t].apply(this,r)];return r[0]}}var isFunction=require("../objects/isFunction");module.exports=compose;
   
   global.define = __define;
   return module.exports;
@@ -5089,7 +5091,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/curry", ["../internals/c
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/curry.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function curry(e,t){return t="number"==typeof t?t:+t||e.length,createWrapper(e,4,null,null,null,t)}var createWrapper=require("../internals/createWrapper");module.exports=curry;
+  "format cjs";function curry(e,r){return r="number"==typeof r?r:+r||e.length,createWrapper(e,4,null,null,null,r)}var createWrapper=require("../internals/createWrapper");module.exports=curry;
   
   global.define = __define;
   return module.exports;
@@ -5115,7 +5117,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/defer", ["../objects/isF
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/defer.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function defer(e){if(!isFunction(e))throw new TypeError;var t=slice(arguments,1);return setTimeout(function(){e.apply(void 0,t)},1)}var isFunction=require("../objects/isFunction"),slice=require("../internals/slice");module.exports=defer;
+  "format cjs";function defer(e){if(!isFunction(e))throw new TypeError;var r=slice(arguments,1);return setTimeout(function(){e.apply(void 0,r)},1)}var isFunction=require("../objects/isFunction"),slice=require("../internals/slice");module.exports=defer;
   
   global.define = __define;
   return module.exports;
@@ -5128,7 +5130,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/delay", ["../objects/isF
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/delay.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function delay(e,t){if(!isFunction(e))throw new TypeError;var r=slice(arguments,2);return setTimeout(function(){e.apply(void 0,r)},t)}var isFunction=require("../objects/isFunction"),slice=require("../internals/slice");module.exports=delay;
+  "format cjs";function delay(e,r){if(!isFunction(e))throw new TypeError;var t=slice(arguments,2);return setTimeout(function(){e.apply(void 0,t)},r)}var isFunction=require("../objects/isFunction"),slice=require("../internals/slice");module.exports=delay;
   
   global.define = __define;
   return module.exports;
@@ -5141,7 +5143,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/memoize", ["../objects/i
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/memoize.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function memoize(e,t){if(!isFunction(e))throw new TypeError;var r=function(){var n=r.cache,i=t?t.apply(this,arguments):keyPrefix+arguments[0];return hasOwnProperty.call(n,i)?n[i]:n[i]=e.apply(this,arguments)};return r.cache={},r}var isFunction=require("../objects/isFunction"),keyPrefix=require("../internals/keyPrefix"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;module.exports=memoize;
+  "format cjs";function memoize(e,r){if(!isFunction(e))throw new TypeError;var t=function(){var a=t.cache,n=r?r.apply(this,arguments):keyPrefix+arguments[0];return hasOwnProperty.call(a,n)?a[n]:a[n]=e.apply(this,arguments)};return t.cache={},t}var isFunction=require("../objects/isFunction"),keyPrefix=require("../internals/keyPrefix"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;module.exports=memoize;
   
   global.define = __define;
   return module.exports;
@@ -5154,7 +5156,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/once", ["../objects/isFu
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/once.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function once(e){var t,r;if(!isFunction(e))throw new TypeError;return function(){return t?r:(t=!0,r=e.apply(this,arguments),e=null,r)}}var isFunction=require("../objects/isFunction");module.exports=once;
+  "format cjs";function once(e){var r,t;if(!isFunction(e))throw new TypeError;return function(){return r?t:(r=!0,t=e.apply(this,arguments),e=null,t)}}var isFunction=require("../objects/isFunction");module.exports=once;
   
   global.define = __define;
   return module.exports;
@@ -5193,7 +5195,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/throttle", ["./debounce"
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/throttle.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function throttle(e,t,r){var n=!0,i=!0;if(!isFunction(e))throw new TypeError;return r===!1?n=!1:isObject(r)&&(n="leading"in r?r.leading:n,i="trailing"in r?r.trailing:i),debounceOptions.leading=n,debounceOptions.maxWait=t,debounceOptions.trailing=i,debounce(e,t,debounceOptions)}var debounce=require("./debounce"),isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),debounceOptions={leading:!1,maxWait:0,trailing:!1};module.exports=throttle;
+  "format cjs";function throttle(e,r,t){var a=!0,n=!0;if(!isFunction(e))throw new TypeError;return t===!1?a=!1:isObject(t)&&(a="leading"in t?t.leading:a,n="trailing"in t?t.trailing:n),debounceOptions.leading=a,debounceOptions.maxWait=r,debounceOptions.trailing=n,debounce(e,r,debounceOptions)}var debounce=require("./debounce"),isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),debounceOptions={leading:!1,maxWait:0,trailing:!1};module.exports=throttle;
   
   global.define = __define;
   return module.exports;
@@ -5206,7 +5208,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/wrap", ["../internals/cr
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/wrap.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function wrap(e,t){return createWrapper(t,16,[e])}var createWrapper=require("../internals/createWrapper");module.exports=wrap;
+  "format cjs";function wrap(e,r){return createWrapper(r,16,[e])}var createWrapper=require("../internals/createWrapper");module.exports=wrap;
   
   global.define = __define;
   return module.exports;
@@ -5219,7 +5221,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/assign", ["../internals/ba
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/assign.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys"),objectTypes=require("../internals/objectTypes"),assign=function(e,t,r){var n,i=e,s=i;if(!i)return s;var o=arguments,a=0,u="number"==typeof r?2:o.length;if(u>3&&"function"==typeof o[u-2])var c=baseCreateCallback(o[--u-1],o[u--],2);else u>2&&"function"==typeof o[u-1]&&(c=o[--u]);for(;++a<u;)if(i=o[a],i&&objectTypes[typeof i])for(var l=-1,p=objectTypes[typeof i]&&keys(i),f=p?p.length:0;++l<f;)n=p[l],s[n]=c?c(s[n],i[n]):i[n];return s};module.exports=assign;
+  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys"),objectTypes=require("../internals/objectTypes"),assign=function(e,r,t){var a,o=e,s=o;if(!o)return s;var n=arguments,i=0,c="number"==typeof t?2:n.length;if(c>3&&"function"==typeof n[c-2])var l=baseCreateCallback(n[--c-1],n[c--],2);else c>2&&"function"==typeof n[c-1]&&(l=n[--c]);for(;++i<c;)if(o=n[i],o&&objectTypes[typeof o])for(var u=-1,f=objectTypes[typeof o]&&keys(o),p=f?f.length:0;++u<p;)a=f[u],s[a]=l?l(s[a],o[a]):o[a];return s};module.exports=assign;
   
   global.define = __define;
   return module.exports;
@@ -5232,7 +5234,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseClone", ["../objects
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseClone.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseClone(e,t,r,n,i){if(r){var s=r(e);if("undefined"!=typeof s)return s}var o=isObject(e);if(!o)return e;var a=toString.call(e);if(!cloneableClasses[a])return e;var u=ctorByClass[a];switch(a){case boolClass:case dateClass:return new u(+e);case numberClass:case stringClass:return new u(e);case regexpClass:return s=u(e.source,reFlags.exec(e)),s.lastIndex=e.lastIndex,s}var c=isArray(e);if(t){var l=!n;n||(n=getArray()),i||(i=getArray());for(var p=n.length;p--;)if(n[p]==e)return i[p];s=c?u(e.length):{}}else s=c?slice(e):assign({},e);return c&&(hasOwnProperty.call(e,"index")&&(s.index=e.index),hasOwnProperty.call(e,"input")&&(s.input=e.input)),t?(n.push(e),i.push(s),(c?forEach:forOwn)(e,function(e,o){s[o]=baseClone(e,t,r,n,i)}),l&&(releaseArray(n),releaseArray(i)),s):s}var assign=require("../objects/assign"),forEach=require("../collections/forEach"),forOwn=require("../objects/forOwn"),getArray=require("./getArray"),isArray=require("../objects/isArray"),isObject=require("../objects/isObject"),releaseArray=require("./releaseArray"),slice=require("./slice"),reFlags=/\w*$/,argsClass="[object Arguments]",arrayClass="[object Array]",boolClass="[object Boolean]",dateClass="[object Date]",funcClass="[object Function]",numberClass="[object Number]",objectClass="[object Object]",regexpClass="[object RegExp]",stringClass="[object String]",cloneableClasses={};cloneableClasses[funcClass]=!1,cloneableClasses[argsClass]=cloneableClasses[arrayClass]=cloneableClasses[boolClass]=cloneableClasses[dateClass]=cloneableClasses[numberClass]=cloneableClasses[objectClass]=cloneableClasses[regexpClass]=cloneableClasses[stringClass]=!0;var objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty,ctorByClass={};ctorByClass[arrayClass]=Array,ctorByClass[boolClass]=Boolean,ctorByClass[dateClass]=Date,ctorByClass[funcClass]=Function,ctorByClass[objectClass]=Object,ctorByClass[numberClass]=Number,ctorByClass[regexpClass]=RegExp,ctorByClass[stringClass]=String,module.exports=baseClone;
+  "format cjs";function baseClone(e,r,t,a,n){if(t){var o=t(e);if("undefined"!=typeof o)return o}var s=isObject(e);if(!s)return e;var i=toString.call(e);if(!cloneableClasses[i])return e;var l=ctorByClass[i];switch(i){case boolClass:case dateClass:return new l(+e);case numberClass:case stringClass:return new l(e);case regexpClass:return o=l(e.source,reFlags.exec(e)),o.lastIndex=e.lastIndex,o}var c=isArray(e);if(r){var u=!a;a||(a=getArray()),n||(n=getArray());for(var f=a.length;f--;)if(a[f]==e)return n[f];o=c?l(e.length):{}}else o=c?slice(e):assign({},e);return c&&(hasOwnProperty.call(e,"index")&&(o.index=e.index),hasOwnProperty.call(e,"input")&&(o.input=e.input)),r?(a.push(e),n.push(o),(c?forEach:forOwn)(e,function(e,s){o[s]=baseClone(e,r,t,a,n)}),u&&(releaseArray(a),releaseArray(n)),o):o}var assign=require("../objects/assign"),forEach=require("../collections/forEach"),forOwn=require("../objects/forOwn"),getArray=require("./getArray"),isArray=require("../objects/isArray"),isObject=require("../objects/isObject"),releaseArray=require("./releaseArray"),slice=require("./slice"),reFlags=/\w*$/,argsClass="[object Arguments]",arrayClass="[object Array]",boolClass="[object Boolean]",dateClass="[object Date]",funcClass="[object Function]",numberClass="[object Number]",objectClass="[object Object]",regexpClass="[object RegExp]",stringClass="[object String]",cloneableClasses={};cloneableClasses[funcClass]=!1,cloneableClasses[argsClass]=cloneableClasses[arrayClass]=cloneableClasses[boolClass]=cloneableClasses[dateClass]=cloneableClasses[numberClass]=cloneableClasses[objectClass]=cloneableClasses[regexpClass]=cloneableClasses[stringClass]=!0;var objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty,ctorByClass={};ctorByClass[arrayClass]=Array,ctorByClass[boolClass]=Boolean,ctorByClass[dateClass]=Date,ctorByClass[funcClass]=Function,ctorByClass[objectClass]=Object,ctorByClass[numberClass]=Number,ctorByClass[regexpClass]=RegExp,ctorByClass[stringClass]=String,module.exports=baseClone;
   
   global.define = __define;
   return module.exports;
@@ -5245,7 +5247,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/cloneDeep", ["../internals
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/cloneDeep.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function cloneDeep(e,t,r){return baseClone(e,!0,"function"==typeof t&&baseCreateCallback(t,r,1))}var baseClone=require("../internals/baseClone"),baseCreateCallback=require("../internals/baseCreateCallback");module.exports=cloneDeep;
+  "format cjs";function cloneDeep(e,r,t){return baseClone(e,!0,"function"==typeof r&&baseCreateCallback(r,t,1))}var baseClone=require("../internals/baseClone"),baseCreateCallback=require("../internals/baseCreateCallback");module.exports=cloneDeep;
   
   global.define = __define;
   return module.exports;
@@ -5258,7 +5260,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/create", ["./assign","../i
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/create.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function create(e,t){var r=baseCreate(e);return t?assign(r,t):r}var assign=require("./assign"),baseCreate=require("../internals/baseCreate");module.exports=create;
+  "format cjs";function create(e,r){var t=baseCreate(e);return r?assign(t,r):t}var assign=require("./assign"),baseCreate=require("../internals/baseCreate");module.exports=create;
   
   global.define = __define;
   return module.exports;
@@ -5271,7 +5273,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/defaults", ["./keys","../i
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/defaults.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";var keys=require("./keys"),objectTypes=require("../internals/objectTypes"),defaults=function(e,t,r){var n,i=e,s=i;if(!i)return s;for(var o=arguments,a=0,u="number"==typeof r?2:o.length;++a<u;)if(i=o[a],i&&objectTypes[typeof i])for(var c=-1,l=objectTypes[typeof i]&&keys(i),p=l?l.length:0;++c<p;)n=l[c],"undefined"==typeof s[n]&&(s[n]=i[n]);return s};module.exports=defaults;
+  "format cjs";var keys=require("./keys"),objectTypes=require("../internals/objectTypes"),defaults=function(e,r,t){var a,o=e,s=o;if(!o)return s;for(var n=arguments,i=0,c="number"==typeof t?2:n.length;++i<c;)if(o=n[i],o&&objectTypes[typeof o])for(var l=-1,u=objectTypes[typeof o]&&keys(o),f=u?u.length:0;++l<f;)a=u[l],"undefined"==typeof s[a]&&(s[a]=o[a]);return s};module.exports=defaults;
   
   global.define = __define;
   return module.exports;
@@ -5284,7 +5286,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/findKey", ["../functions/c
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/findKey.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function findKey(e,t,r){var n;return t=createCallback(t,r,3),forOwn(e,function(e,r,i){return t(e,r,i)?(n=r,!1):void 0}),n}var createCallback=require("../functions/createCallback"),forOwn=require("./forOwn");module.exports=findKey;
+  "format cjs";function findKey(e,r,t){var a;return r=createCallback(r,t,3),forOwn(e,function(e,t,o){return r(e,t,o)?(a=t,!1):void 0}),a}var createCallback=require("../functions/createCallback"),forOwn=require("./forOwn");module.exports=findKey;
   
   global.define = __define;
   return module.exports;
@@ -5297,7 +5299,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/forOwnRight", ["../interna
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/forOwnRight.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function forOwnRight(e,t,r){var n=keys(e),i=n.length;for(t=baseCreateCallback(t,r,3);i--;){var s=n[i];if(t(e[s],s,e)===!1)break}return e}var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys");module.exports=forOwnRight;
+  "format cjs";function forOwnRight(e,r,t){var a=keys(e),o=a.length;for(r=baseCreateCallback(r,t,3);o--;){var n=a[o];if(r(e[n],n,e)===!1)break}return e}var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys");module.exports=forOwnRight;
   
   global.define = __define;
   return module.exports;
@@ -5310,7 +5312,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/forInRight", ["../internal
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/forInRight.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function forInRight(e,t,r){var n=[];forIn(e,function(e,t){n.push(t,e)});var i=n.length;for(t=baseCreateCallback(t,r,3);i--&&t(n[i--],n[i],e)!==!1;);return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forIn=require("./forIn");module.exports=forInRight;
+  "format cjs";function forInRight(e,r,t){var a=[];forIn(e,function(e,r){a.push(r,e)});var o=a.length;for(r=baseCreateCallback(r,t,3);o--&&r(a[o--],a[o],e)!==!1;);return e}var baseCreateCallback=require("../internals/baseCreateCallback"),forIn=require("./forIn");module.exports=forInRight;
   
   global.define = __define;
   return module.exports;
@@ -5323,7 +5325,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/has", [], true, function(r
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/has.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function has(e,t){return e?hasOwnProperty.call(e,t):!1}var objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;module.exports=has;
+  "format cjs";function has(e,r){return e?hasOwnProperty.call(e,r):!1}var objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;module.exports=has;
   
   global.define = __define;
   return module.exports;
@@ -5336,7 +5338,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/invert", ["./keys"], true,
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/invert.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function invert(e){for(var t=-1,r=keys(e),n=r.length,i={};++t<n;){var s=r[t];i[e[s]]=s}return i}var keys=require("./keys");module.exports=invert;
+  "format cjs";function invert(e){for(var r=-1,t=keys(e),a=t.length,o={};++r<a;){var n=t[r];o[e[n]]=n}return o}var keys=require("./keys");module.exports=invert;
   
   global.define = __define;
   return module.exports;
@@ -5388,7 +5390,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/isEmpty", ["./forOwn","./i
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isEmpty.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function isEmpty(e){var t=!0;if(!e)return t;var r=toString.call(e),n=e.length;return r==arrayClass||r==stringClass||r==argsClass||r==objectClass&&"number"==typeof n&&isFunction(e.splice)?!n:(forOwn(e,function(){return t=!1}),t)}var forOwn=require("./forOwn"),isFunction=require("./isFunction"),argsClass="[object Arguments]",arrayClass="[object Array]",objectClass="[object Object]",stringClass="[object String]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isEmpty;
+  "format cjs";function isEmpty(e){var r=!0;if(!e)return r;var t=toString.call(e),a=e.length;return t==arrayClass||t==stringClass||t==argsClass||t==objectClass&&"number"==typeof a&&isFunction(e.splice)?!a:(forOwn(e,function(){return r=!1}),r)}var forOwn=require("./forOwn"),isFunction=require("./isFunction"),argsClass="[object Arguments]",arrayClass="[object Array]",objectClass="[object Object]",stringClass="[object String]",objectProto=Object.prototype,toString=objectProto.toString;module.exports=isEmpty;
   
   global.define = __define;
   return module.exports;
@@ -5401,7 +5403,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/isEqual", ["../internals/b
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isEqual.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function isEqual(e,t,r,n){return baseIsEqual(e,t,"function"==typeof r&&baseCreateCallback(r,n,2))}var baseCreateCallback=require("../internals/baseCreateCallback"),baseIsEqual=require("../internals/baseIsEqual");module.exports=isEqual;
+  "format cjs";function isEqual(e,r,t,a){return baseIsEqual(e,r,"function"==typeof t&&baseCreateCallback(t,a,2))}var baseCreateCallback=require("../internals/baseCreateCallback"),baseIsEqual=require("../internals/baseIsEqual");module.exports=isEqual;
   
   global.define = __define;
   return module.exports;
@@ -5453,7 +5455,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/shimIsPlainObject", ["..
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/shimIsPlainObject.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function shimIsPlainObject(e){var t,r;return e&&toString.call(e)==objectClass&&(t=e.constructor,!isFunction(t)||t instanceof t)?(forIn(e,function(e,t){r=t}),"undefined"==typeof r||hasOwnProperty.call(e,r)):!1}var forIn=require("../objects/forIn"),isFunction=require("../objects/isFunction"),objectClass="[object Object]",objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty;module.exports=shimIsPlainObject;
+  "format cjs";function shimIsPlainObject(e){var r,t;return e&&toString.call(e)==objectClass&&(r=e.constructor,!isFunction(r)||r instanceof r)?(forIn(e,function(e,r){t=r}),"undefined"==typeof t||hasOwnProperty.call(e,t)):!1}var forIn=require("../objects/forIn"),isFunction=require("../objects/isFunction"),objectClass="[object Object]",objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty;module.exports=shimIsPlainObject;
   
   global.define = __define;
   return module.exports;
@@ -5492,7 +5494,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/mapValues", ["../functions
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/mapValues.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function mapValues(e,t,r){var n={};return t=createCallback(t,r,3),forOwn(e,function(e,r,i){n[r]=t(e,r,i)}),n}var createCallback=require("../functions/createCallback"),forOwn=require("./forOwn");module.exports=mapValues;
+  "format cjs";function mapValues(e,r,t){var a={};return r=createCallback(r,t,3),forOwn(e,function(e,t,o){a[t]=r(e,t,o)}),a}var createCallback=require("../functions/createCallback"),forOwn=require("./forOwn");module.exports=mapValues;
   
   global.define = __define;
   return module.exports;
@@ -5505,7 +5507,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseMerge", ["../collect
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseMerge.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseMerge(e,t,r,n,i){(isArray(t)?forEach:forOwn)(t,function(t,s){var o,a,u=t,c=e[s];if(t&&((a=isArray(t))||isPlainObject(t))){for(var l=n.length;l--;)if(o=n[l]==t){c=i[l];break}if(!o){var p;r&&(u=r(c,t),(p="undefined"!=typeof u)&&(c=u)),p||(c=a?isArray(c)?c:[]:isPlainObject(c)?c:{}),n.push(t),i.push(c),p||baseMerge(c,t,r,n,i)}}else r&&(u=r(c,t),"undefined"==typeof u&&(u=t)),"undefined"!=typeof u&&(c=u);e[s]=c})}var forEach=require("../collections/forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isPlainObject=require("../objects/isPlainObject");module.exports=baseMerge;
+  "format cjs";function baseMerge(e,r,t,a,n){(isArray(r)?forEach:forOwn)(r,function(r,o){var s,i,l=r,c=e[o];if(r&&((i=isArray(r))||isPlainObject(r))){for(var u=a.length;u--;)if(s=a[u]==r){c=n[u];break}if(!s){var f;t&&(l=t(c,r),(f="undefined"!=typeof l)&&(c=l)),f||(c=i?isArray(c)?c:[]:isPlainObject(c)?c:{}),a.push(r),n.push(c),f||baseMerge(c,r,t,a,n)}}else t&&(l=t(c,r),"undefined"==typeof l&&(l=r)),"undefined"!=typeof l&&(c=l);e[o]=c})}var forEach=require("../collections/forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isPlainObject=require("../objects/isPlainObject");module.exports=baseMerge;
   
   global.define = __define;
   return module.exports;
@@ -5518,7 +5520,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/omit", ["../internals/base
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/omit.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function omit(e,t,r){var n={};if("function"!=typeof t){var i=[];forIn(e,function(e,t){i.push(t)}),i=baseDifference(i,baseFlatten(arguments,!0,!1,1));for(var s=-1,o=i.length;++s<o;){var a=i[s];n[a]=e[a]}}else t=createCallback(t,r,3),forIn(e,function(e,r,i){t(e,r,i)||(n[r]=e)});return n}var baseDifference=require("../internals/baseDifference"),baseFlatten=require("../internals/baseFlatten"),createCallback=require("../functions/createCallback"),forIn=require("./forIn");module.exports=omit;
+  "format cjs";function omit(e,r,t){var a={};if("function"!=typeof r){var o=[];forIn(e,function(e,r){o.push(r)}),o=baseDifference(o,baseFlatten(arguments,!0,!1,1));for(var n=-1,s=o.length;++n<s;){var i=o[n];a[i]=e[i]}}else r=createCallback(r,t,3),forIn(e,function(e,t,o){r(e,t,o)||(a[t]=e)});return a}var baseDifference=require("../internals/baseDifference"),baseFlatten=require("../internals/baseFlatten"),createCallback=require("../functions/createCallback"),forIn=require("./forIn");module.exports=omit;
   
   global.define = __define;
   return module.exports;
@@ -5531,7 +5533,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/pairs", ["./keys"], true, 
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/pairs.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function pairs(e){for(var t=-1,r=keys(e),n=r.length,i=Array(n);++t<n;){var s=r[t];i[t]=[s,e[s]]}return i}var keys=require("./keys");module.exports=pairs;
+  "format cjs";function pairs(e){for(var r=-1,t=keys(e),a=t.length,o=Array(a);++r<a;){var n=t[r];o[r]=[n,e[n]]}return o}var keys=require("./keys");module.exports=pairs;
   
   global.define = __define;
   return module.exports;
@@ -5544,7 +5546,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/pick", ["../internals/base
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/pick.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function pick(e,t,r){var n={};if("function"!=typeof t)for(var i=-1,s=baseFlatten(arguments,!0,!1,1),o=isObject(e)?s.length:0;++i<o;){var a=s[i];a in e&&(n[a]=e[a])}else t=createCallback(t,r,3),forIn(e,function(e,r,i){t(e,r,i)&&(n[r]=e)});return n}var baseFlatten=require("../internals/baseFlatten"),createCallback=require("../functions/createCallback"),forIn=require("./forIn"),isObject=require("./isObject");module.exports=pick;
+  "format cjs";function pick(e,r,t){var a={};if("function"!=typeof r)for(var o=-1,n=baseFlatten(arguments,!0,!1,1),s=isObject(e)?n.length:0;++o<s;){var i=n[o];i in e&&(a[i]=e[i])}else r=createCallback(r,t,3),forIn(e,function(e,t,o){r(e,t,o)&&(a[t]=e)});return a}var baseFlatten=require("../internals/baseFlatten"),createCallback=require("../functions/createCallback"),forIn=require("./forIn"),isObject=require("./isObject");module.exports=pick;
   
   global.define = __define;
   return module.exports;
@@ -5557,7 +5559,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/transform", ["../internals
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/transform.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function transform(e,t,r,n){var i=isArray(e);if(null==r)if(i)r=[];else{var s=e&&e.constructor,o=s&&s.prototype;r=baseCreate(o)}return t&&(t=createCallback(t,n,4),(i?forEach:forOwn)(e,function(e,n,i){return t(r,e,n,i)})),r}var baseCreate=require("../internals/baseCreate"),createCallback=require("../functions/createCallback"),forEach=require("../collections/forEach"),forOwn=require("./forOwn"),isArray=require("./isArray");module.exports=transform;
+  "format cjs";function transform(e,r,t,a){var o=isArray(e);if(null==t)if(o)t=[];else{var n=e&&e.constructor,s=n&&n.prototype;t=baseCreate(s)}return r&&(r=createCallback(r,a,4),(o?forEach:forOwn)(e,function(e,a,o){return r(t,e,a,o)})),t}var baseCreate=require("../internals/baseCreate"),createCallback=require("../functions/createCallback"),forEach=require("../collections/forEach"),forOwn=require("./forOwn"),isArray=require("./isArray");module.exports=transform;
   
   global.define = __define;
   return module.exports;
@@ -5609,7 +5611,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/mixin", ["../collections
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/mixin.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";function mixin(e,t,r){var n=!0,i=t&&functions(t);r===!1?n=!1:isObject(r)&&"chain"in r&&(n=r.chain);var s=e,o=isFunction(s);forEach(i,function(r){var i=e[r]=t[r];o&&(s.prototype[r]=function(){var t=this.__chain__,r=this.__wrapped__,o=[r];push.apply(o,arguments);var a=i.apply(e,o);if(n||t){if(r===a&&isObject(a))return this;a=new s(a),a.__chain__=t}return a})})}var forEach=require("../collections/forEach"),functions=require("../objects/functions"),isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),arrayRef=[],push=arrayRef.push;module.exports=mixin;
+  "format cjs";function mixin(e,r,t){var a=!0,o=r&&functions(r);t===!1?a=!1:isObject(t)&&"chain"in t&&(a=t.chain);var n=e,s=isFunction(n);forEach(o,function(t){var o=e[t]=r[t];s&&(n.prototype[t]=function(){var r=this.__chain__,t=this.__wrapped__,s=[t];push.apply(s,arguments);var i=o.apply(e,s);if(a||r){if(t===i&&isObject(i))return this;i=new n(i),i.__chain__=r}return i})})}var forEach=require("../collections/forEach"),functions=require("../objects/functions"),isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),arrayRef=[],push=arrayRef.push;module.exports=mixin;
   
   global.define = __define;
   return module.exports;
@@ -5635,7 +5637,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/parseInt", ["../objects/
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/parseInt.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";var isString=require("../objects/isString"),whitespace=" 	\f\xa0\ufeff\n\r\u2028\u2029\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f\u205f\u3000",reLeadingSpacesAndZeros=RegExp("^["+whitespace+"]*0+(?=.$)"),nativeParseInt=global.parseInt,parseInt=8==nativeParseInt(whitespace+"08")?nativeParseInt:function(e,t){return nativeParseInt(isString(e)?e.replace(reLeadingSpacesAndZeros,""):e,t||0)};module.exports=parseInt;
+  "format cjs";var isString=require("../objects/isString"),whitespace=" 	\f\xa0\ufeff\n\r\u2028\u2029\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f\u205f\u3000",reLeadingSpacesAndZeros=RegExp("^["+whitespace+"]*0+(?=.$)"),nativeParseInt=global.parseInt,parseInt=8==nativeParseInt(whitespace+"08")?nativeParseInt:function(e,r){return nativeParseInt(isString(e)?e.replace(reLeadingSpacesAndZeros,""):e,r||0)};module.exports=parseInt;
   
   global.define = __define;
   return module.exports;
@@ -5648,7 +5650,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/random", ["../internals/
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/random.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";function random(e,t,r){var n=null==e,i=null==t;if(null==r&&("boolean"==typeof e&&i?(r=e,e=1):i||"boolean"!=typeof t||(r=t,i=!0)),n&&i&&(t=1),e=+e||0,i?(t=e,e=0):t=+t||0,r||e%1||t%1){var s=nativeRandom();return nativeMin(e+s*(t-e+parseFloat("1e-"+((s+"").length-1))),t)}return baseRandom(e,t)}var baseRandom=require("../internals/baseRandom"),nativeMin=Math.min,nativeRandom=Math.random;module.exports=random;
+  "format cjs";function random(e,r,t){var a=null==e,o=null==r;if(null==t&&("boolean"==typeof e&&o?(t=e,e=1):o||"boolean"!=typeof r||(t=r,o=!0)),a&&o&&(r=1),e=+e||0,o?(r=e,e=0):r=+r||0,t||e%1||r%1){var n=nativeRandom();return nativeMin(e+n*(r-e+parseFloat("1e-"+((n+"").length-1))),r)}return baseRandom(e,r)}var baseRandom=require("../internals/baseRandom"),nativeMin=Math.min,nativeRandom=Math.random;module.exports=random;
   
   global.define = __define;
   return module.exports;
@@ -5661,7 +5663,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/result", ["../objects/is
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/result.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";function result(e,t){if(e){var r=e[t];return isFunction(r)?e[t]():r}}var isFunction=require("../objects/isFunction");module.exports=result;
+  "format cjs";function result(e,r){if(e){var t=e[r];return isFunction(t)?e[r]():t}}var isFunction=require("../objects/isFunction");module.exports=result;
   
   global.define = __define;
   return module.exports;
@@ -5713,7 +5715,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/times", ["../internals/b
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/times.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";function times(e,t,r){e=(e=+e)>-1?e:0;var n=-1,i=Array(e);for(t=baseCreateCallback(t,r,1);++n<e;)i[n]=t(n);return i}var baseCreateCallback=require("../internals/baseCreateCallback");module.exports=times;
+  "format cjs";function times(e,r,t){e=(e=+e)>-1?e:0;var a=-1,o=Array(e);for(r=baseCreateCallback(r,t,1);++a<e;)o[a]=r(a);return o}var baseCreateCallback=require("../internals/baseCreateCallback");module.exports=times;
   
   global.define = __define;
   return module.exports;
@@ -5752,7 +5754,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/uniqueId", [], true, fun
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/uniqueId.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";function uniqueId(e){var t=++idCounter;return String(null==e?"":e)+t}var idCounter=0;module.exports=uniqueId;
+  "format cjs";function uniqueId(e){var r=++idCounter;return String(null==e?"":e)+r}var idCounter=0;module.exports=uniqueId;
   
   global.define = __define;
   return module.exports;
@@ -5776,7 +5778,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/cacheIndexOf", ["./baseI
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/cacheIndexOf.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function cacheIndexOf(e,t){var r=typeof t;if(e=e.cache,"boolean"==r||null==t)return e[t]?0:-1;"number"!=r&&"string"!=r&&(r="object");var n="number"==r?t:keyPrefix+t;return e=(e=e[r])&&e[n],"object"==r?e&&baseIndexOf(e,t)>-1?0:-1:e?0:-1}var baseIndexOf=require("./baseIndexOf"),keyPrefix=require("./keyPrefix");module.exports=cacheIndexOf;
+  "format cjs";function cacheIndexOf(e,r){var t=typeof r;if(e=e.cache,"boolean"==t||null==r)return e[r]?0:-1;"number"!=t&&"string"!=t&&(t="object");var a="number"==t?r:keyPrefix+r;return e=(e=e[t])&&e[a],"object"==t?e&&baseIndexOf(e,r)>-1?0:-1:e?0:-1}var baseIndexOf=require("./baseIndexOf"),keyPrefix=require("./keyPrefix");module.exports=cacheIndexOf;
   
   global.define = __define;
   return module.exports;
@@ -5802,7 +5804,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/releaseObject", ["./maxP
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/releaseObject.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function releaseObject(e){var t=e.cache;t&&releaseObject(t),e.array=e.cache=e.criteria=e.object=e.number=e.string=e.value=null,objectPool.length<maxPoolSize&&objectPool.push(e)}var maxPoolSize=require("./maxPoolSize"),objectPool=require("./objectPool");module.exports=releaseObject;
+  "format cjs";function releaseObject(e){var r=e.cache;r&&releaseObject(r),e.array=e.cache=e.criteria=e.object=e.number=e.string=e.value=null,objectPool.length<maxPoolSize&&objectPool.push(e)}var maxPoolSize=require("./maxPoolSize"),objectPool=require("./objectPool");module.exports=releaseObject;
   
   global.define = __define;
   return module.exports;
@@ -5867,7 +5869,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/map", ["../functions/c
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/map.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function map(e,t,r){var n=-1,i=e?e.length:0;if(t=createCallback(t,r,3),"number"==typeof i)for(var s=Array(i);++n<i;)s[n]=t(e[n],n,e);else s=[],forOwn(e,function(e,r,i){s[++n]=t(e,r,i)});return s}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=map;
+  "format cjs";function map(e,r,t){var a=-1,n=e?e.length:0;if(r=createCallback(r,t,3),"number"==typeof n)for(var o=Array(n);++a<n;)o[a]=r(e[a],a,e);else o=[],forOwn(e,function(e,t,n){o[++a]=r(e,t,n)});return o}var createCallback=require("../functions/createCallback"),forOwn=require("../objects/forOwn");module.exports=map;
   
   global.define = __define;
   return module.exports;
@@ -5880,7 +5882,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/indexOf", ["../internals/ba
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/indexOf.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function indexOf(e,t,r){if("number"==typeof r){var n=e?e.length:0;r=0>r?nativeMax(0,n+r):r||0}else if(r){var i=sortedIndex(e,t);return e[i]===t?i:-1}return baseIndexOf(e,t,r)}var baseIndexOf=require("../internals/baseIndexOf"),sortedIndex=require("./sortedIndex"),nativeMax=Math.max;module.exports=indexOf;
+  "format cjs";function indexOf(e,r,t){if("number"==typeof t){var a=e?e.length:0;t=0>t?nativeMax(0,a+t):t||0}else if(t){var n=sortedIndex(e,r);return e[n]===r?n:-1}return baseIndexOf(e,r,t)}var baseIndexOf=require("../internals/baseIndexOf"),sortedIndex=require("./sortedIndex"),nativeMax=Math.max;module.exports=indexOf;
   
   global.define = __define;
   return module.exports;
@@ -5906,7 +5908,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/max", ["../internals/c
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/max.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function max(e,t,r){var n=-1/0,i=n;if("function"!=typeof t&&r&&r[t]===e&&(t=null),null==t&&isArray(e))for(var s=-1,o=e.length;++s<o;){var a=e[s];a>i&&(i=a)}else t=null==t&&isString(e)?charAtCallback:createCallback(t,r,3),forEach(e,function(e,r,s){var o=t(e,r,s);o>n&&(n=o,i=e)});return i}var charAtCallback=require("../internals/charAtCallback"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString");module.exports=max;
+  "format cjs";function max(e,r,t){var a=-1/0,n=a;if("function"!=typeof r&&t&&t[r]===e&&(r=null),null==r&&isArray(e))for(var o=-1,s=e.length;++o<s;){var i=e[o];i>n&&(n=i)}else r=null==r&&isString(e)?charAtCallback:createCallback(r,t,3),forEach(e,function(e,t,o){var s=r(e,t,o);s>a&&(a=s,n=e)});return n}var charAtCallback=require("../internals/charAtCallback"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),forOwn=require("../objects/forOwn"),isArray=require("../objects/isArray"),isString=require("../objects/isString");module.exports=max;
   
   global.define = __define;
   return module.exports;
@@ -5932,7 +5934,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/countBy", ["../interna
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/countBy.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";var createAggregator=require("../internals/createAggregator"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,countBy=createAggregator(function(e,t,r){hasOwnProperty.call(e,r)?e[r]++:e[r]=1});module.exports=countBy;
+  "format cjs";var createAggregator=require("../internals/createAggregator"),objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty,countBy=createAggregator(function(e,r,t){hasOwnProperty.call(e,t)?e[t]++:e[t]=1});module.exports=countBy;
   
   global.define = __define;
   return module.exports;
@@ -5945,7 +5947,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/sample", ["../internal
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/sample.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function sample(e,t,r){if(e&&"number"!=typeof e.length&&(e=values(e)),null==t||r)return e?e[baseRandom(0,e.length-1)]:void 0;var n=shuffle(e);return n.length=nativeMin(nativeMax(0,t),n.length),n}var baseRandom=require("../internals/baseRandom"),isString=require("../objects/isString"),shuffle=require("./shuffle"),values=require("../objects/values"),nativeMax=Math.max,nativeMin=Math.min;module.exports=sample;
+  "format cjs";function sample(e,r,t){if(e&&"number"!=typeof e.length&&(e=values(e)),null==r||t)return e?e[baseRandom(0,e.length-1)]:void 0;var a=shuffle(e);return a.length=nativeMin(nativeMax(0,r),a.length),a}var baseRandom=require("../internals/baseRandom"),isString=require("../objects/isString"),shuffle=require("./shuffle"),values=require("../objects/values"),nativeMax=Math.max,nativeMin=Math.min;module.exports=sample;
   
   global.define = __define;
   return module.exports;
@@ -5958,7 +5960,7 @@ System.register("npm:lodash-node@2.4.1/modern/collections/sortBy", ["../internal
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/collections/sortBy.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/collections";
   /* */
-  "format cjs";function sortBy(e,t,r){var n=-1,i=isArray(t),s=e?e.length:0,o=Array("number"==typeof s?s:0);for(i||(t=createCallback(t,r,3)),forEach(e,function(e,r,s){var a=o[++n]=getObject();i?a.criteria=map(t,function(t){return e[t]}):(a.criteria=getArray())[0]=t(e,r,s),a.index=n,a.value=e}),s=o.length,o.sort(compareAscending);s--;){var a=o[s];o[s]=a.value,i||releaseArray(a.criteria),releaseObject(a)}return o}var compareAscending=require("../internals/compareAscending"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),getArray=require("../internals/getArray"),getObject=require("../internals/getObject"),isArray=require("../objects/isArray"),map=require("./map"),releaseArray=require("../internals/releaseArray"),releaseObject=require("../internals/releaseObject");module.exports=sortBy;
+  "format cjs";function sortBy(e,r,t){var a=-1,n=isArray(r),o=e?e.length:0,s=Array("number"==typeof o?o:0);for(n||(r=createCallback(r,t,3)),forEach(e,function(e,t,o){var i=s[++a]=getObject();n?i.criteria=map(r,function(r){return e[r]}):(i.criteria=getArray())[0]=r(e,t,o),i.index=a,i.value=e}),o=s.length,s.sort(compareAscending);o--;){var i=s[o];s[o]=i.value,n||releaseArray(i.criteria),releaseObject(i)}return s}var compareAscending=require("../internals/compareAscending"),createCallback=require("../functions/createCallback"),forEach=require("./forEach"),getArray=require("../internals/getArray"),getObject=require("../internals/getObject"),isArray=require("../objects/isArray"),map=require("./map"),releaseArray=require("../internals/releaseArray"),releaseObject=require("../internals/releaseObject");module.exports=sortBy;
   
   global.define = __define;
   return module.exports;
@@ -5971,7 +5973,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/bindAll", ["../internals
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/bindAll.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function bindAll(e){for(var t=arguments.length>1?baseFlatten(arguments,!0,!1,1):functions(e),r=-1,n=t.length;++r<n;){var i=t[r];e[i]=createWrapper(e[i],1,null,null,e)}return e}var baseFlatten=require("../internals/baseFlatten"),createWrapper=require("../internals/createWrapper"),functions=require("../objects/functions");module.exports=bindAll;
+  "format cjs";function bindAll(e){for(var r=arguments.length>1?baseFlatten(arguments,!0,!1,1):functions(e),t=-1,a=r.length;++t<a;){var n=r[t];e[n]=createWrapper(e[n],1,null,null,e)}return e}var baseFlatten=require("../internals/baseFlatten"),createWrapper=require("../internals/createWrapper"),functions=require("../objects/functions");module.exports=bindAll;
   
   global.define = __define;
   return module.exports;
@@ -5984,7 +5986,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/debounce", ["../objects/
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/debounce.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function debounce(e,t,r){var n,i,s,o,a,u,c,l=0,p=!1,f=!0;if(!isFunction(e))throw new TypeError;if(t=nativeMax(0,t)||0,r===!0){var h=!0;f=!1}else isObject(r)&&(h=r.leading,p="maxWait"in r&&(nativeMax(t,r.maxWait)||0),f="trailing"in r?r.trailing:f);var d=function(){var r=t-(now()-o);if(0>=r){i&&clearTimeout(i);var p=c;i=u=c=void 0,p&&(l=now(),s=e.apply(a,n),u||i||(n=a=null))}else u=setTimeout(d,r)},m=function(){u&&clearTimeout(u),i=u=c=void 0,(f||p!==t)&&(l=now(),s=e.apply(a,n),u||i||(n=a=null))};return function(){if(n=arguments,o=now(),a=this,c=f&&(u||!h),p===!1)var r=h&&!u;else{i||h||(l=o);var b=p-(o-l),g=0>=b;g?(i&&(i=clearTimeout(i)),l=o,s=e.apply(a,n)):i||(i=setTimeout(m,b))}return g&&u?u=clearTimeout(u):u||t===p||(u=setTimeout(d,t)),r&&(g=!0,s=e.apply(a,n)),!g||u||i||(n=a=null),s}}var isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),now=require("../utilities/now"),nativeMax=Math.max;module.exports=debounce;
+  "format cjs";function debounce(e,r,t){var a,n,o,s,i,c,l,u=0,f=!1,p=!0;if(!isFunction(e))throw new TypeError;if(r=nativeMax(0,r)||0,t===!0){var b=!0;p=!1}else isObject(t)&&(b=t.leading,f="maxWait"in t&&(nativeMax(r,t.maxWait)||0),p="trailing"in t?t.trailing:p);var m=function(){var t=r-(now()-s);if(0>=t){n&&clearTimeout(n);var f=l;n=c=l=void 0,f&&(u=now(),o=e.apply(i,a),c||n||(a=i=null))}else c=setTimeout(m,t)},d=function(){c&&clearTimeout(c),n=c=l=void 0,(p||f!==r)&&(u=now(),o=e.apply(i,a),c||n||(a=i=null))};return function(){if(a=arguments,s=now(),i=this,l=p&&(c||!b),f===!1)var t=b&&!c;else{n||b||(u=s);var h=f-(s-u),y=0>=h;y?(n&&(n=clearTimeout(n)),u=s,o=e.apply(i,a)):n||(n=setTimeout(d,h))}return y&&c?c=clearTimeout(c):c||r===f||(c=setTimeout(m,r)),t&&(y=!0,o=e.apply(i,a)),!y||c||n||(a=i=null),o}}var isFunction=require("../objects/isFunction"),isObject=require("../objects/isObject"),now=require("../utilities/now"),nativeMax=Math.max;module.exports=debounce;
   
   global.define = __define;
   return module.exports;
@@ -5997,7 +5999,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/clone", ["../internals/bas
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/clone.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function clone(e,t,r,n){return"boolean"!=typeof t&&null!=t&&(n=r,r=t,t=!1),baseClone(e,t,"function"==typeof r&&baseCreateCallback(r,n,1))}var baseClone=require("../internals/baseClone"),baseCreateCallback=require("../internals/baseCreateCallback");module.exports=clone;
+  "format cjs";function clone(e,r,t,a){return"boolean"!=typeof r&&null!=r&&(a=t,t=r,r=!1),baseClone(e,r,"function"==typeof t&&baseCreateCallback(t,a,1))}var baseClone=require("../internals/baseClone"),baseCreateCallback=require("../internals/baseCreateCallback");module.exports=clone;
   
   global.define = __define;
   return module.exports;
@@ -6010,7 +6012,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/findLastKey", ["../functio
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/findLastKey.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function findLastKey(e,t,r){var n;return t=createCallback(t,r,3),forOwnRight(e,function(e,r,i){return t(e,r,i)?(n=r,!1):void 0}),n}var createCallback=require("../functions/createCallback"),forOwnRight=require("./forOwnRight");module.exports=findLastKey;
+  "format cjs";function findLastKey(e,r,t){var a;return r=createCallback(r,t,3),forOwnRight(e,function(e,t,o){return r(e,t,o)?(a=t,!1):void 0}),a}var createCallback=require("../functions/createCallback"),forOwnRight=require("./forOwnRight");module.exports=findLastKey;
   
   global.define = __define;
   return module.exports;
@@ -6036,7 +6038,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/isPlainObject", ["../inter
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/isPlainObject.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";var isNative=require("../internals/isNative"),shimIsPlainObject=require("../internals/shimIsPlainObject"),objectClass="[object Object]",objectProto=Object.prototype,toString=objectProto.toString,getPrototypeOf=isNative(getPrototypeOf=Object.getPrototypeOf)&&getPrototypeOf,isPlainObject=getPrototypeOf?function(e){if(!e||toString.call(e)!=objectClass)return!1;var t=e.valueOf,r=isNative(t)&&(r=getPrototypeOf(t))&&getPrototypeOf(r);return r?e==r||getPrototypeOf(e)==r:shimIsPlainObject(e)}:shimIsPlainObject;module.exports=isPlainObject;
+  "format cjs";var isNative=require("../internals/isNative"),shimIsPlainObject=require("../internals/shimIsPlainObject"),objectClass="[object Object]",objectProto=Object.prototype,toString=objectProto.toString,getPrototypeOf=isNative(getPrototypeOf=Object.getPrototypeOf)&&getPrototypeOf,isPlainObject=getPrototypeOf?function(e){if(!e||toString.call(e)!=objectClass)return!1;var r=e.valueOf,t=isNative(r)&&(t=getPrototypeOf(r))&&getPrototypeOf(t);return t?e==t||getPrototypeOf(e)==t:shimIsPlainObject(e)}:shimIsPlainObject;module.exports=isPlainObject;
   
   global.define = __define;
   return module.exports;
@@ -6049,7 +6051,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/merge", ["../internals/bas
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/merge.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";function merge(e){var t=arguments,r=2;if(!isObject(e))return e;if("number"!=typeof t[2]&&(r=t.length),r>3&&"function"==typeof t[r-2])var n=baseCreateCallback(t[--r-1],t[r--],2);else r>2&&"function"==typeof t[r-1]&&(n=t[--r]);for(var i=slice(arguments,1,r),s=-1,o=getArray(),a=getArray();++s<r;)baseMerge(e,i[s],n,o,a);return releaseArray(o),releaseArray(a),e}var baseCreateCallback=require("../internals/baseCreateCallback"),baseMerge=require("../internals/baseMerge"),getArray=require("../internals/getArray"),isObject=require("./isObject"),releaseArray=require("../internals/releaseArray"),slice=require("../internals/slice");module.exports=merge;
+  "format cjs";function merge(e){var r=arguments,t=2;if(!isObject(e))return e;if("number"!=typeof r[2]&&(t=r.length),t>3&&"function"==typeof r[t-2])var a=baseCreateCallback(r[--t-1],r[t--],2);else t>2&&"function"==typeof r[t-1]&&(a=r[--t]);for(var o=slice(arguments,1,t),n=-1,s=getArray(),i=getArray();++n<t;)baseMerge(e,o[n],a,s,i);return releaseArray(s),releaseArray(i),e}var baseCreateCallback=require("../internals/baseCreateCallback"),baseMerge=require("../internals/baseMerge"),getArray=require("../internals/getArray"),isObject=require("./isObject"),releaseArray=require("../internals/releaseArray"),slice=require("../internals/slice");module.exports=merge;
   
   global.define = __define;
   return module.exports;
@@ -6075,7 +6077,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/template", ["../objects/
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/template.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";!function(){function e(e,h,d){var m=s.imports._.templateSettings||s;e=String(e||""),d=t({},d,m);var b,g=t({},d.imports,m.imports),v=n(g),y=o(g),x=0,j=d.interpolate||p,w="__p += '",q=RegExp((d.escape||p).source+"|"+j.source+"|"+(j===i?l:p).source+"|"+(d.evaluate||p).source+"|$","g");e.replace(q,function(t,n,i,s,o,a){return i||(i=s),w+=e.slice(x,a).replace(f,r),n&&(w+="' +\n__e("+n+") +\n'"),o&&(b=!0,w+="';\n"+o+";\n__p += '"),i&&(w+="' +\n((__t = ("+i+")) == null ? '' : __t) +\n'"),x=a+t.length,t}),w+="';\n";var k=d.variable,_=k;_||(k="obj",w="with ("+k+") {\n"+w+"\n}\n"),w=(b?w.replace(a,""):w).replace(u,"$1").replace(c,"$1;"),w="function("+k+") {\n"+(_?"":k+" || ("+k+" = {});\n")+"var __t, __p = '', __e = _.escape"+(b?", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n":";\n")+w+"return __p\n}";try{var C=Function(v,"return "+w).apply(void 0,y)}catch(O){throw O.source=w,O}return h?C(h):(C.source=w,C)}var t=require("../objects/defaults"),r=(require("./escape"),require("../internals/escapeStringChar")),n=require("../objects/keys"),i=require("../internals/reInterpolate"),s=require("./templateSettings"),o=require("../objects/values"),a=/\b__p \+= '';/g,u=/\b(__p \+=) '' \+/g,c=/(__e\(.*?\)|\b__t\)) \+\n'';/g,l=/\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,p=/($^)/,f=/['\n\r\t\u2028\u2029\\]/g;module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  "format cjs";!function(){function e(e,b,d){var m=n.imports._.templateSettings||n;e=String(e||""),d=r({},d,m);var h,y=r({},d.imports,m.imports),j=a(y),g=s(y),q=0,v=d.interpolate||f,x="__p += '",C=RegExp((d.escape||f).source+"|"+v.source+"|"+(v===o?u:f).source+"|"+(d.evaluate||f).source+"|$","g");e.replace(C,function(r,a,o,n,s,i){return o||(o=n),x+=e.slice(q,i).replace(p,t),a&&(x+="' +\n__e("+a+") +\n'"),s&&(h=!0,x+="';\n"+s+";\n__p += '"),o&&(x+="' +\n((__t = ("+o+")) == null ? '' : __t) +\n'"),q=i+r.length,r}),x+="';\n";var O=d.variable,k=O;k||(O="obj",x="with ("+O+") {\n"+x+"\n}\n"),x=(h?x.replace(i,""):x).replace(c,"$1").replace(l,"$1;"),x="function("+O+") {\n"+(k?"":O+" || ("+O+" = {});\n")+"var __t, __p = '', __e = _.escape"+(h?", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n":";\n")+x+"return __p\n}";try{var A=Function(j,"return "+x).apply(void 0,g)}catch(w){throw w.source=x,w}return b?A(b):(A.source=x,A)}var r=require("../objects/defaults"),t=(require("./escape"),require("../internals/escapeStringChar")),a=require("../objects/keys"),o=require("../internals/reInterpolate"),n=require("./templateSettings"),s=require("../objects/values"),i=/\b__p \+= '';/g,c=/\b(__p \+=) '' \+/g,l=/(__e\(.*?\)|\b__t\)) \+\n'';/g,u=/\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,f=/($^)/,p=/['\n\r\t\u2028\u2029\\]/g;module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
   
   global.define = __define;
   return module.exports;
@@ -6101,7 +6103,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/createCache", ["./cacheP
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/createCache.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function createCache(e){var t=-1,r=e.length,n=e[0],i=e[r/2|0],s=e[r-1];if(n&&"object"==typeof n&&i&&"object"==typeof i&&s&&"object"==typeof s)return!1;var o=getObject();o["false"]=o["null"]=o["true"]=o.undefined=!1;var a=getObject();for(a.array=e,a.cache=o,a.push=cachePush;++t<r;)a.push(e[t]);return a}var cachePush=require("./cachePush"),getObject=require("./getObject"),releaseObject=require("./releaseObject");module.exports=createCache;
+  "format cjs";function createCache(e){var r=-1,t=e.length,a=e[0],n=e[t/2|0],o=e[t-1];if(a&&"object"==typeof a&&n&&"object"==typeof n&&o&&"object"==typeof o)return!1;var s=getObject();s["false"]=s["null"]=s["true"]=s.undefined=!1;var i=getObject();for(i.array=e,i.cache=s,i.push=cachePush;++r<t;)i.push(e[r]);return i}var cachePush=require("./cachePush"),getObject=require("./getObject"),releaseObject=require("./releaseObject");module.exports=createCache;
   
   global.define = __define;
   return module.exports;
@@ -6114,7 +6116,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseFlatten", ["../objec
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseFlatten.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseFlatten(e,t,r,n){for(var i=(n||0)-1,s=e?e.length:0,o=[];++i<s;){var a=e[i];if(a&&"object"==typeof a&&"number"==typeof a.length&&(isArray(a)||isArguments(a))){t||(a=baseFlatten(a,t,r));var u=-1,c=a.length,l=o.length;for(o.length+=c;++u<c;)o[l++]=a[u]}else r||o.push(a)}return o}var isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray");module.exports=baseFlatten;
+  "format cjs";function baseFlatten(e,r,t,a){for(var n=(a||0)-1,o=e?e.length:0,s=[];++n<o;){var i=e[n];if(i&&"object"==typeof i&&"number"==typeof i.length&&(isArray(i)||isArguments(i))){r||(i=baseFlatten(i,r,t));var l=-1,c=i.length,u=s.length;for(s.length+=c;++l<c;)s[u++]=i[l]}else t||s.push(i)}return s}var isArguments=require("../objects/isArguments"),isArray=require("../objects/isArray");module.exports=baseFlatten;
   
   global.define = __define;
   return module.exports;
@@ -6127,7 +6129,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseCreate", ["./isNativ
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseCreate.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseCreate(e){return isObject(e)?nativeCreate(e):{}}var isNative=require("./isNative"),isObject=require("../objects/isObject"),noop=require("../utilities/noop"),nativeCreate=isNative(nativeCreate=Object.create)&&nativeCreate;nativeCreate||(baseCreate=function(){function e(){}return function(t){if(isObject(t)){e.prototype=t;var r=new e;e.prototype=null}return r||global.Object()}}()),module.exports=baseCreate;
+  "format cjs";function baseCreate(e){return isObject(e)?nativeCreate(e):{}}var isNative=require("./isNative"),isObject=require("../objects/isObject"),noop=require("../utilities/noop"),nativeCreate=isNative(nativeCreate=Object.create)&&nativeCreate;nativeCreate||(baseCreate=function(){function e(){}return function(r){if(isObject(r)){e.prototype=r;var t=new e;e.prototype=null}return t||global.Object()}}()),module.exports=baseCreate;
   
   global.define = __define;
   return module.exports;
@@ -6140,7 +6142,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseIsEqual", ["../objec
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseIsEqual.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseIsEqual(e,t,r,n,i,s){if(r){var o=r(e,t);if("undefined"!=typeof o)return!!o}if(e===t)return 0!==e||1/e==1/t;var a=typeof e,u=typeof t;if(!(e!==e||e&&objectTypes[a]||t&&objectTypes[u]))return!1;if(null==e||null==t)return e===t;var c=toString.call(e),l=toString.call(t);if(c==argsClass&&(c=objectClass),l==argsClass&&(l=objectClass),c!=l)return!1;switch(c){case boolClass:case dateClass:return+e==+t;case numberClass:return e!=+e?t!=+t:0==e?1/e==1/t:e==+t;case regexpClass:case stringClass:return e==String(t)}var p=c==arrayClass;if(!p){var f=hasOwnProperty.call(e,"__wrapped__"),h=hasOwnProperty.call(t,"__wrapped__");if(f||h)return baseIsEqual(f?e.__wrapped__:e,h?t.__wrapped__:t,r,n,i,s);if(c!=objectClass)return!1;var d=e.constructor,m=t.constructor;if(d!=m&&!(isFunction(d)&&d instanceof d&&isFunction(m)&&m instanceof m)&&"constructor"in e&&"constructor"in t)return!1}var b=!i;i||(i=getArray()),s||(s=getArray());for(var g=i.length;g--;)if(i[g]==e)return s[g]==t;var v=0;if(o=!0,i.push(e),s.push(t),p){if(g=e.length,v=t.length,o=v==g,o||n)for(;v--;){var y=g,x=t[v];if(n)for(;y--&&!(o=baseIsEqual(e[y],x,r,n,i,s)););else if(!(o=baseIsEqual(e[v],x,r,n,i,s)))break}}else forIn(t,function(t,a,u){return hasOwnProperty.call(u,a)?(v++,o=hasOwnProperty.call(e,a)&&baseIsEqual(e[a],t,r,n,i,s)):void 0}),o&&!n&&forIn(e,function(e,t,r){return hasOwnProperty.call(r,t)?o=--v>-1:void 0});return i.pop(),s.pop(),b&&(releaseArray(i),releaseArray(s)),o}var forIn=require("../objects/forIn"),getArray=require("./getArray"),isFunction=require("../objects/isFunction"),objectTypes=require("./objectTypes"),releaseArray=require("./releaseArray"),argsClass="[object Arguments]",arrayClass="[object Array]",boolClass="[object Boolean]",dateClass="[object Date]",numberClass="[object Number]",objectClass="[object Object]",regexpClass="[object RegExp]",stringClass="[object String]",objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty;module.exports=baseIsEqual;
+  "format cjs";function baseIsEqual(e,r,t,a,n,o){if(t){var s=t(e,r);if("undefined"!=typeof s)return!!s}if(e===r)return 0!==e||1/e==1/r;var i=typeof e,l=typeof r;if(!(e!==e||e&&objectTypes[i]||r&&objectTypes[l]))return!1;if(null==e||null==r)return e===r;var c=toString.call(e),u=toString.call(r);if(c==argsClass&&(c=objectClass),u==argsClass&&(u=objectClass),c!=u)return!1;switch(c){case boolClass:case dateClass:return+e==+r;case numberClass:return e!=+e?r!=+r:0==e?1/e==1/r:e==+r;case regexpClass:case stringClass:return e==String(r)}var f=c==arrayClass;if(!f){var p=hasOwnProperty.call(e,"__wrapped__"),b=hasOwnProperty.call(r,"__wrapped__");if(p||b)return baseIsEqual(p?e.__wrapped__:e,b?r.__wrapped__:r,t,a,n,o);if(c!=objectClass)return!1;var d=e.constructor,h=r.constructor;if(d!=h&&!(isFunction(d)&&d instanceof d&&isFunction(h)&&h instanceof h)&&"constructor"in e&&"constructor"in r)return!1}var m=!n;n||(n=getArray()),o||(o=getArray());for(var y=n.length;y--;)if(n[y]==e)return o[y]==r;var g=0;if(s=!0,n.push(e),o.push(r),f){if(y=e.length,g=r.length,s=g==y,s||a)for(;g--;){var j=y,q=r[g];if(a)for(;j--&&!(s=baseIsEqual(e[j],q,t,a,n,o)););else if(!(s=baseIsEqual(e[g],q,t,a,n,o)))break}}else forIn(r,function(r,i,l){return hasOwnProperty.call(l,i)?(g++,s=hasOwnProperty.call(e,i)&&baseIsEqual(e[i],r,t,a,n,o)):void 0}),s&&!a&&forIn(e,function(e,r,t){return hasOwnProperty.call(t,r)?s=--g>-1:void 0});return n.pop(),o.pop(),m&&(releaseArray(n),releaseArray(o)),s}var forIn=require("../objects/forIn"),getArray=require("./getArray"),isFunction=require("../objects/isFunction"),objectTypes=require("./objectTypes"),releaseArray=require("./releaseArray"),argsClass="[object Arguments]",arrayClass="[object Array]",boolClass="[object Boolean]",dateClass="[object Date]",numberClass="[object Number]",objectClass="[object Object]",regexpClass="[object RegExp]",stringClass="[object String]",objectProto=Object.prototype,toString=objectProto.toString,hasOwnProperty=objectProto.hasOwnProperty;module.exports=baseIsEqual;
   
   global.define = __define;
   return module.exports;
@@ -6153,7 +6155,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/flatten", ["../internals/ba
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/flatten.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function flatten(e,t,r,n){return"boolean"!=typeof t&&null!=t&&(n=r,r="function"!=typeof t&&n&&n[t]===e?null:t,t=!1),null!=r&&(e=map(e,r,n)),baseFlatten(e,t)}var baseFlatten=require("../internals/baseFlatten"),map=require("../collections/map");module.exports=flatten;
+  "format cjs";function flatten(e,r,t,a){return"boolean"!=typeof r&&null!=r&&(a=t,t="function"!=typeof r&&a&&a[r]===e?null:r,r=!1),null!=t&&(e=map(e,t,a)),baseFlatten(e,r)}var baseFlatten=require("../internals/baseFlatten"),map=require("../collections/map");module.exports=flatten;
   
   global.define = __define;
   return module.exports;
@@ -6166,7 +6168,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/zip", ["../collections/max"
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/zip.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";!function(){function e(){for(var e=arguments.length>1?arguments:arguments[0],n=-1,i=e?t(r(e,"length")):0,s=Array(0>i?0:i);++n<i;)s[n]=r(e,n);return s}var t=require("../collections/max"),r=require("../collections/pluck");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  "format cjs";!function(){function e(){for(var e=arguments.length>1?arguments:arguments[0],a=-1,n=e?r(t(e,"length")):0,s=Array(0>n?0:n);++a<n;)s[a]=t(e,a);return s}var r=require("../collections/max"),t=require("../collections/pluck");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
   
   global.define = __define;
   return module.exports;
@@ -6257,7 +6259,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseDifference", ["./bas
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseDifference.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";!function(){function e(e,o){var a=-1,u=t,c=e?e.length:0,l=c>=i,p=[];if(l){var h=n(o);h?(u=r,o=h):l=!1}for(;++a<c;){var f=e[a];u(o,f)<0&&p.push(f)}return l&&s(o),p}var t=require("./baseIndexOf"),r=require("./cacheIndexOf"),n=require("./createCache"),i=require("./largeArraySize"),s=require("./releaseObject");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  "format cjs";!function(){function e(e,s){var i=-1,l=r,c=e?e.length:0,u=c>=n,f=[];if(u){var p=a(s);p?(l=t,s=p):u=!1}for(;++i<c;){var b=e[i];l(s,b)<0&&f.push(b)}return u&&o(s),f}var r=require("./baseIndexOf"),t=require("./cacheIndexOf"),a=require("./createCache"),n=require("./largeArraySize"),o=require("./releaseObject");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
   
   global.define = __define;
   return module.exports;
@@ -6270,7 +6272,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseBind", ["./baseCreat
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseBind.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseBind(e){function t(){if(n){var e=slice(n);push.apply(e,arguments)}if(this instanceof t){var s=baseCreate(r.prototype),o=r.apply(s,e||arguments);return isObject(o)?o:s}return r.apply(i,e||arguments)}var r=e[0],n=e[2],i=e[4];return setBindData(t,e),t}var baseCreate=require("./baseCreate"),isObject=require("../objects/isObject"),setBindData=require("./setBindData"),slice=require("./slice"),arrayRef=[],push=arrayRef.push;module.exports=baseBind;
+  "format cjs";function baseBind(e){function r(){if(a){var e=slice(a);push.apply(e,arguments)}if(this instanceof r){var o=baseCreate(t.prototype),s=t.apply(o,e||arguments);return isObject(s)?s:o}return t.apply(n,e||arguments)}var t=e[0],a=e[2],n=e[4];return setBindData(r,e),r}var baseCreate=require("./baseCreate"),isObject=require("../objects/isObject"),setBindData=require("./setBindData"),slice=require("./slice"),arrayRef=[],push=arrayRef.push;module.exports=baseBind;
   
   global.define = __define;
   return module.exports;
@@ -6296,7 +6298,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/difference", ["../internals
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/difference.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";!function(){function e(e){return t(e,r(arguments,!0,!0,1))}var t=require("../internals/baseDifference"),r=require("../internals/baseFlatten");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  "format cjs";!function(){function e(e){return r(e,t(arguments,!0,!0,1))}var r=require("../internals/baseDifference"),t=require("../internals/baseFlatten");module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
   
   global.define = __define;
   return module.exports;
@@ -6309,7 +6311,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/createWrapper", ["./base
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/createWrapper.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function createWrapper(e,t,r,n,i,s){var o=1&t,a=2&t,u=4&t,c=16&t,l=32&t;if(!a&&!isFunction(e))throw new TypeError;c&&!r.length&&(t&=-17,c=r=!1),l&&!n.length&&(t&=-33,l=n=!1);var p=e&&e.__bindData__;if(p&&p!==!0)return p=slice(p),p[2]&&(p[2]=slice(p[2])),p[3]&&(p[3]=slice(p[3])),!o||1&p[1]||(p[4]=i),!o&&1&p[1]&&(t|=8),!u||4&p[1]||(p[5]=s),c&&push.apply(p[2]||(p[2]=[]),r),l&&unshift.apply(p[3]||(p[3]=[]),n),p[1]|=t,createWrapper.apply(null,p);var h=1==t||17===t?baseBind:baseCreateWrapper;return h([e,t,r,n,i,s])}var baseBind=require("./baseBind"),baseCreateWrapper=require("./baseCreateWrapper"),isFunction=require("../objects/isFunction"),slice=require("./slice"),arrayRef=[],push=arrayRef.push,unshift=arrayRef.unshift;module.exports=createWrapper;
+  "format cjs";function createWrapper(e,r,t,a,n,o){var s=1&r,i=2&r,l=4&r,c=16&r,u=32&r;if(!i&&!isFunction(e))throw new TypeError;c&&!t.length&&(r&=-17,c=t=!1),u&&!a.length&&(r&=-33,u=a=!1);var f=e&&e.__bindData__;if(f&&f!==!0)return f=slice(f),f[2]&&(f[2]=slice(f[2])),f[3]&&(f[3]=slice(f[3])),!s||1&f[1]||(f[4]=n),!s&&1&f[1]&&(r|=8),!l||4&f[1]||(f[5]=o),c&&push.apply(f[2]||(f[2]=[]),t),u&&unshift.apply(f[3]||(f[3]=[]),a),f[1]|=r,createWrapper.apply(null,f);var p=1==r||17===r?baseBind:baseCreateWrapper;return p([e,r,t,a,n,o])}var baseBind=require("./baseBind"),baseCreateWrapper=require("./baseCreateWrapper"),isFunction=require("../objects/isFunction"),slice=require("./slice"),arrayRef=[],push=arrayRef.push,unshift=arrayRef.unshift;module.exports=createWrapper;
   
   global.define = __define;
   return module.exports;
@@ -6322,7 +6324,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/bind", ["../internals/cr
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/bind.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function bind(e,t){return arguments.length>2?createWrapper(e,17,slice(arguments,2),null,t):createWrapper(e,1,null,null,t)}var createWrapper=require("../internals/createWrapper"),slice=require("../internals/slice");module.exports=bind;
+  "format cjs";function bind(e,r){return arguments.length>2?createWrapper(e,17,slice(arguments,2),null,r):createWrapper(e,1,null,null,r)}var createWrapper=require("../internals/createWrapper"),slice=require("../internals/slice");module.exports=bind;
   
   global.define = __define;
   return module.exports;
@@ -6335,7 +6337,7 @@ System.register("npm:lodash-node@2.4.1/modern/internals/baseCreateCallback", [".
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/internals/baseCreateCallback.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/internals";
   /* */
-  "format cjs";function baseCreateCallback(e,t,r){if("function"!=typeof e)return identity;if("undefined"==typeof t||!("prototype"in e))return e;var n=e.__bindData__;if("undefined"==typeof n&&(support.funcNames&&(n=!e.name),n=n||!support.funcDecomp,!n)){var i=fnToString.call(e);support.funcNames||(n=!reFuncName.test(i)),n||(n=reThis.test(i),setBindData(e,n))}if(n===!1||n!==!0&&1&n[1])return e;switch(r){case 1:return function(r){return e.call(t,r)};case 2:return function(r,n){return e.call(t,r,n)};case 3:return function(r,n,i){return e.call(t,r,n,i)};case 4:return function(r,n,i,s){return e.call(t,r,n,i,s)}}return bind(e,t)}var bind=require("../functions/bind"),identity=require("../utilities/identity"),setBindData=require("./setBindData"),support=require("../support"),reFuncName=/^\s*function[ \n\r\t]+\w/,reThis=/\bthis\b/,fnToString=Function.prototype.toString;module.exports=baseCreateCallback;
+  "format cjs";function baseCreateCallback(e,r,t){if("function"!=typeof e)return identity;if("undefined"==typeof r||!("prototype"in e))return e;var a=e.__bindData__;if("undefined"==typeof a&&(support.funcNames&&(a=!e.name),a=a||!support.funcDecomp,!a)){var n=fnToString.call(e);support.funcNames||(a=!reFuncName.test(n)),a||(a=reThis.test(n),setBindData(e,a))}if(a===!1||a!==!0&&1&a[1])return e;switch(t){case 1:return function(t){return e.call(r,t)};case 2:return function(t,a){return e.call(r,t,a)};case 3:return function(t,a,n){return e.call(r,t,a,n)};case 4:return function(t,a,n,o){return e.call(r,t,a,n,o)}}return bind(e,r)}var bind=require("../functions/bind"),identity=require("../utilities/identity"),setBindData=require("./setBindData"),support=require("../support"),reFuncName=/^\s*function[ \n\r\t]+\w/,reThis=/\bthis\b/,fnToString=Function.prototype.toString;module.exports=baseCreateCallback;
   
   global.define = __define;
   return module.exports;
@@ -6348,7 +6350,7 @@ System.register("npm:lodash-node@2.4.1/modern/functions/createCallback", ["../in
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/functions/createCallback.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/functions";
   /* */
-  "format cjs";function createCallback(e,t,r){var n=typeof e;if(null==e||"function"==n)return baseCreateCallback(e,t,r);if("object"!=n)return property(e);var i=keys(e),s=i[0],o=e[s];return 1!=i.length||o!==o||isObject(o)?function(t){for(var r=i.length,n=!1;r--&&(n=baseIsEqual(t[i[r]],e[i[r]],null,!0)););return n}:function(e){var t=e[s];return o===t&&(0!==o||1/o==1/t)}}var baseCreateCallback=require("../internals/baseCreateCallback"),baseIsEqual=require("../internals/baseIsEqual"),isObject=require("../objects/isObject"),keys=require("../objects/keys"),property=require("../utilities/property");module.exports=createCallback;
+  "format cjs";function createCallback(e,r,t){var a=typeof e;if(null==e||"function"==a)return baseCreateCallback(e,r,t);if("object"!=a)return property(e);var n=keys(e),o=n[0],s=e[o];return 1!=n.length||s!==s||isObject(s)?function(r){for(var t=n.length,a=!1;t--&&(a=baseIsEqual(r[n[t]],e[n[t]],null,!0)););return a}:function(e){var r=e[o];return s===r&&(0!==s||1/s==1/r)}}var baseCreateCallback=require("../internals/baseCreateCallback"),baseIsEqual=require("../internals/baseIsEqual"),isObject=require("../objects/isObject"),keys=require("../objects/keys"),property=require("../utilities/property");module.exports=createCallback;
   
   global.define = __define;
   return module.exports;
@@ -6361,7 +6363,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/rest", ["../functions/creat
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/rest.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function rest(e,t,r){if("number"!=typeof t&&null!=t){var n=0,i=-1,s=e?e.length:0;for(t=createCallback(t,r,3);++i<s&&t(e[i],i,e);)n++}else n=null==t||r?1:nativeMax(0,t);return slice(e,n)}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max;module.exports=rest;
+  "format cjs";function rest(e,r,t){if("number"!=typeof r&&null!=r){var a=0,n=-1,s=e?e.length:0;for(r=createCallback(r,t,3);++n<s&&r(e[n],n,e);)a++}else a=null==r||t?1:nativeMax(0,r);return slice(e,a)}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max;module.exports=rest;
   
   global.define = __define;
   return module.exports;
@@ -6387,7 +6389,7 @@ System.register("npm:lodash-node@2.4.1/modern/index", ["./arrays","./chaining","
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/index.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern";
   /* */
-  "format cjs";function lodash(e){return e&&"object"==typeof e&&!isArray(e)&&hasOwnProperty.call(e,"__wrapped__")?e:new lodashWrapper(e)}var arrays=require("./arrays"),chaining=require("./chaining"),collections=require("./collections"),functions=require("./functions"),objects=require("./objects"),utilities=require("./utilities"),forEach=require("./collections/forEach"),forOwn=require("./objects/forOwn"),isArray=require("./objects/isArray"),lodashWrapper=require("./internals/lodashWrapper"),mixin=require("./utilities/mixin"),support=require("./support"),templateSettings=require("./utilities/templateSettings"),arrayRef=[],objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;lodashWrapper.prototype=lodash.prototype,mixin=function(e){var t=objects.functions;return function(r,n,i){return n&&(i||t(n).length)||(null==i&&(i=n),n=r,r=lodash),e(r,n,i)}}(mixin),lodash.after=functions.after,lodash.assign=objects.assign,lodash.at=collections.at,lodash.bind=functions.bind,lodash.bindAll=functions.bindAll,lodash.bindKey=functions.bindKey,lodash.chain=chaining.chain,lodash.compact=arrays.compact,lodash.compose=functions.compose,lodash.constant=utilities.constant,lodash.countBy=collections.countBy,lodash.create=objects.create,lodash.createCallback=functions.createCallback,lodash.curry=functions.curry,lodash.debounce=functions.debounce,lodash.defaults=objects.defaults,lodash.defer=functions.defer,lodash.delay=functions.delay,lodash.difference=arrays.difference,lodash.filter=collections.filter,lodash.flatten=arrays.flatten,lodash.forEach=forEach,lodash.forEachRight=collections.forEachRight,lodash.forIn=objects.forIn,lodash.forInRight=objects.forInRight,lodash.forOwn=forOwn,lodash.forOwnRight=objects.forOwnRight,lodash.functions=objects.functions,lodash.groupBy=collections.groupBy,lodash.indexBy=collections.indexBy,lodash.initial=arrays.initial,lodash.intersection=arrays.intersection,lodash.invert=objects.invert,lodash.invoke=collections.invoke,lodash.keys=objects.keys,lodash.map=collections.map,lodash.mapValues=objects.mapValues,lodash.max=collections.max,lodash.memoize=functions.memoize,lodash.merge=objects.merge,lodash.min=collections.min,lodash.omit=objects.omit,lodash.once=functions.once,lodash.pairs=objects.pairs,lodash.partial=functions.partial,lodash.partialRight=functions.partialRight,lodash.pick=objects.pick,lodash.pluck=collections.pluck,lodash.property=utilities.property,lodash.pull=arrays.pull,lodash.range=arrays.range,lodash.reject=collections.reject,lodash.remove=arrays.remove,lodash.rest=arrays.rest,lodash.shuffle=collections.shuffle,lodash.sortBy=collections.sortBy,lodash.tap=chaining.tap,lodash.throttle=functions.throttle,lodash.times=utilities.times,lodash.toArray=collections.toArray,lodash.transform=objects.transform,lodash.union=arrays.union,lodash.uniq=arrays.uniq,lodash.values=objects.values,lodash.where=collections.where,lodash.without=arrays.without,lodash.wrap=functions.wrap,lodash.xor=arrays.xor,lodash.zip=arrays.zip,lodash.zipObject=arrays.zipObject,lodash.collect=collections.map,lodash.drop=arrays.rest,lodash.each=forEach,lodash.eachRight=collections.forEachRight,lodash.extend=objects.assign,lodash.methods=objects.functions,lodash.object=arrays.zipObject,lodash.select=collections.filter,lodash.tail=arrays.rest,lodash.unique=arrays.uniq,lodash.unzip=arrays.zip,mixin(lodash),lodash.clone=objects.clone,lodash.cloneDeep=objects.cloneDeep,lodash.contains=collections.contains,lodash.escape=utilities.escape,lodash.every=collections.every,lodash.find=collections.find,lodash.findIndex=arrays.findIndex,lodash.findKey=objects.findKey,lodash.findLast=collections.findLast,lodash.findLastIndex=arrays.findLastIndex,lodash.findLastKey=objects.findLastKey,lodash.has=objects.has,lodash.identity=utilities.identity,lodash.indexOf=arrays.indexOf,lodash.isArguments=objects.isArguments,lodash.isArray=isArray,lodash.isBoolean=objects.isBoolean,lodash.isDate=objects.isDate,lodash.isElement=objects.isElement,lodash.isEmpty=objects.isEmpty,lodash.isEqual=objects.isEqual,lodash.isFinite=objects.isFinite,lodash.isFunction=objects.isFunction,lodash.isNaN=objects.isNaN,lodash.isNull=objects.isNull,lodash.isNumber=objects.isNumber,lodash.isObject=objects.isObject,lodash.isPlainObject=objects.isPlainObject,lodash.isRegExp=objects.isRegExp,lodash.isString=objects.isString,lodash.isUndefined=objects.isUndefined,lodash.lastIndexOf=arrays.lastIndexOf,lodash.mixin=mixin,lodash.noConflict=utilities.noConflict,lodash.noop=utilities.noop,lodash.now=utilities.now,lodash.parseInt=utilities.parseInt,lodash.random=utilities.random,lodash.reduce=collections.reduce,lodash.reduceRight=collections.reduceRight,lodash.result=utilities.result,lodash.size=collections.size,lodash.some=collections.some,lodash.sortedIndex=arrays.sortedIndex,lodash.template=utilities.template,lodash.unescape=utilities.unescape,lodash.uniqueId=utilities.uniqueId,lodash.all=collections.every,lodash.any=collections.some,lodash.detect=collections.find,lodash.findWhere=collections.find,lodash.foldl=collections.reduce,lodash.foldr=collections.reduceRight,lodash.include=collections.contains,lodash.inject=collections.reduce,mixin(function(){var e={};return forOwn(lodash,function(t,r){lodash.prototype[r]||(e[r]=t)}),e}(),!1),lodash.first=arrays.first,lodash.last=arrays.last,lodash.sample=collections.sample,lodash.take=arrays.first,lodash.head=arrays.first,forOwn(lodash,function(e,t){var r="sample"!==t;lodash.prototype[t]||(lodash.prototype[t]=function(t,n){var i=this.__chain__,s=e(this.__wrapped__,t,n);return i||null!=t&&(!n||r&&"function"==typeof t)?new lodashWrapper(s,i):s})}),lodash.VERSION="2.4.1",lodash.prototype.chain=chaining.wrapperChain,lodash.prototype.toString=chaining.wrapperToString,lodash.prototype.value=chaining.wrapperValueOf,lodash.prototype.valueOf=chaining.wrapperValueOf,forEach(["join","pop","shift"],function(e){var t=arrayRef[e];lodash.prototype[e]=function(){var e=this.__chain__,r=t.apply(this.__wrapped__,arguments);return e?new lodashWrapper(r,e):r}}),forEach(["push","reverse","sort","unshift"],function(e){var t=arrayRef[e];lodash.prototype[e]=function(){return t.apply(this.__wrapped__,arguments),this}}),forEach(["concat","slice","splice"],function(e){var t=arrayRef[e];lodash.prototype[e]=function(){return new lodashWrapper(t.apply(this.__wrapped__,arguments),this.__chain__)}}),lodash.support=support,(lodash.templateSettings=utilities.templateSettings).imports._=lodash,module.exports=lodash;
+  "format cjs";function lodash(e){return e&&"object"==typeof e&&!isArray(e)&&hasOwnProperty.call(e,"__wrapped__")?e:new lodashWrapper(e)}var arrays=require("./arrays"),chaining=require("./chaining"),collections=require("./collections"),functions=require("./functions"),objects=require("./objects"),utilities=require("./utilities"),forEach=require("./collections/forEach"),forOwn=require("./objects/forOwn"),isArray=require("./objects/isArray"),lodashWrapper=require("./internals/lodashWrapper"),mixin=require("./utilities/mixin"),support=require("./support"),templateSettings=require("./utilities/templateSettings"),arrayRef=[],objectProto=Object.prototype,hasOwnProperty=objectProto.hasOwnProperty;lodashWrapper.prototype=lodash.prototype,mixin=function(e){var r=objects.functions;return function(t,a,n){return a&&(n||r(a).length)||(null==n&&(n=a),a=t,t=lodash),e(t,a,n)}}(mixin),lodash.after=functions.after,lodash.assign=objects.assign,lodash.at=collections.at,lodash.bind=functions.bind,lodash.bindAll=functions.bindAll,lodash.bindKey=functions.bindKey,lodash.chain=chaining.chain,lodash.compact=arrays.compact,lodash.compose=functions.compose,lodash.constant=utilities.constant,lodash.countBy=collections.countBy,lodash.create=objects.create,lodash.createCallback=functions.createCallback,lodash.curry=functions.curry,lodash.debounce=functions.debounce,lodash.defaults=objects.defaults,lodash.defer=functions.defer,lodash.delay=functions.delay,lodash.difference=arrays.difference,lodash.filter=collections.filter,lodash.flatten=arrays.flatten,lodash.forEach=forEach,lodash.forEachRight=collections.forEachRight,lodash.forIn=objects.forIn,lodash.forInRight=objects.forInRight,lodash.forOwn=forOwn,lodash.forOwnRight=objects.forOwnRight,lodash.functions=objects.functions,lodash.groupBy=collections.groupBy,lodash.indexBy=collections.indexBy,lodash.initial=arrays.initial,lodash.intersection=arrays.intersection,lodash.invert=objects.invert,lodash.invoke=collections.invoke,lodash.keys=objects.keys,lodash.map=collections.map,lodash.mapValues=objects.mapValues,lodash.max=collections.max,lodash.memoize=functions.memoize,lodash.merge=objects.merge,lodash.min=collections.min,lodash.omit=objects.omit,lodash.once=functions.once,lodash.pairs=objects.pairs,lodash.partial=functions.partial,lodash.partialRight=functions.partialRight,lodash.pick=objects.pick,lodash.pluck=collections.pluck,lodash.property=utilities.property,lodash.pull=arrays.pull,lodash.range=arrays.range,lodash.reject=collections.reject,lodash.remove=arrays.remove,lodash.rest=arrays.rest,lodash.shuffle=collections.shuffle,lodash.sortBy=collections.sortBy,lodash.tap=chaining.tap,lodash.throttle=functions.throttle,lodash.times=utilities.times,lodash.toArray=collections.toArray,lodash.transform=objects.transform,lodash.union=arrays.union,lodash.uniq=arrays.uniq,lodash.values=objects.values,lodash.where=collections.where,lodash.without=arrays.without,lodash.wrap=functions.wrap,lodash.xor=arrays.xor,lodash.zip=arrays.zip,lodash.zipObject=arrays.zipObject,lodash.collect=collections.map,lodash.drop=arrays.rest,lodash.each=forEach,lodash.eachRight=collections.forEachRight,lodash.extend=objects.assign,lodash.methods=objects.functions,lodash.object=arrays.zipObject,lodash.select=collections.filter,lodash.tail=arrays.rest,lodash.unique=arrays.uniq,lodash.unzip=arrays.zip,mixin(lodash),lodash.clone=objects.clone,lodash.cloneDeep=objects.cloneDeep,lodash.contains=collections.contains,lodash.escape=utilities.escape,lodash.every=collections.every,lodash.find=collections.find,lodash.findIndex=arrays.findIndex,lodash.findKey=objects.findKey,lodash.findLast=collections.findLast,lodash.findLastIndex=arrays.findLastIndex,lodash.findLastKey=objects.findLastKey,lodash.has=objects.has,lodash.identity=utilities.identity,lodash.indexOf=arrays.indexOf,lodash.isArguments=objects.isArguments,lodash.isArray=isArray,lodash.isBoolean=objects.isBoolean,lodash.isDate=objects.isDate,lodash.isElement=objects.isElement,lodash.isEmpty=objects.isEmpty,lodash.isEqual=objects.isEqual,lodash.isFinite=objects.isFinite,lodash.isFunction=objects.isFunction,lodash.isNaN=objects.isNaN,lodash.isNull=objects.isNull,lodash.isNumber=objects.isNumber,lodash.isObject=objects.isObject,lodash.isPlainObject=objects.isPlainObject,lodash.isRegExp=objects.isRegExp,lodash.isString=objects.isString,lodash.isUndefined=objects.isUndefined,lodash.lastIndexOf=arrays.lastIndexOf,lodash.mixin=mixin,lodash.noConflict=utilities.noConflict,lodash.noop=utilities.noop,lodash.now=utilities.now,lodash.parseInt=utilities.parseInt,lodash.random=utilities.random,lodash.reduce=collections.reduce,lodash.reduceRight=collections.reduceRight,lodash.result=utilities.result,lodash.size=collections.size,lodash.some=collections.some,lodash.sortedIndex=arrays.sortedIndex,lodash.template=utilities.template,lodash.unescape=utilities.unescape,lodash.uniqueId=utilities.uniqueId,lodash.all=collections.every,lodash.any=collections.some,lodash.detect=collections.find,lodash.findWhere=collections.find,lodash.foldl=collections.reduce,lodash.foldr=collections.reduceRight,lodash.include=collections.contains,lodash.inject=collections.reduce,mixin(function(){var e={};return forOwn(lodash,function(r,t){lodash.prototype[t]||(e[t]=r)}),e}(),!1),lodash.first=arrays.first,lodash.last=arrays.last,lodash.sample=collections.sample,lodash.take=arrays.first,lodash.head=arrays.first,forOwn(lodash,function(e,r){var t="sample"!==r;lodash.prototype[r]||(lodash.prototype[r]=function(r,a){var n=this.__chain__,o=e(this.__wrapped__,r,a);return n||null!=r&&(!a||t&&"function"==typeof r)?new lodashWrapper(o,n):o})}),lodash.VERSION="2.4.1",lodash.prototype.chain=chaining.wrapperChain,lodash.prototype.toString=chaining.wrapperToString,lodash.prototype.value=chaining.wrapperValueOf,lodash.prototype.valueOf=chaining.wrapperValueOf,forEach(["join","pop","shift"],function(e){var r=arrayRef[e];lodash.prototype[e]=function(){var e=this.__chain__,t=r.apply(this.__wrapped__,arguments);return e?new lodashWrapper(t,e):t}}),forEach(["push","reverse","sort","unshift"],function(e){var r=arrayRef[e];lodash.prototype[e]=function(){return r.apply(this.__wrapped__,arguments),this}}),forEach(["concat","slice","splice"],function(e){var r=arrayRef[e];lodash.prototype[e]=function(){return new lodashWrapper(r.apply(this.__wrapped__,arguments),this.__chain__)}}),lodash.support=support,(lodash.templateSettings=utilities.templateSettings).imports._=lodash,module.exports=lodash;
   
   global.define = __define;
   return module.exports;

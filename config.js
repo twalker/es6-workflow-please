@@ -8,12 +8,12 @@ System.config({
 
 System.config({
   "map": {
-    "jquery": "github:components/jquery@^2.1.1",
-    "mocha": "npm:mocha@^2.0.1",
     "lodash": "npm:lodash-node@^2.4.1",
+    "backbone": "npm:backbone@^1.1.2",
+    "mocha": "npm:mocha@^2.0.1",
     "text": "github:systemjs/plugin-text@^0.0.2",
     "mustache": "github:janl/mustache.js@^0.8.2",
-    "backbone": "npm:backbone@^1.1.2",
+    "jquery": "github:components/jquery@^2.1.1",
     "npm:mocha@2.0.1": {
       "commander": "npm:commander@2.3.0",
       "debug": "npm:debug@2.0.0",
@@ -74,7 +74,8 @@ System.config({
     "npm:lodash-node@2.4.1": {},
     "npm:backbone@1.1.2": {
       "underscore": "npm:lodash-node@^2.4.1"
-    }
+    },
+    "npm:underscore@1.7.0": {}
   }
 });
 
@@ -84,8 +85,8 @@ System.config({
     "npm:mocha": "2.0.1",
     "npm:lodash-node": "2.4.1",
     "npm:commander": [
-      "2.3.0",
-      "0.6.1"
+      "0.6.1",
+      "2.3.0"
     ],
     "npm:debug": "2.0.0",
     "npm:diff": "1.0.8",
@@ -93,8 +94,8 @@ System.config({
     "npm:glob": "3.2.3",
     "npm:growl": "1.8.1",
     "npm:mkdirp": [
-      "0.5.0",
-      "0.3.0"
+      "0.3.0",
+      "0.5.0"
     ],
     "npm:jade": "0.26.3",
     "github:systemjs/plugin-text": "0.0.2",
@@ -114,7 +115,8 @@ System.config({
     "npm:Base64": "0.2.1",
     "npm:ieee754": "1.1.4",
     "npm:sha.js": "2.2.6",
-    "npm:backbone": "1.1.2"
+    "npm:backbone": "1.1.2",
+    "npm:underscore": "1.7.0"
   }
 });
 
