@@ -4467,7 +4467,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/initial", ["../functions/cr
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/initial.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function initial(e,r,t){var a=0,n=e?e.length:0;if("number"!=typeof r&&null!=r){var s=n;for(r=createCallback(r,t,3);s--&&r(e[s],s,e);)a++}else a=null==r||t?1:r||a;return slice(e,0,nativeMin(nativeMax(0,n-a),n))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max,nativeMin=Math.min;module.exports=initial;
+  "format cjs";function initial(e,r,t){var a=0,n=e?e.length:0;if("number"!=typeof r&&null!=r){var o=n;for(r=createCallback(r,t,3);o--&&r(e[o],o,e);)a++}else a=null==r||t?1:r||a;return slice(e,0,nativeMin(nativeMax(0,n-a),n))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max,nativeMin=Math.min;module.exports=initial;
   
   global.define = __define;
   return module.exports;
@@ -4493,7 +4493,7 @@ System.register("npm:lodash-node@2.4.1/modern/arrays/last", ["../functions/creat
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays/last.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/arrays";
   /* */
-  "format cjs";function last(e,r,t){var a=0,n=e?e.length:0;if("number"!=typeof r&&null!=r){var s=n;for(r=createCallback(r,t,3);s--&&r(e[s],s,e);)a++}else if(a=r,null==a||t)return e?e[n-1]:void 0;return slice(e,nativeMax(0,n-a))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max;module.exports=last;
+  "format cjs";function last(e,r,t){var a=0,n=e?e.length:0;if("number"!=typeof r&&null!=r){var o=n;for(r=createCallback(r,t,3);o--&&r(e[o],o,e);)a++}else if(a=r,null==a||t)return e?e[n-1]:void 0;return slice(e,nativeMax(0,n-a))}var createCallback=require("../functions/createCallback"),slice=require("../internals/slice"),nativeMax=Math.max;module.exports=last;
   
   global.define = __define;
   return module.exports;
@@ -5221,7 +5221,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/assign", ["../internals/ba
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/assign.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys"),objectTypes=require("../internals/objectTypes"),assign=function(e,r,t){var a,o=e,s=o;if(!o)return s;var n=arguments,i=0,c="number"==typeof t?2:n.length;if(c>3&&"function"==typeof n[c-2])var l=baseCreateCallback(n[--c-1],n[c--],2);else c>2&&"function"==typeof n[c-1]&&(l=n[--c]);for(;++i<c;)if(o=n[i],o&&objectTypes[typeof o])for(var u=-1,f=objectTypes[typeof o]&&keys(o),p=f?f.length:0;++u<p;)a=f[u],s[a]=l?l(s[a],o[a]):o[a];return s};module.exports=assign;
+  "format cjs";var baseCreateCallback=require("../internals/baseCreateCallback"),keys=require("./keys"),objectTypes=require("../internals/objectTypes"),assign=function(e,r,t){var a,o=e,n=o;if(!o)return n;var s=arguments,i=0,c="number"==typeof t?2:s.length;if(c>3&&"function"==typeof s[c-2])var l=baseCreateCallback(s[--c-1],s[c--],2);else c>2&&"function"==typeof s[c-1]&&(l=s[--c]);for(;++i<c;)if(o=s[i],o&&objectTypes[typeof o])for(var u=-1,f=objectTypes[typeof o]&&keys(o),p=f?f.length:0;++u<p;)a=f[u],n[a]=l?l(n[a],o[a]):o[a];return n};module.exports=assign;
   
   global.define = __define;
   return module.exports;
@@ -5273,7 +5273,7 @@ System.register("npm:lodash-node@2.4.1/modern/objects/defaults", ["./keys","../i
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/objects/defaults.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/objects";
   /* */
-  "format cjs";var keys=require("./keys"),objectTypes=require("../internals/objectTypes"),defaults=function(e,r,t){var a,o=e,s=o;if(!o)return s;for(var n=arguments,i=0,c="number"==typeof t?2:n.length;++i<c;)if(o=n[i],o&&objectTypes[typeof o])for(var l=-1,u=objectTypes[typeof o]&&keys(o),f=u?u.length:0;++l<f;)a=u[l],"undefined"==typeof s[a]&&(s[a]=o[a]);return s};module.exports=defaults;
+  "format cjs";var keys=require("./keys"),objectTypes=require("../internals/objectTypes"),defaults=function(e,r,t){var a,o=e,n=o;if(!o)return n;for(var s=arguments,i=0,c="number"==typeof t?2:s.length;++i<c;)if(o=s[i],o&&objectTypes[typeof o])for(var l=-1,u=objectTypes[typeof o]&&keys(o),f=u?u.length:0;++l<f;)a=u[l],"undefined"==typeof n[a]&&(n[a]=o[a]);return n};module.exports=defaults;
   
   global.define = __define;
   return module.exports;
@@ -6077,7 +6077,7 @@ System.register("npm:lodash-node@2.4.1/modern/utilities/template", ["../objects/
   var __filename = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities/template.js";
   var __dirname = "jspm_packages/npm/lodash-node@2.4.1/modern/utilities";
   /* */
-  "format cjs";!function(){function e(e,b,d){var m=n.imports._.templateSettings||n;e=String(e||""),d=r({},d,m);var h,y=r({},d.imports,m.imports),j=a(y),g=s(y),q=0,v=d.interpolate||f,x="__p += '",C=RegExp((d.escape||f).source+"|"+v.source+"|"+(v===o?u:f).source+"|"+(d.evaluate||f).source+"|$","g");e.replace(C,function(r,a,o,n,s,i){return o||(o=n),x+=e.slice(q,i).replace(p,t),a&&(x+="' +\n__e("+a+") +\n'"),s&&(h=!0,x+="';\n"+s+";\n__p += '"),o&&(x+="' +\n((__t = ("+o+")) == null ? '' : __t) +\n'"),q=i+r.length,r}),x+="';\n";var O=d.variable,k=O;k||(O="obj",x="with ("+O+") {\n"+x+"\n}\n"),x=(h?x.replace(i,""):x).replace(c,"$1").replace(l,"$1;"),x="function("+O+") {\n"+(k?"":O+" || ("+O+" = {});\n")+"var __t, __p = '', __e = _.escape"+(h?", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n":";\n")+x+"return __p\n}";try{var A=Function(j,"return "+x).apply(void 0,g)}catch(w){throw w.source=x,w}return b?A(b):(A.source=x,A)}var r=require("../objects/defaults"),t=(require("./escape"),require("../internals/escapeStringChar")),a=require("../objects/keys"),o=require("../internals/reInterpolate"),n=require("./templateSettings"),s=require("../objects/values"),i=/\b__p \+= '';/g,c=/\b(__p \+=) '' \+/g,l=/(__e\(.*?\)|\b__t\)) \+\n'';/g,u=/\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,f=/($^)/,p=/['\n\r\t\u2028\u2029\\]/g;module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
+  "format cjs";!function(){function e(e,b,d){var m=n.imports._.templateSettings||n;e=String(e||""),d=r({},d,m);var h,y=r({},d.imports,m.imports),j=a(y),g=s(y),q=0,v=d.interpolate||f,x="__p += '",C=RegExp((d.escape||f).source+"|"+v.source+"|"+(v===o?u:f).source+"|"+(d.evaluate||f).source+"|$","g");e.replace(C,function(r,a,o,n,s,i){return o||(o=n),x+=e.slice(q,i).replace(p,t),a&&(x+="' +\n__e("+a+") +\n'"),s&&(h=!0,x+="';\n"+s+";\n__p += '"),o&&(x+="' +\n((__t = ("+o+")) == null ? '' : __t) +\n'"),q=i+r.length,r}),x+="';\n";var O=d.variable,k=O;k||(O="obj",x="with ("+O+") {\n"+x+"\n}\n"),x=(h?x.replace(i,""):x).replace(c,"$1").replace(l,"$1;"),x="function("+O+") {\n"+(k?"":O+" || ("+O+" = {});\n")+"var __t, __p = '', __e = _.escape"+(h?", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n":";\n")+x+"return __p\n}";try{var w=Function(j,"return "+x).apply(void 0,g)}catch(A){throw A.source=x,A}return b?w(b):(w.source=x,w)}var r=require("../objects/defaults"),t=(require("./escape"),require("../internals/escapeStringChar")),a=require("../objects/keys"),o=require("../internals/reInterpolate"),n=require("./templateSettings"),s=require("../objects/values"),i=/\b__p \+= '';/g,c=/\b(__p \+=) '' \+/g,l=/(__e\(.*?\)|\b__t\)) \+\n'';/g,u=/\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,f=/($^)/,p=/['\n\r\t\u2028\u2029\\]/g;module.exports=e}(require("github:jspm/nodelibs@0.0.5/process"));
   
   global.define = __define;
   return module.exports;

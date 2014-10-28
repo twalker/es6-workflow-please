@@ -8,12 +8,12 @@ System.config({
 
 System.config({
   "map": {
-    "lodash": "npm:lodash-node@^2.4.1",
-    "backbone": "npm:backbone@^1.1.2",
     "mocha": "npm:mocha@^2.0.1",
+    "lodash": "npm:lodash-node@^2.4.1",
     "text": "github:systemjs/plugin-text@^0.0.2",
-    "mustache": "github:janl/mustache.js@^0.8.2",
+    "backbone": "npm:backbone@^1.1.2",
     "jquery": "github:components/jquery@^2.1.1",
+    "mustache": "github:janl/mustache.js@^0.8.2",
     "npm:mocha@2.0.1": {
       "commander": "npm:commander@2.3.0",
       "debug": "npm:debug@2.0.0",

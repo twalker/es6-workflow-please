@@ -2,10 +2,10 @@ import { Greeter } from './hello-es6'
 import amd from './hello-amd'
 import cjs from './hello-cjs'
 import bb from './hello-backbone'
-import Mustache from 'github:janl/mustache.js'
+import Mustache from 'mustache'
 
 
-// direct import doesn't work with bundling
+// direct import now works with bundling!
 import txt from './template.text!text'
 
 var showMsg = (id, msg) =>  document.getElementById(id).textContent = msg
@@ -24,7 +24,4 @@ showMsg('commonjs', cjs.say('npm modules rule!'))
 showMsg('bb', bb.say('MV*!'))
 
 // mustache
-//async import works, but not bundled inline
-//System.import('./app/template.text!text').then(function(txt){
-  showMsg('mustache', Mustache.render(txt, {msg: 'interpolate!'}))
-//});
+showMsg('mustache', Mustache.render(txt, {msg: 'interpolate!'}))
