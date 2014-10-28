@@ -9,9 +9,9 @@ System.config({
 System.config({
   "map": {
     "mocha": "npm:mocha@^2.0.1",
+    "backbone": "npm:backbone@^1.1.2",
     "lodash": "npm:lodash-node@^2.4.1",
     "text": "github:systemjs/plugin-text@^0.0.2",
-    "backbone": "npm:backbone@^1.1.2",
     "jquery": "github:components/jquery@^2.1.1",
     "mustache": "github:janl/mustache.js@^0.8.2",
     "npm:mocha@2.0.1": {
@@ -64,7 +64,8 @@ System.config({
       "ripemd160": "npm:ripemd160@^0.2.0",
       "Base64": "npm:Base64@^0.2.0",
       "ieee754": "npm:ieee754@^1.1.1",
-      "sha.js": "npm:sha.js@^2.2.6"
+      "sha.js": "npm:sha.js@^2.2.6",
+      "json": "github:systemjs/plugin-json@^0.1.0"
     },
     "npm:ripemd160@0.2.0": {},
     "npm:pbkdf2-compat@2.0.1": {},
@@ -75,7 +76,10 @@ System.config({
     "npm:backbone@1.1.2": {
       "underscore": "npm:lodash-node@^2.4.1"
     },
-    "npm:underscore@1.7.0": {}
+    "npm:underscore@1.7.0": {},
+    "npm:sha.js@2.2.6": {
+      "json": "npm:json@^9.0.1"
+    }
   }
 });
 
@@ -116,7 +120,8 @@ System.config({
     "npm:ieee754": "1.1.4",
     "npm:sha.js": "2.2.6",
     "npm:backbone": "1.1.2",
-    "npm:underscore": "1.7.0"
+    "npm:underscore": "1.7.0",
+    "github:systemjs/plugin-json": "0.1.0"
   }
 });
 
