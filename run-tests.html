@@ -1,17 +1,26 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="jspm_packages/npm/mocha@1.21.4/mocha.css"
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js">
+    </script>
+    <script>
+      mocha.setup('bdd')
+    </script>
     <script src="jspm_packages/traceur.js"></script>
     <!-- <script src="jspm_packages/traceur-runtime.js"></script> -->
     <!-- <script src="jspm_packages/es6-module-loader.js"></script> -->
     <script src="jspm_packages/system.js"></script>
     <script src='config.js'></script>
     <script>
-      System.import('tests/array').catch(function(e) {
-        setTimeout(function() {
-          throw e;
-        }, 1);
+      System.import('tests/array')
+        .then(function(){
+          mocha.run();
+        })
+        .catch(function(e) {
+          setTimeout(function() {
+            throw e;
+          }, 1);
       })
     </script>
   </head>
