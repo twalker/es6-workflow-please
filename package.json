@@ -1,14 +1,8 @@
 {
   "name": "es6-workflow-please",
   "description": "es6-workflow-please",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
-  "directories": {
-    "test": "tests",
-    "baseURL": "",
-    "lib": "app",
-    "packages": "jspm_packages"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "jspm bundle app/main app-built.js"

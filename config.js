@@ -4,7 +4,8 @@ System.config({
     "es6-workflow-please/*": "app/*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
-  }
+  },
+  "parser": "6to5"
 });
 
 System.config({
